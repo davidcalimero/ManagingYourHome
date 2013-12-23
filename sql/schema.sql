@@ -1,10 +1,9 @@
-﻿drop table utilizador cascade;
+drop table utilizador cascade;
 drop table divisao cascade;
 drop table equipamento cascade;
 drop table equipada cascade;
 drop table acede cascade;
 drop table utiliza cascade;
-
 
 create table utilizador (
 	uID varchar(20) not null unique,
