@@ -7,7 +7,7 @@ INSERT INTO utilizador VALUES ('maria', 'Maria', 'cenaz');
 
 
 -- Divisoes 
-INSERT INTO divisao VALUES ('sala', 'Sala', '../media/img/cama.gif');
+INSERT INTO divisao VALUES ('sala', 'Sala', 'cama.gif');
 
 -- Equipamentos 
 INSERT INTO equipamento VALUES ('luz01', 'Luzes de parede');
