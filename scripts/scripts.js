@@ -8,7 +8,7 @@ var fade = 300;    //Tempo de Fading (1000 = 1 segundo)
 $('#loginButton').click(function(){
 	var nick = $('#usernameInput').val();
 	var pass = $('#passwordInput').val();
-	$('#error').empty();
+	//$('#error').empty();
 	if(nick.length > 0 && pass.length > 0)
 		$.post('php/procedures/login.php',
 				{
@@ -45,7 +45,7 @@ $('#createButtonCC').click(function(){
 	var name = $('#nameInputCC').val();
 	var pass = $('#passwordInputCC').val();
 	var passV = $('#passwordVerificationInputCC').val();
-	$('#error').empty();
+	//$('#error').empty();
 	if(nick.length > 0 && name.length > 0 && pass.length > 0 && passV.length > 0){
 		if(pass == passV){
 			$.post('procedures/createAccount.php',

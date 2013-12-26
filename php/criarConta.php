@@ -35,7 +35,7 @@
 								<td><input type="text" name="username" id="usernameInputCC" class="loginFields"/></td>
 							</tr>
 							<tr>
-								<td class="loginLabel">Nome próprio</td>
+								<td class="loginLabel">Nome próprio:</td>
 								<td><input type="text" name="name" id="nameInputCC" class="loginFields"/></td>
 							</tr>
 							<tr>
@@ -43,7 +43,7 @@
 								<td><input type="password" name="password" id="passwordInputCC" class="loginFields"/></td>
 							</tr>
 							<tr>
-								<td class="loginLabel">Verificar Palavra-passe:</td>
+								<td class="loginLabel">Verificar palavra-passe:</td>
 								<td><input type="password" name="passwordVerification" id="passwordVerificationInputCC" class="loginFields"/></td>
 							</tr>
 							<tr><td colspan="2" class="loginButtons">
