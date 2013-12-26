@@ -24,7 +24,6 @@ td#container {
 
 h1#title {
 	position: relative;
-	/*padding-top: 100px;*/
 	font-family: Arial;
 	font-size: 50px;
 	font-style: italic;
@@ -73,6 +72,10 @@ input.loginButtons {
 	color: #FFFFFF;
 	font-family: Arial;
 	font-size: 45px;
+}
+
+input:active.loginButtons {
+	background-color: #777777;
 }
 
 /* Password */
