@@ -1,0 +1,11 @@
+DROP FUNCTION login(username VARCHAR);
+
+CREATE OR REPLACE FUNCTION login(username VARCHAR) RETURNS BOOLEAN AS
+$$
+BEGIN
+	DELETE FROM login;
+	INSERT INTO login VALUES (username);
+	RETURN TRUE;
+END;
+$$
+LANGUAGE 'plpgsql';

@@ -4,6 +4,7 @@ drop table equipamento cascade;
 drop table equipada cascade;
 drop table acede cascade;
 drop table utiliza cascade;
+ drop table login cascade;
 
 create table utilizador (
 	uID varchar(20) not null unique,
@@ -53,4 +54,11 @@ create table utiliza (
 	constraint utilizakey primary key (uID, eID),
 	foreign key (uID) references utilizador,
 	foreign key (eID) references equipamento
+);
+
+
+create table login (
+	uID varchar(20) not null,
+	constraint loginkey primary key (uID),
+	foreign key (uID) references utilizador
 );
