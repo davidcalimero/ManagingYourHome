@@ -13,7 +13,7 @@ body {
 }
 
 td#container {
-	background-color: #EEEEEE;
+	background-color: #E2F3C1;
 	position: relative; 
 	width: 100%;
 	height: 100%;
@@ -27,6 +27,11 @@ h1#title {
 	font-family: Arial;
 	font-size: 50px;
 	font-style: italic;
+}
+
+#logo {
+	width: 30%;
+	margin-bottom: 15px;
 }
 
 
@@ -43,9 +48,13 @@ h1#title {
 }
 
 td.loginLabel {
-	padding: 20px;
-
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: right;
+	vertical-align: middle;
 	color: #333333;
+	font-size: 30px;
 }
 
 input.loginFields {
@@ -59,7 +68,8 @@ input.loginFields {
 }
 
 td.loginButtons {
-	padding: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
 	text-align: center;
 }
 
@@ -68,19 +78,24 @@ input.loginButtons {
 	padding-left: 20px;
 	padding-right: 20px;
 
-	background-color: #333333;
+	background-color: #112211;
 	color: #FFFFFF;
 	font-family: Arial;
-	font-size: 45px;
+	font-size: 35px;
 }
 
 input:active.loginButtons {
 	background-color: #777777;
 }
 
+td.createAccountButton {
+	padding: 15px;
+	text-align: center;
+}
+
 input#createAccount {
-	background-color: #444444;
-	font-size: 30px;
+	background-color: #223322;
+	font-size: 20px;
 }
 
 input:active#createAccount {
@@ -95,12 +110,11 @@ input:active#createAccount {
  }
 
  #error {
- 	display: none;
+ 	opacity: 0;
  	position: relative;
  	background-color: #FFEEEE;
  	width: 75%;
- 	 padding: 10px;
- 	/*text-align: center; */
+ 	padding: 10px;
 
  	color: #991111;
  	font-family: Arial;

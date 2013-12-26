@@ -1,10 +1,10 @@
-drop table utilizador cascade;
-drop table divisao cascade;
-drop table equipamento cascade;
-drop table equipada cascade;
-drop table acede cascade;
-drop table utiliza cascade;
- drop table login cascade;
+drop table if exists utilizador cascade;
+drop table if exists divisao cascade;
+drop table if exists equipamento cascade;
+drop table if exists equipada cascade;
+drop table if exists acede cascade;
+drop table if exists utiliza cascade;
+drop table if exists login cascade;
 
 create table utilizador (
 	uID varchar(20) not null unique,
