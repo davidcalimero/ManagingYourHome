@@ -22,29 +22,31 @@
 	</head>
 	<body>
 
-		<div id="container">
-			<!-- <a href="php/test.php">Test page</a>  -->
-			<h1 id="title">Managing Your Home</h1>			
-			<div id="loginContainer" valign="middle" align="center">
-				<form name="loginForm">
-					<table id="login">
-						<tr>
-							<td class="loginLabel">Nome de utilizador:</td>
-							<td><input type="text" name="username" id="usernameInput" class="loginFields"/></td>
-						</tr>
-						<tr>
-							<td class="loginLabel">Palavra-passe:</td>
-							<td><input type="password" name="password" id="passwordInput" class="loginFields"/></td>
-						</tr>
-						<tr><td colspan="2" class="loginButtons">
-							<input type="button" name="iniciarSessao" value="Iniciar sessão"  id="loginButton" class="loginButtons"/> 
-							<input type="reset" name="cancelar" value="Cancelar" id="passwordButton" class="loginButtons"/>
-						</td></tr>
-					</table>
-				</form>
-				<div id="error"></div>
-			</div>
-		</div>
+		<table width="100%" height="100%">
+			<tr><td id="container">
+				<!-- <a href="php/test.php">Test page</a>  -->
+				<h1 id="title">Managing Your Home</h1>			
+				<div id="loginContainer" align="center">
+					<form name="loginForm">
+						<table id="login">
+							<tr>
+								<td class="loginLabel">Nome de utilizador:</td>
+								<td><input type="text" name="username" id="usernameInput" class="loginFields"/></td>
+							</tr>
+							<tr>
+								<td class="loginLabel">Palavra-passe:</td>
+								<td><input type="password" name="password" id="passwordInput" class="loginFields"/></td>
+							</tr>
+							<tr><td colspan="2" class="loginButtons">
+								<input type="button" name="iniciarSessao" value="Iniciar sessão"  id="loginButton" class="loginButtons"/> 
+								<input type="reset" name="cancelar" value="Cancelar" id="passwordButton" class="loginButtons"/>
+							</td></tr>
+						</table>
+					</form>
+					<div id="error">Preencha ambos os campos para poder iniciar sessão.</div>
+				</div>
+			</td></tr>
+		</table>
 
 		<!-- JavaScripts -->
 		<script type="text/javascript" src="scripts/scripts.js"></script>

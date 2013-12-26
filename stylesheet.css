@@ -12,18 +12,19 @@ body {
 	font-family: Arial;
 }
 
-#container {
+td#container {
 	background-color: #EEEEEE;
 	position: relative; 
 	width: 100%;
 	height: 100%;
 
 	text-align: center;
+	vertical-align: middle;
 }
 
 h1#title {
 	position: relative;
-	padding-top: 100px;
+	/*padding-top: 100px;*/
 	font-family: Arial;
 	font-size: 50px;
 	font-style: italic;
@@ -82,8 +83,15 @@ input.loginButtons {
  }
 
  #error {
- 	/* display: none; */
+ 	display: none;
+ 	position: relative;
  	background-color: #FFEEEE;
- 	width: 100%;
- 	height: 50px;
+ 	width: 75%;
+ 	 padding: 10px;
+ 	/*text-align: center; */
+
+ 	color: #991111;
+ 	font-family: Arial;
+ 	font-size: 35px;
+ 	font-weight: bold;
  }
