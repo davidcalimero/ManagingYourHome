@@ -13,7 +13,11 @@ $('#loginButton').click(function(){
 					nick:nick,
 					pass:pass
 				},
-				function(data){$('#error').text(data);}
+				function(data){
+					if(data)
+						$('#error').text(data);
+					else window.location = window.location.pathname  + "php/planta.php";
+				}
 		);
 	else $('#error').text("Preencha ambos os campos para poder iniciar sessão");
 	var pass = $('#passwordInput').val('');
