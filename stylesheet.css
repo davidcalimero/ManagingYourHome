@@ -68,7 +68,7 @@ input.loginFields {
 }
 
 td.loginButtons {
-	padding-top: 20px;
+	padding-top: 15px;
 	padding-bottom: 10px;
 	text-align: center;
 }
@@ -113,9 +113,9 @@ input:active#createAccount {
  	opacity: 0;
  	position: relative;
  	background-color: #FFEEEE;
- 	width: 75%;
- 	padding: 10px;
-
+ 	width: 100%;
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
  	color: #991111;
  	font-family: Arial;
  	font-size: 35px;
