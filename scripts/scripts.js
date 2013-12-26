@@ -16,6 +16,6 @@ $('#loginButton').click(function(){
 				function(data){$('#error').text(data);}
 		);
 	else $('#error').text("Preencha ambos os campos para poder iniciar sessão");
-
+	var pass = $('#passwordInput').val('');
 	$('#error').fadeIn(fade).delay(fade*10).fadeOut(fade);
 });

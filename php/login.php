@@ -9,7 +9,7 @@
 		$r = pg_query("SELECT login('$nick');");
 		echo "Sessão iniciada com sucesso";
 	}
-	else echo "Combinação nome de utilizador palavra-passe não existente";
+	else echo "Combinação de nome de utilizador e palavra-passe não existente";
 	pg_free_result($user);
 	pg_free_result($r);
 	pg_close();
