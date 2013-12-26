@@ -8,7 +8,7 @@ $('#loginButton').click(function(){
 	var pass = $('#passwordInput').val();
 	$('#error').empty();
 	if(nick.length > 0 && pass.length > 0)
-		$.post('php/login.php',
+		$.post('php/procedures/login.php',
 				{
 					nick:nick,
 					pass:pass
