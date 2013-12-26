@@ -78,6 +78,15 @@ input:active.loginButtons {
 	background-color: #777777;
 }
 
+input#createAccount {
+	background-color: #444444;
+	font-size: 30px;
+}
+
+input:active#createAccount {
+	background-color: #777777;
+}
+
 /* Password */
 .webkit input[type="password"]
 {
