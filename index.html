@@ -1,8 +1,44 @@
+<!-- *********************************************************************** -->
+<!-- ************************ Managing Your Home *************************** -->
+<!-- *********************************************************************** -->
+
+
+<!-- **************************** Grupo 302 ******************************** -->
+
+
 <html>
 	<head>
+
+		<!-- Propriedades do documento -->
+		<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+
 		<title>Managing Your Home</title>
 	</head>
 	<body>
-		<a href="php/test.php">Test page</a> 
+
+		<div id="container">
+			<a href="php/test.php">Test page</a> 
+			<div id="loginContainer" align="center" valign="middle">
+				<form name="loginForm">
+					<table id="login">
+						<tr>
+							<td class="loginLabel">Nome de utilizador:</td>
+							<td><input type="text" name="username" id="usernameInput" class="loginFields"/></td>
+						</tr>
+						<tr>
+							<td class="loginLabel">Palavra-passe:</td>
+							<td><input type="password" name="password" id="passwordInput" class="loginFields"/></td>
+						</tr>
+						<tr><td colspan="2" class="loginButtons">
+							<input type="button" name="iniciarSessao" value="Iniciar sessão"  id="loginButton" class="loginButtons"/> 
+							<input type="reset" name="cancelar" value="Cancelar" id="passwordButton" class="loginButtons"/>
+						</td></tr>
+					</table>
+				</form>
+				<div id="error"></div>
+			</div>
+		</div>
 	</body>
 </html>
