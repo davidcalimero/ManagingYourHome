@@ -13,10 +13,14 @@ body {
 }
 
 #container {
-	background-color: #666666;
+	background-color: #EEEEEE;
 	position: relative; 
 	width: 100%;
 	height: 100%;
+}
+
+h1#title {
+	position: relative;
 }
 
 
@@ -29,11 +33,13 @@ body {
 
 #login {
 	font-family: Arial;
-	font-size: 45px;
+	font-size: 40px;
 }
 
 td.loginLabel {
 	padding: 10px;
+
+	color: #333333;
 }
 
 input.loginFields {
@@ -41,8 +47,9 @@ input.loginFields {
 	width: 300px;
 	height: 50px;
 
+	color: #333333;
 	font-family: Arial;
-	font-size: 40px;
+	font-size: 30px;
 }
 
 td.loginButtons {
@@ -54,6 +61,8 @@ input.loginButtons {
 	padding-left: 20px;
 	padding-right: 20px;
 
+	background-color: #333333;
+	color: #FFFFFF;
 	font-family: Arial;
 	font-size: 45px;
 }
