@@ -33,13 +33,16 @@ table#layout {
 }
 
 td#sidebar {
+	border-right: solid 5px #223322;
+	background-color: #82ae00;
 	width: 150px;
+	vertical-align: top;
 }
 
-td#main {
-	background-color: #FFFFFF;
+td#main {	
 	text-align: left;
 	vertical-align: middle;
+	background-color: #E2F3C1;
 }
 
  #error {
@@ -134,23 +137,80 @@ input:active#createAccount {
 
 /* ********************************* PLANTA ********************************** */
 
+#logo img {
+	margin-top: 20%;
+}
+
+#settings img {
+	margin-top: 120%;
+}
+
+#help img {
+	margin-top: 25%;
+}
+
+.sbaritem img {
+	margin-left: 15px;
+	width: 120px;
+}
 
  #submain {
  	position: relative;
  	margin-left: 10%;
- 	width: 80%;
+ 	width: 79%;
 	background-color: #00CC00; 
-}
-
-.item img {	
-	max-width: 100%;
-	width: 10%;
-	position: absolute;
-	z-index: 1;
 }
 
 .itemContainer img {	
 	max-width: 100%;
 	position: relative;
 }
+
+.item {
+	/* background-color: #CF0000; */
+	max-width: 100%;
+	position: absolute;
+	z-index: 1;
+}
+
+
+.item img {	
+
+}
+/*
+.item span {	
+	max-width: 100%;
+	width: 10%;
+	position: absolute;
+	z-index: 1;
+}
+*/ 
+#quarto {
+	width: 40%;
+	height: 45%;
+	left: 59%;
+	top: 1%;
+	padding-top: 2%;
+}
+
+
+#quarto img {
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 5%;
+}
+
+
+#quarto .caption {
+	width: 65%;
+	margin-left: 18%;
+	margin-top: 5%;
+	text-align: center;
+	font-family: Arial;
+	font-weight: bold;
+	color: #000000;
+	font-size: 14pt;
+}
+
+
 

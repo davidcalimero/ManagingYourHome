@@ -26,14 +26,27 @@
 	<body>
 		<table width="100%" height="100%">
 			<tr><td id="container">
-				<table id="layout" border="1">
+				<table id="layout" border="0">
 					<tr>
-						<td id="sidebar">Eu sou uma sidebar</td>
+						<td id="sidebar">
+							<div class="sbaritem" id="logo">
+								<a href=""><img src="../media/img/minilogo.png"/></a>
+							</div>
+						
+							<div class="sbaritem" id="settings">
+								<a href=""><img src="../media/img/definicoes.png"/></a>
+							</div>
+						
+							<div class="sbaritem" id="help">
+								<a href=""><img src="../media/img/ajuda.png"/></a>
+							</div>
+						</td>
 						<td id="main">
 						<!-- ******************* -->
 							<div id="submain"> 
-								<div class="item">	
-									<img src="../media/img/cama.gif"/>	
+								<div class="item" id="quarto">
+									<img src="../media/img/cama.png"/>
+									<div class="caption">Quarto Maria Manuel</div>								
 								</div> 
 							 	<div class="itemContainer">
 									<img src="../media/img/Planta.png"/> 
