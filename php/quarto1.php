@@ -21,7 +21,7 @@
 		<!-- JavaScripts -->
 		<script type="text/javascript" src="../scripts/scripts.js"></script>
 
-		<title>Managing Your Home: Piso 0</title>
+		<title>Managing Your Home: Quarto</title>
 	</head>
 	<body>
 		<table width="100%" height="100%">
@@ -30,7 +30,7 @@
 					<tr>
 						<td id="sidebar">
 							<div class="sbaritem" id="logo">
-								<a href=""><img src="../media/img/minilogo.png"/></a>
+								<a href="planta.php"><img src="../media/img/minilogo.png"/></a>
 							</div>
 						
 							<div class="sbaritem" id="settings">
@@ -44,35 +44,15 @@
 						<td id="main">
 						<!-- ******************* -->
 							<div id="submain"> 
-
-								<a href="quarto1.php"><div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div></a>
-
-								<!--
+							<!--
 								<div class="item" id="quarto">
 									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
+									<div class="caption">Televisão</div>								
 								</div> 
-
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div> 
-
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div> 
-
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div> 
-								-->
-							 	<div class="itemContainer" id="planta">
-									<img src="../media/img/Planta.png"/> 
+							-->
+							 	<div class="itemContainer" id="fundo">
+									<img src="../media/img/cozinha.png"/> 
+									<div style="position: absolute; z-index: 1000; margin-left: 60%; margin-top: -25%;">Televisão</div>	
 								</div>
 							</div>
 						<!-- ******************* -->

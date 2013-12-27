@@ -12,6 +12,10 @@ body {
 	font-family: Arial;
 }
 
+a, a:link, a:hover, a:visited {
+	text-decoration: none;
+}
+
 td#container {
 	background-color: #E2F3C1;
 	position: relative; 
@@ -34,7 +38,7 @@ table#layout {
 
 td#sidebar {
 	border-right: solid 5px #223322;
-	background-color: #82ae00;
+	background-color: #DDDDDD;
 	width: 150px;
 	vertical-align: top;
 }
@@ -135,7 +139,7 @@ input:active#createAccount {
 
 
 
-/* ********************************* PLANTA ********************************** */
+/* *************************** PLANTA E DIVISOES **************************** */
 
 #logo img {
 	margin-top: 20%;
@@ -161,30 +165,31 @@ input:active#createAccount {
 	background-color: #00CC00; 
 }
 
-.itemContainer img {	
+#planta img {	
 	max-width: 100%;
 	position: relative;
 }
 
+#fundo {
+	position: relative;
+	width: 700px;
+	height: 300px;
+	background-color: #0000CC; 
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+#fundo img {	
+	height: 100%;
+}
+
 .item {
-	/* background-color: #CF0000; */
 	max-width: 100%;
 	position: absolute;
 	z-index: 1;
 }
 
 
-.item img {	
-
-}
-/*
-.item span {	
-	max-width: 100%;
-	width: 10%;
-	position: absolute;
-	z-index: 1;
-}
-*/ 
 #quarto {
 	width: 40%;
 	height: 45%;
