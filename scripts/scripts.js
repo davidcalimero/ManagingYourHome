@@ -8,7 +8,7 @@ var fade = 300;    //Tempo de Fading (1000 = 1 segundo)
 $('#loginButton').click(function(){
 	var nick = $('#usernameInput').val();
 	var pass = $('#passwordInput').val();
-	//$('#error').empty();
+	$('#error').val('&nbsp;');
 	if(nick.length > 0 && pass.length > 0)
 		$.post('php/procedures/login.php',
 				{
