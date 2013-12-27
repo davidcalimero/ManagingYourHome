@@ -49,53 +49,18 @@ td#main {
 	vertical-align: middle;
 }
 
-#bgPlanta {
-	background-color: #00CC00; 
-	/*background-image: url('media/img/Planta.png'); 
-	background-attachment: scroll;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: contain;	*/
-	width: 100%;
-	height: 100%;
-	/* padding-top: 10%;
-	padding-bottom: 10%; */
-}
-
-img#fundo {	
-/*	left: 10%;
-	top: 10%;
-	z-index: -1; */
-}
-
-table#tablePlanta {
-/*	position: absolute;
-	left: 10%;
-	top: 10%; */
-	width: 100%;
-	height: 100%;
-	border: solid 2px #000000;
-/*	z-index: 2; */
-}
-
-td#quarto1, td#sala {
-	border: solid 2px #000000;
-	width: 37%;
-	height: 50%;
-}
-
-td#quarto2, td#cozinha {
-	border: solid 2px #000000;
-	width: 41%;
-	height: 50%;
-}
-
-
-td#wc{
-	border: solid 2px #000000;
-	width: 22%;
-	height: 30%;
-}
+ #error {
+ 	opacity: 0;
+ 	position: relative;
+ 	background-color: #FFEEEE;
+ 	width: 100%;
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
+ 	color: #991111;
+ 	font-family: Arial;
+ 	font-size: 35px;
+ 	font-weight: bold;
+ }
 
 
 /* ********************************* LOGIN ********************************** */
@@ -172,15 +137,58 @@ input:active#createAccount {
   letter-spacing: 1px;
  }
 
- #error {
- 	opacity: 0;
+
+
+/* ********************************* PLANTA ********************************** */
+
+
+ #submain {
  	position: relative;
- 	background-color: #FFEEEE;
- 	width: 100%;
- 	padding-top: 10px;
- 	padding-bottom: 10px;
- 	color: #991111;
- 	font-family: Arial;
- 	font-size: 35px;
- 	font-weight: bold;
- }
+ 	width: 30%;
+	background-color: #00CC00; 
+/*	background-image: url('media/img/Planta.png'); 
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: contain; */
+
+}
+
+.item img {	
+	max-width: 100%;
+	width: 20%;
+	position: absolute;
+	z-index: 1;
+}
+
+.itemContainer img {	
+	max-width: 100%;
+	position: relative;
+}
+
+
+
+table#tablePlanta {
+	width: 100%;
+	height: 100%;
+
+}
+
+td#quarto1, td#sala {
+/*	border: solid 2px #000000; */
+	width: 37%;
+	height: 50%;
+}
+
+td#quarto2, td#cozinha {
+/*	border: solid 2px #000000; */
+	width: 41%;
+	height: 50%;
+}
+
+
+td#wc{
+/*	border: solid 2px #000000; */
+	width: 22%;
+	height: 30%;
+}
