@@ -32,6 +32,22 @@
 							<div class="sbaritem" id="logo">
 								<a href=""><img src="../media/img/minilogo.png"/></a>
 							</div>
+
+							<div class="sbaritem" id="logout">
+								<a href="../index.html">
+									<?php 
+										require 'procedures/connection.php';
+										$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
+										$result = pg_query($query) or die(pg_last_error());
+										foreach (pg_fetch_assoc($result) as $value)
+											$nome = $value;
+										$token = explode(' ',trim($nome));
+										echo "Sair da sessão de " . $token[0];
+										pg_free_result($result);
+										pg_close();
+									?>
+								</a>
+							</div>
 						
 							<div class="sbaritem" id="settings">
 								<a href=""><img src="../media/img/definicoes.png"/></a>
@@ -42,40 +58,43 @@
 							</div>
 						</td>
 						<td id="main">
-						<!-- ******************* -->
 							<div id="submain"> 
 
-								<a href="quarto1.php"><div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div></a>
+								<?php 
+									function divisao($string) { 
+										require 'procedures/connection.php';
 
-								<!--
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div> 
+										echo "<a href=\"" . $string . ".php\"><div class=\"item\" id=\"" . $string . "\"><img src=\"../media/img/";
 
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div> 
+										$query = "SELECT dIcon FROM divisao WHERE dID = '$string';";
+										$result = pg_query($query) or die(pg_last_error());
+										foreach (pg_fetch_assoc($result) as $value)
+											$nome = $value;
+										pg_free_result($result);
 
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div> 
+										echo $nome . "\"/><div class=\"caption\">";
+									
+										$query = "SELECT dNome FROM divisao WHERE dID = '$string';";
+										$result = pg_query($query) or die(pg_last_error());
+										foreach (pg_fetch_assoc($result) as $value)
+											$nome = $value;
+										pg_free_result($result);
+									
+										echo $nome . "</div></div></a>";
+										pg_close();
+									}
 
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Quarto Maria Manuel</div>								
-								</div> 
-								-->
+									divisao('quarto1');
+									divisao('quarto2');
+									divisao('sala');
+									divisao('cozinha');
+									divisao('casaBanho');
+							 	?>
+
 							 	<div class="itemContainer" id="planta">
 									<img src="../media/img/Planta.png"/> 
 								</div>
 							</div>
-						<!-- ******************* -->
 						</td>
 					</tr>
 				</table>
