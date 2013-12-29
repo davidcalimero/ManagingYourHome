@@ -29,7 +29,7 @@
 				<table id="layout" border="0">
 					<tr>
 						<td id="sidebar">
-							<div class="sbaritem" id="logo">
+							<div class="sbaritem" id="sbarlogo">
 								<a href=""><img src="../media/img/minilogo.png"/></a>
 							</div>
 
@@ -42,10 +42,12 @@
 										foreach (pg_fetch_assoc($result) as $value)
 											$nome = $value;
 										$token = explode(' ',trim($nome));
-										echo "Sair da sessão de " . $token[0];
+										echo $token[0];
 										pg_free_result($result);
 										pg_close();
 									?>
+									<br>
+									<img src="../media/img/logout.png"/>
 								</a>
 							</div>
 						
@@ -56,6 +58,7 @@
 							<div class="sbaritem" id="help">
 								<a href=""><img src="../media/img/ajuda.png"/></a>
 							</div>
+							
 						</td>
 						<td id="main">
 							<div id="submain"> 

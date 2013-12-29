@@ -12,7 +12,7 @@ body {
 	font-family: Arial;
 }
 
-a, a:link, a:hover, a:visited {
+a, a:link, a:hover, a:visited, a:active {
 	text-decoration: none;
 }
 
@@ -37,7 +37,6 @@ table#layout {
 }
 
 td#sidebar {
-	border-right: solid 5px #223322;
 	background-color: #DDDDDD;
 	width: 150px;
 	vertical-align: top;
@@ -147,24 +146,70 @@ h1#settingsTitle {
 }
 
 
-/* ******************************** PLANTA ********************************** */
+/* ******************************** SIDEBAR ********************************* */
 
-#logo img {
-	margin-top: 20%;
+#sbarlogo img {
+	width: 80%;
+	margin-top: 10%;
+}
+
+#logout {
+	padding-top: 10%;
+}
+
+#logout img {
+	margin-top: 7%;
+	width: 45%;
+}
+
+#logout a, #logout a:link, #logout a:hover, #logout a:visited, #logout a:active  {
+	font-family: Arial;
+	font-size: 16pt;
+	font-weight: bold;
+	color: #E2F3C1;
 }
 
 #settings img {
-	margin-top: 120%;
+	width: 55%;
+	margin-top: 20%;
 }
 
 #help img {
-	margin-top: 25%;
+	width: 45%;
+	margin-top: 20%;
+}
+
+.sbaritem {
+	background-color: #112211;
+	border: solid 2px #001100;
+	border-left: solid 4px #001100;
+	border-right: solid 4px #001100;
+	width: 95%;
+	height: 25%;
+	text-align: center;
+}
+
+.sbaritem:link, .sbaritem:visited, .sbaritem:hover {
+	background-color: #112211;
+	border: solid 2px #001100;
+	border-left: solid 4px #001100;
+	border-right: solid 4px #001100;
+}
+
+ .sbaritem:active {
+	background-color: #223322;
+	border: solid 2px #112211;
+	border-left: solid 4px #112211;
+	border-right: solid 4px #112211;
 }
 
 .sbaritem img {
-	margin-left: 15px;
-	width: 120px;
+/*	margin-left: 15px;
+	width: 120px; */
 }
+
+
+/* ******************************** PLANTA ********************************** */
 
  #submain {
  	position: relative;
