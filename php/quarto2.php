@@ -51,8 +51,8 @@
 								</div> 
 							-->
 							 	<div class="itemContainer" id="fundo">
-									<img src="../media/img/cozinha.png"/> 
-									<div style="position: absolute; z-index: 1000; margin-left: 60%; margin-top: -25%;">Televisão</div>	
+									<img src="../media/img/cozinha.png"/>
+									<div style="position: absolute; z-index: 1; margin-left: 60%; margin-top: 25%;">Frigorífico</div>	
 								</div>
 							</div>
 						<!-- ******************* -->
