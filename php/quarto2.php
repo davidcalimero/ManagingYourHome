@@ -43,16 +43,10 @@
 						</td>
 						<td id="main">
 						<!-- ******************* -->
-							<div id="submain"> 
-							<!--
-								<div class="item" id="quarto">
-									<img src="../media/img/cama.png"/>
-									<div class="caption">Televisão</div>								
-								</div> 
-							-->
-							 	<div class="itemContainer" id="fundo">
+							<div id="submainDivision"> 
+								<div class="itemContainer" id="fundo">
 									<img src="../media/img/cozinha.png"/>
-									<div style="position: absolute; z-index: 1; margin-left: 60%; margin-top: 25%;">Frigorífico</div>	
+									<div id="fig">Frigorífico</div>	
 								</div>
 							</div>
 						<!-- ******************* -->

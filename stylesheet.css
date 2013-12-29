@@ -147,7 +147,7 @@ h1#settingsTitle {
 }
 
 
-/* *************************** PLANTA E DIVISOES **************************** */
+/* ******************************** PLANTA ********************************** */
 
 #logo img {
 	margin-top: 20%;
@@ -170,27 +170,11 @@ h1#settingsTitle {
  	position: relative;
  	margin-left: 5%;
  	width: 79%;
- 	max-height: 100%;
-	/* background-color: #00CC00; */
 }
 
 #planta img {	
 	max-width: 100%;
 	position: relative;
-}
-
-#fundo {
-	position: relative; 
-	width: 700px;
-	height: 500px;
-	/*background-color: #0000CC; */
-	overflow-y: hidden;
-	overflow-x: scroll;
-}
-
-#fundo img {
-	position: absolute;
-	height: 100%;
 }
 
 .item {
@@ -336,6 +320,34 @@ h1#settingsTitle {
 	font-weight: bold;
 	color: #000000;
 	font-size: 14pt;
+}
+
+
+/* ******************************** DIVISOES ********************************** */
+
+
+#submainDivision {
+ 	position: relative;
+ 	margin-left: 5%;
+ 	width: 79%;
+ 	height: 80%;
+ 	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+#fig{
+	position: absolute; 
+	z-index: 1; 
+	left: 80%;
+	top: 10%;
+}
+
+#fundo {
+	position: absolute; 
+}
+
+#fundo img {
+	max-height: 60%;
 }
 
 
