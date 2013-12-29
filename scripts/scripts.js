@@ -17,7 +17,7 @@ $('#loginButton').click(function(){
 				},
 				function(data){
 					if(data){
-						$('#error').text("Erro: " . data);
+						$('#error').text("Erro: " + data);
 						$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
 					}
 					else{
@@ -61,7 +61,7 @@ $('#createButtonCC').click(function(){
 						},
 						function(data){
 							if(data)
-								$('#error').text("Erro: " . data);
+								$('#error').text("Erro: " + data);
 							else{
 								var substr = window.location.pathname.split('/');
 								setTimeout(function(){window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2]}, 500);
@@ -100,7 +100,7 @@ function verificaPermissao(divisao){
 			},
 			function(data){
 				if(data){
-					$('#error').text("Erro: " .data);
+					$('#error').text("Erro: " + data);
 					$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
 				}
 				else{
