@@ -18,9 +18,6 @@
 		<!-- JQuery -->
 		<script type="text/javascript" src="../scripts/jquery.js"></script>
 
-		<!-- JavaScripts -->
-		<script type="text/javascript" src="../scripts/scripts.js"></script>
-
 		<title>Managing Your Home: Piso 0</title>
 	</head>
 	<body>
@@ -67,8 +64,7 @@
 									function divisao($string) { 
 										require 'procedures/connection.php';
 
-										echo "<a href=\"" . $string . ".php\"><div class=\"item\" id=\"" . $string . "\"><img src=\"../media/img/";
-
+										echo "<div class=\"item\" id=\"" . $string . "\" onClick=\"verificaPermissao('" . $string . "');\"><img src=\"../media/img/";
 										$query = "SELECT dIcon FROM divisao WHERE dID = '$string';";
 										$result = pg_query($query) or die(pg_last_error());
 										foreach (pg_fetch_assoc($result) as $value)
@@ -76,17 +72,15 @@
 										pg_free_result($result);
 
 										echo $nome . "\"/><div class=\"caption\">";
-									
 										$query = "SELECT dNome FROM divisao WHERE dID = '$string';";
 										$result = pg_query($query) or die(pg_last_error());
 										foreach (pg_fetch_assoc($result) as $value)
 											$nome = $value;
 										pg_free_result($result);
-									
-										echo $nome . "</div></div></a>";
+										
+										echo $nome . "</div></div>";
 										pg_close();
 									}
-
 									divisao('quarto1');
 									divisao('quarto2');
 									divisao('sala');
@@ -97,12 +91,17 @@
 							 	<div class="itemContainer" id="planta">
 									<img src="../media/img/Planta.png"/> 
 								</div>
+
+								<div id="error">&nbsp;</div>
 							</div>
 						</td>
 					</tr>
 				</table>
 			</td></tr>
 		</table>		
+
+		<!-- JavaScripts -->
+		<script type="text/javascript" src="../scripts/scripts.js"></script>
 
 	</body>
 </html>

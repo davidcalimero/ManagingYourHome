@@ -16,17 +16,21 @@ $('#loginButton').click(function(){
 					pass:pass
 				},
 				function(data){
-					if(data)
+					if(data){
 						$('#error').text(data);
+						$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+					}
 					else{
 						var substr = window.location.pathname.split('/');
 						window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2] + "/php/planta.php";
 					}
 				}
 			);
-	else $('#error').text("Preencha ambos os campos para poder iniciar sessão");
+	else {
+		$('#error').text("Preencha ambos os campos para poder iniciar sessão");
+		$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+	} 
 	$('#passwordInput').val('');
-	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
 });
 
 
@@ -81,3 +85,26 @@ $('#cancelButtonCC').click(function(){
 	var substr = window.location.pathname.split('/');
 	window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2];
 });
+
+
+
+
+// PLANTA --------------------------------
+
+function verificaPermissao(divisao){
+	$.post('procedures/permissionDivision.php',
+			{
+				divisao:divisao,
+			},
+			function(data){
+				if(data){
+					$('#error').text(data);
+					$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+				}
+				else{
+					var substr = window.location.pathname.split('/');
+					window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2]  + "/" + substr[3] + "/" + divisao + ".php";
+				}
+			}					
+		);	
+}

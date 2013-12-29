@@ -21,8 +21,24 @@ INSERT INTO equipamento VALUES ('estore01', 'Estore esquerdo');
 INSERT INTO equipada VALUES ('sala', 'luz01');
 INSERT INTO equipada VALUES ('sala', 'estore01');
 
--- Acesso a divisoes 
+-- Acesso a divisoes
+INSERT INTO acede VALUES ('joana', 'quarto1');
 INSERT INTO acede VALUES ('joana', 'sala');
+INSERT INTO acede VALUES ('joana', 'cozinha');
+INSERT INTO acede VALUES ('joana', 'casaBanho');
+INSERT INTO acede VALUES ('manuel', 'quarto2');
+INSERT INTO acede VALUES ('manuel', 'sala');
+INSERT INTO acede VALUES ('manuel', 'cozinha');
+INSERT INTO acede VALUES ('manuel', 'casaBanho');
+INSERT INTO acede VALUES ('maria', 'quarto2');
+INSERT INTO acede VALUES ('maria', 'sala');
+INSERT INTO acede VALUES ('maria', 'cozinha');
+INSERT INTO acede VALUES ('maria', 'casaBanho');
+INSERT INTO acede VALUES ('admin', 'quarto1');
+INSERT INTO acede VALUES ('admin', 'quarto2');
+INSERT INTO acede VALUES ('admin', 'sala');
+INSERT INTO acede VALUES ('admin', 'cozinha');
+INSERT INTO acede VALUES ('admin', 'casaBanho');
 
 -- Utilizacao de equipamentos 
 INSERT INTO utiliza VALUES ('joana', 'luz01');
