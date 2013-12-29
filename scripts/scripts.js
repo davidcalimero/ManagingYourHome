@@ -110,3 +110,12 @@ function verificaPermissao(divisao){
 			}					
 		);	
 }
+
+
+
+
+// PLANTA --------------------------------
+
+$('#help').click(function(){
+	$('#ajuda').toggle();
+});

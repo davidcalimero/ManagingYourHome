@@ -53,7 +53,7 @@
 							</div>
 						
 							<div class="sbaritem" id="help">
-								<a href=""><img src="../media/img/ajuda.png"/></a>
+								<img src="../media/img/ajuda.png"/>
 							</div>
 							
 						</td>
@@ -94,6 +94,7 @@
 
 								<div id="error">&nbsp;</div>
 							</div>
+							<div id="ajuda"></div>
 						</td>
 					</tr>
 				</table>
