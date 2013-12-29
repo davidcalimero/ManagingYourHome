@@ -17,7 +17,7 @@ $('#loginButton').click(function(){
 				},
 				function(data){
 					if(data){
-						$('#error').text(data);
+						$('#error').text("Erro: " . data);
 						$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
 					}
 					else{
@@ -27,7 +27,7 @@ $('#loginButton').click(function(){
 				}
 			);
 	else {
-		$('#error').text("Preencha ambos os campos para poder iniciar sessão");
+		$('#error').text("Erro: Preencha ambos os campos para poder iniciar sessão");
 		$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
 	} 
 	$('#passwordInput').val('');
@@ -49,7 +49,7 @@ $('#createButtonCC').click(function(){
 	var name = $('#nameInputCC').val();
 	var pass = $('#passwordInputCC').val();
 	var passV = $('#passwordVerificationInputCC').val();
-	//$('#error').empty();
+	$('#error').val('&nbsp;');
 	if(nick.length > 0 && name.length > 0 && pass.length > 0 && passV.length > 0){ 
 		if(nick.length <= 20 && name.length <= 20 && pass.length <= 20){
 			if(pass == passV){
@@ -61,20 +61,22 @@ $('#createButtonCC').click(function(){
 						},
 						function(data){
 							if(data)
-								$('#error').text(data);
+								$('#error').text("Erro: " . data);
 							else{
 								var substr = window.location.pathname.split('/');
-								window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2];
-								$('#error').text("Conta criada com sucesso");
+								setTimeout(function(){window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2]}, 500);
+								$('#error').css('background-color', '#EEFFEE');
+								$('#error').css('color', '#119911');
+								$('#error').text("Conta criada com sucesso!");
 							}
 						}					
 					);
 			}
-			else $('#error').text("As palavras-passe devem ser iguais");
+			else $('#error').text("Erro: As palavras-passe devem ser iguais");
 		}
-		else $('#error').text("Todos os campos devem ter no máximo 20 caracteres");
+		else $('#error').text("Erro: Todos os campos devem ter no máximo 20 caracteres");
 	}
-	else $('#error').text("Preencha todos os campos para poder criar uma conta");
+	else $('#error').text("Erro: Preencha todos os campos para poder criar uma conta");
 	$('#passwordInputCC').val('');
 	$('#passwordVerificationInputCC').val('');
 	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
@@ -98,7 +100,7 @@ function verificaPermissao(divisao){
 			},
 			function(data){
 				if(data){
-					$('#error').text(data);
+					$('#error').text("Erro: " .data);
 					$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
 				}
 				else{
