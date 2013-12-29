@@ -117,5 +117,11 @@ function verificaPermissao(divisao){
 // PLANTA --------------------------------
 
 $('#help').click(function(){
+	$('#definicoes').hide();
 	$('#ajuda').toggle();
+});
+
+$('#settings').click(function(){
+	$('#ajuda').hide();
+	$('#definicoes').toggle();
 });
