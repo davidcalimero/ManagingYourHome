@@ -41,7 +41,7 @@
 								<td><input type="password" name="password" id="passwordInputCC" class="loginFields"/></td>
 							</tr>
 							<tr>
-								<td class="loginLabel">Verificar palavra-passe:</td>
+								<td class="loginLabel">Repita a palavra-passe:</td>
 								<td><input type="password" name="passwordVerification" id="passwordVerificationInputCC" class="loginFields"/></td>
 							</tr>
 							<tr><td colspan="2" class="loginButtons">

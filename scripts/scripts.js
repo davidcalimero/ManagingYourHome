@@ -46,26 +46,29 @@ $('#createButtonCC').click(function(){
 	var pass = $('#passwordInputCC').val();
 	var passV = $('#passwordVerificationInputCC').val();
 	//$('#error').empty();
-	if(nick.length > 0 && name.length > 0 && pass.length > 0 && passV.length > 0){
-		if(pass == passV){
-			$.post('procedures/createAccount.php',
-					{
-						nick:nick,
-						name:name,
-						pass:pass
-					},
-					function(data){
-						if(data)
-							$('#error').text(data);
-						else{
-							var substr = window.location.pathname.split('/');
-							window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2];
-							$('#error').text("Conta criada com sucesso");
-						}
-					}					
-				);
+	if(nick.length > 0 && name.length > 0 && pass.length > 0 && passV.length > 0){ 
+		if(nick.length <= 20 && name.length <= 20 && pass.length <= 20){
+			if(pass == passV){
+				$.post('procedures/createAccount.php',
+						{
+							nick:nick,
+							name:name,
+							pass:pass
+						},
+						function(data){
+							if(data)
+								$('#error').text(data);
+							else{
+								var substr = window.location.pathname.split('/');
+								window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2];
+								$('#error').text("Conta criada com sucesso");
+							}
+						}					
+					);
+			}
+			else $('#error').text("As palavras-passe devem ser iguais");
 		}
-		else $('#error').text("As palavras-passe têm de ser iguais");
+		else $('#error').text("Todos os campos devem ter no máximo 20 caracteres");
 	}
 	else $('#error').text("Preencha todos os campos para poder criar uma conta");
 	$('#passwordInputCC').val('');
