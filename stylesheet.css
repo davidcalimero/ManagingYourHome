@@ -171,12 +171,17 @@ h1#settingsTitle {
 
 #settings img {
 	width: 55%;
+	margin-top: 18%;
+}
+
+#edit img {
+	width: 55%;
 	margin-top: 20%;
 }
 
 #help img {
 	width: 45%;
-	margin-top: 20%;
+	margin-top: 19%;
 }
 
 .sbaritem {
@@ -370,12 +375,35 @@ h1#settingsTitle {
 
 /* ******************************** DIVISOES ********************************** */
 
+.path, .path a, .path a:link, .path a:hover, .path a:visited {
+	color: #E2F3C1;
+	font-family: Arial;
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 2%;
+	margin-left: -5%; 
+}
+
+#pathPlanta:active {
+	background-color: #223322;
+	color: #E2F3C1;
+}
+
+.path img {
+	vertical-align: -85%;
+}
+
+#pathPlanta {
+	background-color: #112211;
+	padding: 16px;
+}
 
 #submainDivision {
  	position: relative;
  	margin-left: 5%;
  	width: 79%;
- 	height: 80%;
+ 	height: 63%;
  	overflow-y: hidden;
 	overflow-x: scroll;
 }
@@ -387,13 +415,30 @@ h1#settingsTitle {
 	top: 10%;
 }
 
-#fundo {
+.itemContainer {
 	position: absolute; 
 }
 
-#fundo img {
-	max-height: 60%;
+#fundoQuarto2 img {
+	max-height: 100%;
 }
+
+#fundoQuarto1 img {
+	max-height: 85%;
+}
+
+#fundoCozinha img {
+	max-height: 50%;
+}
+
+#fundoWC img {
+	max-height: 34%;
+}
+
+#fundoSala img {
+	max-height: 45%;
+}
+
 
 
 

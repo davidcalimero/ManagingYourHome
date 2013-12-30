@@ -88,7 +88,7 @@
 									divisao('casaBanho');
 							 	?>
 
-							 	<div class="itemContainer" id="planta">
+							 	<div id="planta">
 									<img src="../media/img/Planta.png"/> 
 								</div>
 

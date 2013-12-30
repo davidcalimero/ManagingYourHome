@@ -29,23 +29,44 @@
 				<table id="layout" border="0">
 					<tr>
 						<td id="sidebar">
-							<div class="sbaritem" id="logo">
+							
+							<div class="sbaritem" id="sbarlogo">
 								<a href="planta.php"><img src="../media/img/minilogo.png"/></a>
 							</div>
+
+							<div class="sbaritem" id="logout">
+								<a href="../index.html">
+									<?php 
+										require 'procedures/connection.php';
+										$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
+										$result = pg_query($query) or die(pg_last_error());
+										foreach (pg_fetch_assoc($result) as $value)
+											$nome = $value;
+										$token = explode(' ',trim($nome));
+										echo $token[0];
+										pg_free_result($result);
+										pg_close();
+									?>
+									<br>
+									<img src="../media/img/logout.png"/>
+								</a>
+							</div>
 						
-							<div class="sbaritem" id="settings">
-								<a href=""><img src="../media/img/definicoes.png"/></a>
+							<div class="sbaritem" id="edit">
+								<a href=""><img src="../media/img/editar.png"/></a>
 							</div>
 						
 							<div class="sbaritem" id="help">
-								<a href=""><img src="../media/img/ajuda.png"/></a>
+								<a href="planta.php"><img src="../media/img/ajuda.png"/></a>
 							</div>
+
 						</td>
 						<td id="main">
 						<!-- ******************* -->
+							<div class="path"><a href="planta.php"><img src="../media/img/seta.png"><span id="pathPlanta">Voltar à planta</span></a></div>
 							<div id="submainDivision"> 
-								<div class="itemContainer" id="fundo">
-									<img src="../media/img/cozinha.png"/>
+								<div class="itemContainer" id="fundoQuarto2">
+									<img src="../media/img/quarto2.jpg"/>
 									<div id="fig">Frigorífico</div>	
 								</div>
 							</div>
