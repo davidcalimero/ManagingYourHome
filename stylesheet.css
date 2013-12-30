@@ -23,7 +23,6 @@ td#container {
 	height: 100%;
 
 	text-align: center; 
-	vertical-align: middle;
 }
 
 #logo {
@@ -43,13 +42,47 @@ td#sidebar {
 }
 
 td#main {	
-	text-align: left;
-	vertical-align: middle;
+	text-align: center;
+	vertical-align: top;
 	background-color: #E2F3C1;
 }
 
+table#sublayout {
+	width: 100%;
+	height: 100%;
+}
+
+tr#cabecalho {
+	height: 15%;
+}
+
+#cabecalho td {
+	vertical-align: bottom; 
+	background-color: #AA0033;
+}
+
+tr#corpo {
+	height: 75%;
+}
+
+#corpo td {
+	padding-top: 1%;
+	padding-bottom: 1%;
+	background-color: #AA5500;
+}
+
+tr#rodape {
+	height: 10%;
+}
+
+.hcentered {
+	height: 100%;
+	display: -webkit-box; 
+	-webkit-box-pack: center;
+}
+
 #error {
- 	opacity: 0;
+ 	opacity: 100;
  	position: relative;
  	background-color: #FFEEEE;
  	width: 100%;
@@ -220,8 +253,10 @@ h1#settingsTitle {
 
  #submain {
  	position: relative;
- 	margin-left: 5%;
- 	width: 79%;
+ 	width: 75%;
+}
+
+#planta {	
 }
 
 #planta img {	
@@ -247,7 +282,7 @@ h1#settingsTitle {
 #quarto1 img {
 	width: 25%;
 	margin-left: 35%;
-	margin-top: 5%;
+	margin-top: 6%;
 }
 
 
@@ -275,7 +310,7 @@ h1#settingsTitle {
 #quarto2 img {
 	width: 25%;
 	margin-left: 40%;
-	margin-top: 5%;
+	margin-top: 6%;
 }
 
 
@@ -302,14 +337,14 @@ h1#settingsTitle {
 
 #sala img {
 	width: 25%;
-	margin-left: 30%;
+	margin-left: 35%;
 	margin-top: 5%;
 }
 
 
 #sala .caption {
-	width: 75%;
-	margin-left: 5%;
+	width: 90%;
+	margin-left: 2%;
 	margin-top: 5%;
 	text-align: center;
 	font-family: Arial;
@@ -336,9 +371,9 @@ h1#settingsTitle {
 
 
 #cozinha .caption {
-	width: 70%;
-	margin-left: 18%;
-	margin-top: 5%;
+	width: 90%;
+	margin-left: 8%;
+	margin-top: 3%;
 	text-align: center;
 	font-family: Arial;
 	font-weight: bold;
@@ -348,16 +383,15 @@ h1#settingsTitle {
 
 
 #casaBanho {
-	width: 22%;
-	height: 26%;
-	left: 37%;
+	width: 21%;
+	height: 31%;
+	left: 37.5%;
 	top: 1%;
-	/* padding-top: 2%; */
 }
 
 
 #casaBanho img {
-	width: 25%;
+	width: 32%;
 	margin-left: 35%;
 	margin-top: 7%;
 }
@@ -377,35 +411,37 @@ h1#settingsTitle {
 
 /* ******************************** DIVISOES ********************************** */
 
-.path, .path a, .path a:link, .path a:hover, .path a:visited {
-	color: #E2F3C1;
-	font-family: Arial;
-	font-size: 14pt;
+table#currentLocation {
+	/*margin-left: 5%; */
+	/*margin-bottom: 1%; */
+	width: 75%;
+}
+
+td#back {
+	width: 25%;
+}
+
+td#divisionTitle {
+	text-align: right;
+	border-bottom: solid 2px #112211;
+	color: #112211;
+	font-family: Arial;	
 	font-weight: bold;
-	text-align: center;
-	margin-bottom: 2%;
-	margin-left: -5%; 
 }
 
-#pathPlanta:active {
-	background-color: #223322;
-	color: #E2F3C1;
+#path {
+	font-size: 14pt;
 }
 
-.path img {
-	vertical-align: -20px;
-}
-
-#pathPlanta {
-	background-color: #112211;
-	padding: 16px;
+#location {
+	font-size: 24pt;
 }
 
 #submainDivision {
  	position: relative;
- 	margin-left: 5%;
- 	width: 79%;
- 	height: 63%;
+ 	/*text-align: center; */
+ 	width: 75%; 
+ 	height: 100%;
  	overflow-y: hidden;
 	overflow-x: scroll;
 }
@@ -432,8 +468,7 @@ h1#settingsTitle {
 }
 
 #fundoCozinha img {
-	max-height: 50%;
-	height: 50%;
+	height: 100%;
 }
 
 #fundoWC img {

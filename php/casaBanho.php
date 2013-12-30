@@ -55,7 +55,24 @@
 						</td>
 						<td id="main">
 						<!-- ******************* -->
-							<div class="path"><a href="planta.php"><img src="../media/img/seta.png"><span id="pathPlanta">Voltar à planta</span></a></div>
+							<table id="currentLocation">
+								<tr>
+									<td id="dummy"><div class="back"><a href="planta.php"><img src="../media/img/seta.png"><span id="pathPlanta">Voltar</span></a></div></td>
+									<td id="divisionTitle"><span id="path">Planta ► </span>
+									<span id="location">
+										<?php 
+											require 'procedures/connection.php';
+											$query = "SELECT dNome FROM divisao WHERE dID = 'casaBanho';";
+											$result = pg_query($query) or die(pg_last_error());
+											foreach (pg_fetch_assoc($result) as $value)
+												$nome = $value;
+											echo $value;
+											pg_free_result($result);
+											pg_close();
+										?>
+									</span></td>
+								</tr>
+							</table>
 							<div id="submainDivision"> 
 								<div class="itemContainer" id="fundoWC">
 									<img src="../media/img/wcfundo.png"/>

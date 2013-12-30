@@ -55,41 +55,59 @@
 							
 						</td>
 						<td id="main">
-							<div id="submain"> 
+							<table id="sublayout">
+								<tr id="cabecalho"><td>
+									<div class="hcentered">	
+										<table id="currentLocation">
+											<tr>
+												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>	
+												<td id="divisionTitle"><span id="path">Plantaaaaaaaaaaaaaaaaaaaaaaaaa</span><span id="location">aaaaaaaaaaaaaaaaaaaa</span></td>
+											</tr>
+										</table>
+									</div>
+								</td></tr>
+								<tr id="corpo"><td>
+									<div class="hcentered">	
+										<div id="submain"> 
+											<?php 
+												function divisao($string) { 
+													require 'procedures/connection.php';
 
-								<?php 
-									function divisao($string) { 
-										require 'procedures/connection.php';
+													echo "<div class=\"item\" id=\"" . $string . "\" onClick=\"verificaPermissao('" . $string . "');\"><img src=\"../media/img/";
+													$query = "SELECT dIcon FROM divisao WHERE dID = '$string';";
+													$result = pg_query($query) or die(pg_last_error());
+													foreach (pg_fetch_assoc($result) as $value)
+														$nome = $value;
+													pg_free_result($result);
 
-										echo "<div class=\"item\" id=\"" . $string . "\" onClick=\"verificaPermissao('" . $string . "');\"><img src=\"../media/img/";
-										$query = "SELECT dIcon FROM divisao WHERE dID = '$string';";
-										$result = pg_query($query) or die(pg_last_error());
-										foreach (pg_fetch_assoc($result) as $value)
-											$nome = $value;
-										pg_free_result($result);
+													echo $nome . "\"/><div class=\"caption\">";
+													$query = "SELECT dNome FROM divisao WHERE dID = '$string';";
+													$result = pg_query($query) or die(pg_last_error());
+													foreach (pg_fetch_assoc($result) as $value)
+														$nome = $value;
+													pg_free_result($result);
+													
+													echo $nome . "</div></div>";
+													pg_close();
+												}
+												divisao('quarto1');
+												divisao('quarto2');
+												divisao('sala');
+												divisao('cozinha');
+												divisao('casaBanho');
+										 	?>
+										 	<div id="planta">
+												<img src="../media/img/Planta.png"/> 
+											</div>
+										</div>
+									</div>
+								</td></tr>
+								<tr id="rodape"><td style="background-color: #AACC00;">
+									<div id="error">&nbsp;</div>
+								</td></tr>								
 
-										echo $nome . "\"/><div class=\"caption\">";
-										$query = "SELECT dNome FROM divisao WHERE dID = '$string';";
-										$result = pg_query($query) or die(pg_last_error());
-										foreach (pg_fetch_assoc($result) as $value)
-											$nome = $value;
-										pg_free_result($result);
-										
-										echo $nome . "</div></div>";
-										pg_close();
-									}
-									divisao('quarto1');
-									divisao('quarto2');
-									divisao('sala');
-									divisao('cozinha');
-									divisao('casaBanho');
-							 	?>
+							</table>
 
-							 	<div id="planta">
-									<img src="../media/img/Planta.png"/> 
-								</div>
-							</div>
-							<div id="error">&nbsp;</div>
 							<div class="toggle" id="ajuda">ajuda</div>
 							<div class="toggle" id="definicoes">definicoes</div>
 						</td>

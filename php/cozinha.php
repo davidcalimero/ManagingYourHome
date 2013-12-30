@@ -54,15 +54,48 @@
 							</div>
 						</td>
 						<td id="main">
+
 						<!-- ******************* -->
-							<div class="path"><a href="planta.php"><img src="../media/img/seta.png"><span id="pathPlanta">Voltar à planta</span></a></div>
-							<div id="submainDivision"> 
-								<div class="itemContainer" id="fundoCozinha">
-									<img src="../media/img/cozinha.png"/>
-									<div id="fig">Frigorífico</div>	
-								</div>
-							</div>
+							<table id="sublayout">
+								<tr id="cabecalho"><td>
+									<div class="hcentered">	
+										<table id="currentLocation">
+											<tr>
+												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
+												<td id="divisionTitle"><span id="path">Planta ► </span>
+												<span id="location">
+													<?php 
+														require 'procedures/connection.php';
+														$query = "SELECT dNome FROM divisao WHERE dID = 'cozinha';";
+														$result = pg_query($query) or die(pg_last_error());
+														foreach (pg_fetch_assoc($result) as $value)
+															$nome = $value;
+														echo $value;
+														pg_free_result($result);
+														pg_close();
+													?>
+												</span></td>
+											</tr>
+										</table>
+									</div>
+								</td></tr>
+								<tr id="corpo"><td>
+									<div class="hcentered">													
+										<div id="submainDivision"> 
+											<div class="itemContainer" id="fundoCozinha">
+												<img src="../media/img/cozinha.png"/>
+												<div id="fig">Frigorífico</div>	
+											</div>
+										</div>
+									</div>
+								</td></tr>
+								<tr id="rodape"><td style="background-color: #AACC00;">
+									<div id="error">&nbsp;</div>
+								</td></tr>			
+
+							</table>
 						<!-- ******************* -->
+
 						<div class="toggle" id="ajuda">ajuda</div>
 						<div class="toggle" id="editar">editar</div>
 						</td>
