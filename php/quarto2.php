@@ -18,9 +18,6 @@
 		<!-- JQuery -->
 		<script type="text/javascript" src="../scripts/jquery.js"></script>
 
-		<!-- JavaScripts -->
-		<script type="text/javascript" src="../scripts/scripts.js"></script>
-
 		<title>Managing Your Home: Quarto</title>
 	</head>
 	<body>
@@ -29,13 +26,11 @@
 				<table id="layout" border="0">
 					<tr>
 						<td id="sidebar">
-							
 							<div class="sbaritem" id="sbarlogo">
-								<a href="planta.php"><img src="../media/img/minilogo.png"/></a>
+								<img src="../media/img/minilogo.png"/>
 							</div>
 
 							<div class="sbaritem" id="logout">
-								<a href="../index.html">
 									<?php 
 										require 'procedures/connection.php';
 										$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
@@ -49,17 +44,15 @@
 									?>
 									<br>
 									<img src="../media/img/logout.png"/>
-								</a>
 							</div>
 						
 							<div class="sbaritem" id="edit">
-								<a href=""><img src="../media/img/editar.png"/></a>
+								<img src="../media/img/editar.png"/>
 							</div>
 						
 							<div class="sbaritem" id="help">
-								<a href="planta.php"><img src="../media/img/ajuda.png"/></a>
+								<img src="../media/img/ajuda.png"/>
 							</div>
-
 						</td>
 						<td id="main">
 						<!-- ******************* -->
@@ -71,11 +64,16 @@
 								</div>
 							</div>
 						<!-- ******************* -->
+						<div class="toggle" id="ajuda">ajuda</div>
+						<div class="toggle" id="editar">editar</div>
 						</td>
 					</tr>
 				</table>
 			</td></tr>
-		</table>		
+		</table>	
+
+		<!-- JavaScripts -->
+		<script type="text/javascript" src="../scripts/scripts.js"></script>	
 
 	</body>
 </html>

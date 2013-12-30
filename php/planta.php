@@ -27,11 +27,10 @@
 					<tr>
 						<td id="sidebar">
 							<div class="sbaritem" id="sbarlogo">
-								<a href=""><img src="../media/img/minilogo.png"/></a>
+								<img src="../media/img/minilogo.png"/>
 							</div>
 
 							<div class="sbaritem" id="logout">
-								<a href="../index.html">
 									<?php 
 										require 'procedures/connection.php';
 										$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
@@ -45,11 +44,10 @@
 									?>
 									<br>
 									<img src="../media/img/logout.png"/>
-								</a>
 							</div>
 						
 							<div class="sbaritem" id="settings">
-								<a href=""><img src="../media/img/definicoes.png"/></a>
+								<img src="../media/img/definicoes.png"/>
 							</div>
 						
 							<div class="sbaritem" id="help">
@@ -91,10 +89,10 @@
 							 	<div id="planta">
 									<img src="../media/img/Planta.png"/> 
 								</div>
-
-								<div id="error">&nbsp;</div>
 							</div>
-							<div id="ajuda"></div>
+							<div id="error">&nbsp;</div>
+							<div class="toggle" id="ajuda">ajuda</div>
+							<div class="toggle" id="definicoes">definicoes</div>
 						</td>
 					</tr>
 				</table>

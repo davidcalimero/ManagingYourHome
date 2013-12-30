@@ -118,10 +118,26 @@ function verificaPermissao(divisao){
 
 $('#help').click(function(){
 	$('#definicoes').hide();
+	$('#editar').hide();
 	$('#ajuda').toggle();
 });
 
 $('#settings').click(function(){
 	$('#ajuda').hide();
 	$('#definicoes').toggle();
+});
+
+$('#edit').click(function(){
+	$('#ajuda').hide();
+	$('#editar').toggle();
+});
+
+$('#logout').click(function(){
+	var substr = window.location.pathname.split('/');
+	window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2] + "/index.html";
+});
+
+$('#sbarlogo').click(function(){
+	var substr = window.location.pathname.split('/');
+	window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2] + "/php/planta.php";
 });
