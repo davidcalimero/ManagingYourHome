@@ -25,6 +25,8 @@ create table divisao (
 create table equipamento (
 	eID varchar(20) not null unique,
 	eNome varchar(20) not null,
+	v1 integer not null,
+	v2 integer not null,
 	constraint equipamentokey primary key (eID)
 );
 
