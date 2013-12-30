@@ -41,8 +41,7 @@
 										echo $token[0];
 										pg_free_result($result);
 										pg_close();
-									?>
-									<br>
+									?><br>
 									<img src="../media/img/logout.png"/>
 							</div>
 						

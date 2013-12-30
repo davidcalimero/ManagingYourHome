@@ -150,15 +150,9 @@ h1#settingsTitle {
 
 #sbarlogo img {
 	width: 80%;
-	margin-top: 10%;
-}
-
-#logout {
-	padding-top: 10%;
 }
 
 #logout img {
-	margin-top: 7%;
 	width: 45%;
 }
 
@@ -170,19 +164,17 @@ h1#settingsTitle {
 }
 
 #settings img {
-	width: 55%;
-	margin-top: 18%;
+	width: 70%;
 }
 
 #edit img {
 	width: 55%;
-	margin-top: 20%;
 }
 
 #help img {
-	width: 45%;
-	margin-top: 19%;
+	width: 65%;
 }
+
 
 .sbaritem {
 	background-color: #112211;
@@ -192,6 +184,10 @@ h1#settingsTitle {
 	width: 95%;
 	height: 25%;
 	text-align: center;
+	/* Safari, Chrome, and Opera */
+  	display: -webkit-box;
+	-webkit-box-pack: center; 
+	-webkit-box-align: center;
 }
 
 .sbaritem:link, .sbaritem:visited, .sbaritem:hover {
@@ -397,7 +393,7 @@ h1#settingsTitle {
 }
 
 .path img {
-	vertical-align: -85%;
+	vertical-align: -20px;
 }
 
 #pathPlanta {
@@ -427,18 +423,22 @@ h1#settingsTitle {
 
 #fundoQuarto2 img {
 	max-height: 100%;
+	height: 100%;
 }
 
 #fundoQuarto1 img {
-	max-height: 85%;
+	max-height: 100%;
+	height: 85%;
 }
 
 #fundoCozinha img {
 	max-height: 50%;
+	height: 50%;
 }
 
 #fundoWC img {
 	max-height: 34%;
+	height: 34%;
 }
 
 #fundoSala img {

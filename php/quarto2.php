@@ -31,7 +31,7 @@
 							</div>
 
 							<div class="sbaritem" id="logout">
-									<?php 
+								<?php 
 										require 'procedures/connection.php';
 										$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
 										$result = pg_query($query) or die(pg_last_error());
@@ -41,8 +41,7 @@
 										echo $token[0];
 										pg_free_result($result);
 										pg_close();
-									?>
-									<br>
+									?><br>
 									<img src="../media/img/logout.png"/>
 							</div>
 						
