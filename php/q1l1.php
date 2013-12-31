@@ -59,7 +59,7 @@
 				
 				position: absolute; 
 				z-index: 1; 
-				background-color: #FFFF00;
+			/*	background-color: #FFFF00; */
 			}
 
 			#lampada_q1l1 img {
@@ -139,28 +139,7 @@
 										<tr>
 											<td width="50%">        
 												<div style="position: relative; max-width: 25%">                         			
-
-											
 													<div id="lampada_q1l1" width="100%" height="100%">
-														<img src="../media/img/lampada.png"/><br>
-														<?php 
-															require 'procedures/connection.php';
-
-															$query = "select v1 from equipamento where eID = 'q1l1';";
-															$result = pg_query($query) or die(pg_last_error());
-															foreach (pg_fetch_assoc($result) as $value)
-																$valor = $value;
-															pg_free_result($result);
-
-
-														echo "<div id=\"value\">" . $valor . "</div>";
-														?>
-													</div>
-												</div>
-											</td>
-											<td width="50%" style="background-color: #0055FF;">
-												<div style="position: relative;">
-
 													<?php 
 															require 'procedures/connection.php';
 
@@ -170,15 +149,31 @@
 																$valor = $value;
 															pg_free_result($result);
 
+															echo "<img src=\"../media/img/lampada.png\" onload=\"updateLight('#lampada_q1l1', " . $valor . ")\"><br>";
+														
+														/*	require 'procedures/connection.php';
+
+															$query = "select v1 from equipamento where eID = 'q1l1';";
+															$result = pg_query($query) or die(pg_last_error());
+															foreach (pg_fetch_assoc($result) as $value)
+																$valor = $value;
+															pg_free_result($result);
+														*/
+
+														echo "<div id=\"value\">&nbsp;</div>";
+														?>
+													</div>
+												</div>
+											</td>
+											<td width="50%" style="background-color: #0055FF;">
+												<div style="position: relative;">
+
+													<?php 
 															echo "<input id=\"light_slider\" type=\"range\" name=\"light\" 
 															min=\"0\" max=\"100\" value=\"" . $value . "\" 
 															onchange=\"updateLight('#lampada_q1l1', this.value)\">"
 													?>
-
-										<!--			<input id="light_slider" type="range" name="light" 
-															min="0" max="100" value="100" 
-															onchange="updateLight('#lampada_q1l1', this.value)">
-										-->																
+														
 												</div>
 											</td>
 										</tr>
