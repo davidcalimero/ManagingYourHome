@@ -22,7 +22,8 @@
 			function updateLight(lightsource, alfavalue) {
 				var newlight = "rgba(100%, 100%, 0%," + alfavalue / 100.0 + ")";
 				document.getElementById("value").innerHTML = alfavalue + "%";
-				$(lightsource).css('background', newlight);				
+				$(lightsource).css('background', newlight);	
+
 			}
 		</script>
 
@@ -54,14 +55,14 @@
 			}
 
 			/* Lampada */
-			#lampada {
+			#lampada_q1l1 {
 				
 				position: absolute; 
 				z-index: 1; 
 				background-color: #FFFF00;
 			}
 
-			#lampada img {
+			#lampada_q1l1 img {
 				width: 100%; 
 			}
 
@@ -108,19 +109,26 @@
 										<table id="currentLocation">
 											<tr>
 												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
-												<td id="divisionTitle"><span id="path">Planta ► </span>
-												<span id="location">
-													<?php 
+												<td id="divisionTitle"><span id="path">Planta ► <?php 
 														require 'procedures/connection.php';
-														$query = "SELECT dNome FROM divisao WHERE dID = 'cozinha';";
+														$query = "select dNome from divisao NATURAL JOIN equipada where eID = 'q1l1';";
 														$result = pg_query($query) or die(pg_last_error());
 														foreach (pg_fetch_assoc($result) as $value)
 															$nome = $value;
 														echo $value;
 														pg_free_result($result);
 														pg_close();
-													?>
-												</span></td>
+													?> ► </span>
+												<span id="location"><?php 
+														require 'procedures/connection.php';
+														$query = "select eNome from equipamento where eID = 'q1l1';";
+														$result = pg_query($query) or die(pg_last_error());
+														foreach (pg_fetch_assoc($result) as $value)
+															$nome = $value;
+														echo $value;
+														pg_free_result($result);
+														pg_close();
+													?></span></td>
 											</tr>
 										</table>
 									</div>
@@ -130,21 +138,47 @@
 									<table width="100%" height="100%">
 										<tr>
 											<td width="50%">        
-												<div style="position: relative; max-width: 25%">                            			
+												<div style="position: relative; max-width: 25%">                         			
 
-													<!-- id vindo da bd -->
-													<div id="lampada" width="100%" height="100%">
+											
+													<div id="lampada_q1l1" width="100%" height="100%">
 														<img src="../media/img/lampada.png"/><br>
-														<div id="value">100%</div>
+														<?php 
+															require 'procedures/connection.php';
+
+															$query = "select v1 from equipamento where eID = 'q1l1';";
+															$result = pg_query($query) or die(pg_last_error());
+															foreach (pg_fetch_assoc($result) as $value)
+																$valor = $value;
+															pg_free_result($result);
+
+
+														echo "<div id=\"value\">" . $valor . "</div>";
+														?>
 													</div>
 												</div>
 											</td>
 											<td width="50%" style="background-color: #0055FF;">
 												<div style="position: relative;">
-													<input id="light_slider" type="range" name="light" 
+
+													<?php 
+															require 'procedures/connection.php';
+
+															$query = "select v1 from equipamento where eID = 'q1l1';";
+															$result = pg_query($query) or die(pg_last_error());
+															foreach (pg_fetch_assoc($result) as $value)
+																$valor = $value;
+															pg_free_result($result);
+
+															echo "<input id=\"light_slider\" type=\"range\" name=\"light\" 
+															min=\"0\" max=\"100\" value=\"" . $value . "\" 
+															onchange=\"updateLight('#lampada_q1l1', this.value)\">"
+													?>
+
+										<!--			<input id="light_slider" type="range" name="light" 
 															min="0" max="100" value="100" 
-															onchange="updateLight('#lampada', this.value)">
-																
+															onchange="updateLight('#lampada_q1l1', this.value)">
+										-->																
 												</div>
 											</td>
 										</tr>
