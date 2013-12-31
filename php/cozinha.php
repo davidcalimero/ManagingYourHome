@@ -52,10 +52,9 @@
 							<div class="sbaritem" id="help">
 								<img src="../media/img/ajuda.png"/>
 							</div>
+
 						</td>
 						<td id="main">
-
-						<!-- ******************* -->
 							<table id="sublayout">
 								<tr id="cabecalho"><td>
 									<div class="hcentered">	
@@ -79,12 +78,20 @@
 										</table>
 									</div>
 								</td></tr>
-								<tr id="corpo"><td>
-									<div class="hcentered">													
-										<div id="submainDivision"> 
-											<div class="itemContainer" id="fundoCozinha">
-												<img src="../media/img/cozinha.png"/>
-												<div id="fig">Frigorífico</div>	
+								<tr id="corpo"><td>	
+                                    <div id="submainDivision"> 
+                                        <div class="itemContainer">
+                                            <img src="../media/img/cozinha.png"/>
+                                            <div id="cf1">cf1</div>   
+                                            <div id="cl1">cl1</div>  
+                                            <div id="cl2">cl2</div>  
+                                            <div id="cl3">cl3</div>  
+                                        </div>
+                                    </div>
+									<div class="hcentered">	
+										<div id="submain"> 
+										 	<div id="planta">
+												<img src="../media/img/Planta.png" style="opacity: 0" /> 
 											</div>
 										</div>
 									</div>
@@ -94,10 +101,9 @@
 								</td></tr>			
 
 							</table>
-						<!-- ******************* -->
 
-						<div class="toggle" id="ajuda">ajuda</div>
-						<div class="toggle" id="editar">editar</div>
+							<div class="toggle" id="ajuda">ajuda</div>
+							<div class="toggle" id="editar">editar</div>
 						</td>
 					</tr>
 				</table>

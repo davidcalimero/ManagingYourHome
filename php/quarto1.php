@@ -52,36 +52,60 @@
 							<div class="sbaritem" id="help">
 								<img src="../media/img/ajuda.png"/>
 							</div>
+
 						</td>
 						<td id="main">
-						<!-- ******************* -->
-							<table id="currentLocation">
-								<tr>
-									<td id="dummy"><div class="back"><a href="planta.php"><img src="../media/img/seta.png"><span id="pathPlanta">Voltar</span></a></div></td>
-									<td id="divisionTitle"><span id="path">Planta ► </span>
-									<span id="location">
-										<?php 
-											require 'procedures/connection.php';
-											$query = "SELECT dNome FROM divisao WHERE dID = 'quarto1';";
-											$result = pg_query($query) or die(pg_last_error());
-											foreach (pg_fetch_assoc($result) as $value)
-												$nome = $value;
-											echo $value;
-											pg_free_result($result);
-											pg_close();
-										?>
-									</span></td>
-								</tr>
+							<table id="sublayout">
+								<tr id="cabecalho"><td>
+									<div class="hcentered">	
+										<table id="currentLocation">
+											<tr>
+												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
+												<td id="divisionTitle"><span id="path">Planta ► </span>
+												<span id="location">
+													<?php 
+														require 'procedures/connection.php';
+														$query = "SELECT dNome FROM divisao WHERE dID = 'quarto1';";
+														$result = pg_query($query) or die(pg_last_error());
+														foreach (pg_fetch_assoc($result) as $value)
+															$nome = $value;
+														echo $value;
+														pg_free_result($result);
+														pg_close();
+													?>
+												</span></td>
+											</tr>
+										</table>
+									</div>
+								</td></tr>
+								<tr id="corpo"><td>	
+                                    <div id="submainDivision"> 
+                                        <div class="itemContainer">
+                                            <img src="../media/img/quarto1.jpg"/>
+                                            <div id="q1l1">q1l1</div>   
+                                            <div id="q1e1">q1e1</div>   
+                                            <div id="q1e2">q1e2</div>   
+                                            <div id="q1e3">q1e3</div>   
+                                            <div id="q1e4">q1e4</div>   
+                                            <div id="q1e5">q1e5</div>        
+                                        </div>
+                                    </div>
+									<div class="hcentered">	
+										<div id="submain"> 
+										 	<div id="planta">
+												<img src="../media/img/Planta.png" style="opacity: 0" /> 
+											</div>
+										</div>
+									</div>
+								</td></tr>
+								<tr id="rodape"><td style="background-color: #AACC00;">
+									<div id="error">&nbsp;</div>
+								</td></tr>			
+
 							</table>
-							<div id="submainDivision"> 
-								<div class="itemContainer" id="fundoQuarto1">
-									<img src="../media/img/quarto1.jpg"/>
-									<div id="fig">Frigorífico</div>	
-								</div>
-							</div>
-						<!-- ******************* -->
-						<div class="toggle" id="ajuda">ajuda</div>
-						<div class="toggle" id="editar">editar</div>
+
+							<div class="toggle" id="ajuda">ajuda</div>
+							<div class="toggle" id="editar">editar</div>
 						</td>
 					</tr>
 				</table>

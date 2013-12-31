@@ -61,7 +61,7 @@
 										<table id="currentLocation">
 											<tr>
 												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>	
-												<td id="divisionTitle"><span id="path">Plantaaaaaaaaaaaaaaaaaaaaaaaaa</span><span id="location">aaaaaaaaaaaaaaaaaaaa</span></td>
+												<td id="divisionTitle"><span id="location">Planta</span></td>
 											</tr>
 										</table>
 									</div>

@@ -76,7 +76,6 @@ tr#rodape {
 }
 
 .hcentered {
-	height: 100%;
 	display: -webkit-box; 
 	-webkit-box-pack: center;
 }
@@ -256,9 +255,6 @@ h1#settingsTitle {
  	width: 75%;
 }
 
-#planta {	
-}
-
 #planta img {	
 	max-width: 100%;
 	position: relative;
@@ -412,8 +408,6 @@ h1#settingsTitle {
 /* ******************************** DIVISOES ********************************** */
 
 table#currentLocation {
-	/*margin-left: 5%; */
-	/*margin-bottom: 1%; */
 	width: 75%;
 }
 
@@ -438,44 +432,221 @@ td#divisionTitle {
 }
 
 #submainDivision {
- 	position: relative;
- 	/*text-align: center; */
- 	width: 75%; 
- 	height: 100%;
- 	overflow-y: hidden;
+	position: absolute;
+	margin-left: 11%;
+	width: 65.5%;
+	height: 72%;
+	overflow-y: hidden;
 	overflow-x: scroll;
-}
-
-#fig{
-	position: absolute; 
-	z-index: 1; 
-	left: 80%;
-	top: 10%;
+	z-index: 20;
 }
 
 .itemContainer {
 	position: absolute; 
 }
 
-#fundoQuarto2 img {
-	max-height: 100%;
+.itemContainer img {
+    max-height: 87%;
+}
+
+#wl1{
+	width: 5%;
+	height: 55%;
+	position: absolute; 
+	z-index: 1; 
+	left: 70%;
+	top: 0%;
+	background-color: #0000CF;
+}
+
+#sc1{
+	width: 5%;
+	height: 50%;
+	position: absolute; 
+	z-index: 1; 
+	left: 90%;
+	top: 40%;
+	background-color: #0000CF;
+}
+
+#sc2{
+	width: 6%;
+	height: 20%;
+	position: absolute; 
+	z-index: 1; 
+	left: 47%;
+	top: 20%;
+	background-color: #0000CF;
+}
+
+#st1{
+	width: 10%;
+	height: 21%;
+	position: absolute; 
+	z-index: 1; 
+	left: 75%;
+	top: 43%;
+	background-color: #0000CF;
+}
+
+#cf1{
+	width: 10%;
+	height: 95%;
+	position: absolute; 
+	z-index: 1; 
+	left: 17%;
+	top: 6%;
+	background-color: #0000CF;
+}
+
+#cl1{
+	width: 1.7%;
+	height: 9%;
+	position: absolute; 
+	z-index: 1; 
+	left: 9.2%;
+	top: 6%;
+	background-color: #0000CF;
+}
+
+#cl2{
+	width: 1.5%;
+	height: 10%;
+	position: absolute; 
+	z-index: 1; 
+	left: 78%;
+	top: 30%;
+	background-color: #0000CF;
+}
+
+#cl3{
+	width: 4.5%;
+	height: 10%;
+	position: absolute; 
+	z-index: 1; 
+	left: 86%;
+	top: 0%;
+	background-color: #0000CF;
+}
+
+#q1l1{
+	width: 3.5%;
+	height: 38%;
+	position: absolute; 
+	z-index: 1; 
+	left: 85%;
+	top: 44%;
+	background-color: #0000CF;
+	z-index: 5;
+}
+
+#q1e1{
+	width: 5%;
+	height: 50%;
+	position: absolute; 
+	z-index: 1; 
+	left: 50%;
+	top: 18%;
+	background-color: #0000CF;
+}
+
+#q1e2{
+	width: 7%;
+	height: 50%;
+	position: absolute; 
+	z-index: 1; 
+	left: 58.3%;
+	top: 18%;
+	background-color: #0000CF;
+}
+
+#q1e3{
+	width: 4%;
+	height: 44%;
+	position: absolute; 
+	z-index: 1; 
+	left: 66%;
+	top: 19%;
+	background-color: #0000CF;
+}
+
+#q1e4{
+	width: 9%;
+	height: 47%;
+	position: absolute; 
+	z-index: 1; 
+	left: 71%;
+	top: 20%;
+	background-color: #0000CF;
+}
+
+#q1e5{
+	width: 6%;
+	height: 48%;
+	position: absolute; 
+	z-index: 1; 
+	left: 80.5%;
+	top: 20%;
+	background-color: #0000CF;
+}
+
+
+#q2l1{
+	width: 5%;
+	height: 11%;
+	position: absolute; 
+	z-index: 1; 
+	left: 37%;
+	top: 18%;
+	background-color: #0000CF;
+}
+
+#q2l2{
+	width: 5%;
+	height: 11%;
+	position: absolute; 
+	z-index: 1; 
+	left: 57%;
+	top: 18%;
+	background-color: #0000CF;
+}
+
+#q2e1{
+	width: 5%;
 	height: 100%;
+	position: absolute; 
+	z-index: 1; 
+	left: 16%;
+	top: 0%;
+	background-color: #0000CF;
 }
 
-#fundoQuarto1 img {
-	max-height: 100%;
-	height: 85%;
+#q2e2{
+	width: 14%;
+	height: 47%;
+	position: absolute; 
+	z-index: 1; 
+	left: 22%;
+	top: 2%;
+	background-color: #0000CF;
 }
 
-#fundoCozinha img {
+#q2e3{
+	width: 13%;
+	height: 47%;
+	position: absolute; 
+	z-index: 1; 
+	left: 63%;
+	top: 2%;
+	background-color: #0000CF;
+}
+
+#q2e4{
+	width: 4%;
 	height: 100%;
-}
-
-#fundoWC img {
-	max-height: 34%;
-	height: 34%;
-}
-
-#fundoSala img {
-	max-height: 45%;
-}
+	position: absolute; 
+	z-index: 1; 
+	left: 77%;
+	top: 0%;
+	background-color: #0000CF;
+} 
