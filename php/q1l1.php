@@ -13,28 +13,157 @@
 		<title>Managing Your Home: Luz 1</title>
 	</head>
 	<body>
+		
+		<!-- *************************************************************** -->
 		<script type="text/javascript">
-			function updateSlider(slideAmount) {
-				//document.getElementById("result").innerHTML = slideAmount;
-				var cor = document.getElementById("luz").style.background;
-				var novacor = "rgba(100%, 100%, 0%," + slideAmount / 100.0 + ")";
-				document.getElementById("result").innerHTML = novacor;
-				$('#luz').css('background', novacor);
-			//	document.getElementById("luz").style.background.color;				
+		/* MOVER PARA O SCRIPTS */
+
+			/* Actualiza cor da lampada */
+			function updateLight(lightsource, alfavalue) {
+				var newlight = "rgba(100%, 100%, 0%," + alfavalue / 100.0 + ")";
+				document.getElementById("value").innerHTML = alfavalue + "%";
+				$(lightsource).css('background', newlight);				
 			}
 		</script>
 
-		<div style="position: relative; max-width: 100%;">			
-					<div style="position: absolute; z-index: 1;" id="lampada">
-						<img style="left: 0%; top: 0%;" width="50%" height="100%" src="../media/img/lampada.png"/> 
-					</div>
-					<div id="luz" style="position: relative; width: 50%; height: 100%; background-color: #FFFF00"> <!-- id vindo da bd --> &nbsp;</div>
-		</div>
-		<br>
-		<div style="background-color: #0055FF; position: relative; margin-left: 50%; margin-top: 0%;">
-			<input type="range" name="light" id="light_slider" min="0" max="100" onchange="updateSlider(this.value)">
-			Result: <div id="result">&nbsp;</div>
-		</div>
+		<!-- *************************************************************** -->
+
+		<style type="text/css">
+		/* MOVER PARA O STYLESHEET! */
+
+			/* Light Slider */
+			input[type="range"]#light_slider {
+			    -webkit-appearance: none;
+			    background-color: #112211;
+			    width: 200px;
+			    height: 20px;			    
+			    -webkit-transform:rotate(-90deg);       
+			    -moz-transform:rotate(-90deg);
+			    -o-transform:rotate(-90deg);
+			    -ms-transform:rotate(-90deg);
+			    transform:rotate(-90deg); 
+			    z-index: 0;
+			}
+
+			input[type="range"]#light_slider::-webkit-slider-thumb {
+			    -webkit-appearance: none;			    
+			    background-color: #44AA11;
+			    opacity: 1.0;
+			    width: 25px;
+			    height: 50px;
+			}
+
+			/* Lampada */
+			#lampada {
+				
+				position: absolute; 
+				z-index: 1; 
+				background-color: #FFFF00;
+			}
+
+			#lampada img {
+				width: 100%; 
+			}
+
+		</style>
+		<!-- *************************************************************** -->
+
+		<table width="100%" height="100%">
+			<tr><td id="container">
+				<table id="layout" border="0">
+					<tr>
+						<td id="sidebar">
+							<div class="sbaritem" id="sbarlogo">
+								<img src="../media/img/minilogo.png"/>
+							</div>
+
+							<div class="sbaritem" id="logout">
+									<?php 
+										require 'procedures/connection.php';
+										$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
+										$result = pg_query($query) or die(pg_last_error());
+										foreach (pg_fetch_assoc($result) as $value)
+											$nome = $value;
+										$token = explode(' ',trim($nome));
+										echo $token[0];
+										pg_free_result($result);
+										pg_close();
+									?><br>
+									<img src="../media/img/logout.png"/>
+							</div>
+						
+							<div class="sbaritem" id="edit">
+								<img src="../media/img/editar.png"/>
+							</div>
+						
+							<div class="sbaritem" id="help">
+								<img src="../media/img/ajuda.png"/>
+							</div>
+
+						</td>
+						<td id="main">
+							<table id="sublayout">
+								<tr id="cabecalho"><td>
+									<div class="hcentered">	
+										<table id="currentLocation">
+											<tr>
+												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
+												<td id="divisionTitle"><span id="path">Planta ► </span>
+												<span id="location">
+													<?php 
+														require 'procedures/connection.php';
+														$query = "SELECT dNome FROM divisao WHERE dID = 'cozinha';";
+														$result = pg_query($query) or die(pg_last_error());
+														foreach (pg_fetch_assoc($result) as $value)
+															$nome = $value;
+														echo $value;
+														pg_free_result($result);
+														pg_close();
+													?>
+												</span></td>
+											</tr>
+										</table>
+									</div>
+								</td></tr>
+								<tr id="corpo"><td>	
+
+									<table width="100%" height="100%">
+										<tr>
+											<td width="50%">        
+												<div style="position: relative; max-width: 25%">                            			
+
+													<!-- id vindo da bd -->
+													<div id="lampada" width="100%" height="100%">
+														<img src="../media/img/lampada.png"/><br>
+														<div id="value">100%</div>
+													</div>
+												</div>
+											</td>
+											<td width="50%" style="background-color: #0055FF;">
+												<div style="position: relative;">
+													<input id="light_slider" type="range" name="light" 
+															min="0" max="100" value="100" 
+															onchange="updateLight('#lampada', this.value)">
+																
+												</div>
+											</td>
+										</tr>
+									</table>
+
+								</td></tr>
+								<tr id="rodape"><td style="background-color: #AACC00;">
+									<div id="error">&nbsp;</div>
+								</td></tr>			
+
+							</table>
+
+							<div class="toggle" id="ajuda">ajuda</div>
+							<div class="toggle" id="editar">editar</div>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+		</table>
 	<!-- JavaScripts -->
 		<script type="text/javascript" src="../scripts/scripts.js"></script>		
 
