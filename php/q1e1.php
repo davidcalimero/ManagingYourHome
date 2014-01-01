@@ -27,7 +27,7 @@
 	</head>
 
 
-	<body onbeforeunload="updateBlindDB('q1e1')">
+	<body>
 
 		<!-- *************************************************************** -->
 		<script type="text/javascript">
@@ -45,7 +45,7 @@
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
 
-			/* Light Slider */
+			/* Blind Slider */
 			input[type="range"]#blind_slider {
 			    -webkit-appearance: none;
 			    background-color: #112211;
@@ -179,8 +179,9 @@
 
 													<?php 
 															echo "<input id=\"blind_slider\" type=\"range\" name=\"blind\" 
-															min=\"0\" max=\"100\" value=\"" . $value . "\" 
-															onchange=\"updateBlind('#estore_q1e1', this.value)\">";
+															min=\"0\" max=\"100\" value=\"" . $valor . "\" 
+															onchange=\"updateBlind('#estore_q1e1', this.value)\"
+															onmouseup=\"updateBlindDB('q1e1')\">";
 													?>
 														
 												</div> 
