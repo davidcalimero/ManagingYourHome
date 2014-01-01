@@ -61,7 +61,7 @@
 
 			input[type="range"]#blind_slider::-webkit-slider-thumb {
 			    -webkit-appearance: none;			    
-			    background-color: #44AA11;
+			    background-color: #94c600;
 			    opacity: 1.0;
 			    width: 25px;
 			    height: 50px;
