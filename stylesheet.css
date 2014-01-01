@@ -241,9 +241,9 @@ h1#settingsTitle {
 	position: absolute; 
 	z-index: 100;
 	left: 155px;
-	top: 50%;
- 	width: 50%;
- 	height: 50%;	
+	bottom: 15%;
+ 	width: 80%;
+ 	height: 80%;	
  	background-color: #FFFFCC;
 }
 
@@ -650,3 +650,14 @@ td#divisionTitle {
 	top: 0%;
 	background-color: #0000CF;
 } 
+
+
+/* ******************************** EDITAR ********************************** */
+
+.imagemAlt{
+	height: 30%;
+}
+
+.imagemEscolher{
+	display: none;
+}

@@ -105,7 +105,60 @@
 							</table>
 
 							<div class="toggle" id="ajuda">ajuda</div>
-							<div class="toggle" id="editar">editar</div>
+							<div class="toggle" id="editar">
+								<div>editar</div>
+								<form name="changeForm">
+									<table id="login" border="1">
+										<tr>
+											<td class="loginLabel">Nome da divisão:</td>
+											<td>
+												<?php 
+													echo "<input type=\"text\" name=\"nameDivision\" value=";
+													require 'procedures/connection.php';
+													$query = "SELECT dNome FROM divisao WHERE dID = 'quarto1';";
+													$result = pg_query($query) or die(pg_last_error());
+													foreach (pg_fetch_assoc($result) as $value)
+														$nome = $value;
+													echo "\"" . $value . "\"" ;
+													pg_free_result($result);
+													pg_close();
+													echo "id=\"nomeDivisao\" class=\"loginFields\"/>";
+												?>
+											</td>
+										</tr>
+										<tr>
+											<td class="loginLabel">Imagem:</td>
+											<td>
+												<?php 
+													require 'procedures/connection.php';
+
+													echo "<div id=\"imagemDivisao\"><img class=\"imagemAlt\" src=\"../media/img/";
+													$query = "SELECT dIcon FROM divisao WHERE dID = 'quarto1';";
+													$result = pg_query($query) or die(pg_last_error());
+													foreach (pg_fetch_assoc($result) as $value)
+														$nome = $value;
+													pg_free_result($result);
+													echo $nome . "\" alt=\"" . $nome . "\"/></div>";
+												?>
+											</td>
+										</tr>
+										<tr id="imagemEscolher">
+											<td colspan="2">
+												<img class="imagemAlt" alt="cama1.png" src="../media/img/cama1.png"/>
+												<img class="imagemAlt" alt="cama2.png" src="../media/img/cama2.png"/>
+												<img class="imagemAlt" alt="cama3.png" src="../media/img/cama3.png"/>
+												<img class="imagemAlt" alt="sofa.png" src="../media/img/sofa.png"/>
+												<img class="imagemAlt" alt="talheres.png" src="../media/img/talheres.png"/>
+												<img class="imagemAlt" alt="wc.png" src="../media/img/wc.png"/>
+											</td>
+										</tr>
+										<tr><td colspan="2" class="loginButtons">
+											<input type="button" name="alterarDivisao" value="Guardar" id="saveAD" class="loginButtons" onclick="saveEdit('quarto1');"/> 
+											<input type="reset" name="cancelar" value="Cancelar" id="cancelAD" class="loginButtons" onclick="cancelEdit('quarto1');"/>
+										</td></tr>
+									</table>
+								</form>
+							</div>
 						</td>
 					</tr>
 				</table>

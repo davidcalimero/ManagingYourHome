@@ -114,22 +114,23 @@ function verificaPermissao(divisao){
 
 
 
-// PLANTA --------------------------------
+// SIDEBAR --------------------------------
 
 $('#help').click(function(){
 	$('#definicoes').hide();
 	$('#editar').hide();
-	$('#ajuda').toggle();
+	$('#ajuda').fadeToggle(fade);
 });
 
 $('#settings').click(function(){
 	$('#ajuda').hide();
-	$('#definicoes').toggle();
+	$('#definicoes').fadeToggle(fade);
 });
 
 $('#edit').click(function(){
+	$("#cancelAD").click();
 	$('#ajuda').hide();
-	$('#editar').toggle();
+	$('#editar').fadeToggle(fade);
 });
 
 $('#logout').click(function(){
@@ -141,3 +142,54 @@ $('#sbarlogo').click(function(){
 	var substr = window.location.pathname.split('/');
 	window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2] + "/php/planta.php";
 });
+
+
+
+
+// EDITAR DIVISAO --------------------------------
+
+function saveEdit(divisao){
+	var name = $('#nomeDivisao').val();
+	var image = $('#imagemDivisao').find('img:first').attr("alt"); 
+	$('#error').val('&nbsp;');
+	if(name.length > 0){
+		$.post('procedures/editRoom.php',
+				{
+					name:name,
+					image:image,
+					divisao:divisao
+				},
+				function(data){
+					$("#edit").click();
+					$("#nomeDivisao").attr("value", name);
+					$('#error').css('background-color', '#EEFFEE');
+					$('#location').text(name);
+					$('#error').css('color', '#119911');
+					$('#error').text("As alterações feitas à divisão foram guardadas com sucesso!");
+				}
+			);
+	}
+	else $('#error').text("Erro: O nome de uma divisão deve ter entre 1 e 20 caracteres");
+	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+}
+
+function cancelEdit(divisao){
+	$('#imagemEscolher').fadeOut(fade);
+	$.post('procedures/roomImage.php',
+			{
+				divisao:divisao
+			},
+			function(data){
+				$('#imagemDivisao').html("<img style=\"height: 30%\" src=\"../media/img/" + data + "\" alt=\"" + data + "\"/>");
+			}
+		);
+}
+
+$('#imagemDivisao').click(function(){
+	$('#imagemEscolher').fadeToggle(fade);
+});
+
+$('.imagemAlt').click(function() {
+	$('#imagemEscolher').fadeOut(fade);
+	$('#imagemDivisao').empty().append($(this).clone());
+ });
