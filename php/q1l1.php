@@ -23,11 +23,11 @@
 			}
 		</script>
 
-		<title>Managing Your Home: Luz 1</title>
+		<title>Managing Your Home: Candeeiro</title>
 	</head>
 
 
-	<body onbeforeunload="updateLightBD('q1l1')">
+	<body>
 
 		<!-- *************************************************************** -->
 		<script type="text/javascript">
@@ -172,8 +172,9 @@
 
 													<?php 
 															echo "<input id=\"light_slider\" type=\"range\" name=\"light\" 
-															min=\"0\" max=\"100\" value=\"" . $value . "\" 
-															onchange=\"updateLight('#lampada_q1l1', this.value)\">";
+															min=\"0\" max=\"100\" value=\"" . $valor . "\" 
+															onchange=\"updateLight('#lampada_q1l1', this.value)\"
+															onmouseup=\"updateLightBD('q1l1')\">";
 													?>
 														
 												</div>
