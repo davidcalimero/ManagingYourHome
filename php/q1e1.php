@@ -35,11 +35,8 @@
 
 			/* Actualiza altura do estore */
 			function updateBlind(blindcurtain, newheight) {
-			//	var newscale = "scaleY(" + newheight + ")";
-			//	var newtranslation = "translateY(" + newheight + ")";
 				document.getElementById("value").innerHTML = newheight + "%";
 				$(blindcurtain).css('height', newheight);	
-			//	$(blindcurtain).css('transform', newtranslation);	
 			}			
 		</script>
 
