@@ -10,10 +10,25 @@
 		<!-- JQuery -->
 		<script type="text/javascript" src="../scripts/jquery.js"></script>
 
+		<script type="text/javascript">
+			/* Actualiza cor da lampada na BD */
+			function updateLightBD(dbID) {
+				var lastValue = document.getElementById("light_slider").value;
+			//	document.getElementById("error").innerHTML = lastValue; // DEBUG
+				$.post('procedures/modifyV1.php',
+				{
+					eID: dbID,
+					v1: lastValue
+				});
+			}
+		</script>
+
 		<title>Managing Your Home: Luz 1</title>
 	</head>
-	<body>
-		
+
+
+	<body onbeforeunload="updateLightBD('q1l1')">
+
 		<!-- *************************************************************** -->
 		<script type="text/javascript">
 		/* MOVER PARA O SCRIPTS */
@@ -23,8 +38,7 @@
 				var newlight = "rgba(100%, 100%, 0%," + alfavalue / 100.0 + ")";
 				document.getElementById("value").innerHTML = alfavalue + "%";
 				$(lightsource).css('background', newlight);	
-
-			}
+			}			
 		</script>
 
 		<!-- *************************************************************** -->
@@ -148,8 +162,8 @@
 															pg_free_result($result);
 
 															echo "<img src=\"../media/img/lampada.png\" onload=\"updateLight('#lampada_q1l1', " . $valor . ")\"><br>";
-															echo "<div id=\"value\">&nbsp;</div>";
 														?>
+														<div id="value">&nbsp;</div>
 													</div>
 												</div>
 											</td>
@@ -159,7 +173,7 @@
 													<?php 
 															echo "<input id=\"light_slider\" type=\"range\" name=\"light\" 
 															min=\"0\" max=\"100\" value=\"" . $value . "\" 
-															onchange=\"updateLight('#lampada_q1l1', this.value)\">"
+															onchange=\"updateLight('#lampada_q1l1', this.value)\">";
 													?>
 														
 												</div>
