@@ -176,10 +176,11 @@ function saveEdit(divisao){
 				function(data){
 					$("#edit").click();
 					$("#nomeDivisao").attr("value", name);
-					$('#error').css('background-color', '#EEFFEE');
 					$('#location').text(name);
 					$('#error').css('color', '#119911');
+					$('#error').css('background-color', '#EEFFEE');
 					$('#error').text("As alterações feitas à divisão foram guardadas com sucesso!");
+					setTimeout(function(){$('#error').css('color', '#991111'); $('#error').css('background-color', '#FFEEEE');}, 3500);
 				}
 			);
 	}
