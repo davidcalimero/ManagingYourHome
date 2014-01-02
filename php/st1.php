@@ -12,14 +12,17 @@
 
 		<script type="text/javascript">
 			/* Actualiza o volume na BD */
-			function updateVolumeDB(dbID) {
+			function updateVolumeDB(dbID, volumebar) {
+				var currentwidthstr = $(volumebar).css('width').split("px");
+				var currentwidth = parseFloat(currentwidthstr[0]);
+
 			//	var lastValue = document.getElementById("volume_slider").value;
 			//	document.getElementById("error").innerHTML = lastValue; // DEBUG
-			/*	$.post('procedures/modifyV1.php',
+				$.post('procedures/modifyV1.php',
 				{
 					eID: dbID,
-					v1: lastValue
-				}); */
+					v1: currentwidth
+				});
 			}
 
 			function updateChannelDB(dbID, channel) {
@@ -42,12 +45,6 @@
 		<script type="text/javascript">
 		/* MOVER PARA O SCRIPTS */
 
-			/* Actualiza volume */
-			function updateVolume(volumebar, newwidth) {
-				document.getElementById("value").innerHTML = newwidth + "%";
-				$(volumebar).css('width', newwidth);	
-			}
-
 			function updateChannel(tv, newchannel) {
 				document.getElementById(tv).setAttribute("alt", newchannel);				
 				var newsrc = "../media/img/" + newchannel + ".png";
@@ -55,8 +52,27 @@
 				document.getElementById(tv).setAttribute("src", newsrc);
 			}
 
+
+			/* Actualiza volume */
+			function updateVolume(volumebar, newwidth) {
+			//	document.getElementById("error").innerHTML = newwidth; //DEBUG
+				document.getElementById("value").innerHTML = newwidth + "%";
+				$(volumebar).css('width', newwidth + "px");	
+			}			
+
 			function isOn(tv) {
 				 if(document.getElementById(tv).getAttribute("alt") == "0") {
+					return false;
+				}
+				else {
+					return true;
+				} 
+			}
+
+			function isMute(volumebar) {
+				var currentwidthstr = $(volumebar).css('width').split("px");
+				var currentwidth = parseFloat(currentwidthstr[0]);
+				if(currentwidth != 0) {
 					return false;
 				}
 				else {
@@ -225,37 +241,43 @@
 										<tr>
 											<td width="50%">        
 												<div style="position: relative; max-width: 50%">
-													<div id="volume_st1">&nbsp;</div>                        			
-													<div id="televisao" width="100%" height="100%">
 													<?php 
 															require 'procedures/connection.php';
 
 															$query = "select v1, v2 from equipamento where eID = 'st1';";
 															$result = pg_query($query) or die(pg_last_error());
-															foreach (pg_fetch_assoc($result) as $value) {
-																$volume = $value['v1'];
-																$canal = $value['v2'];
+															while ($value = pg_fetch_array($result)) {
+																$volume = $value[0];
+																$canal = $value[1];
 															}
 															pg_free_result($result);
 
-															echo "Vol: " . $volume . "Canal: " . $canal . " <img src=\"../media/img/" . $canal . ".png\" id=\"channel\" alt=\"" . $canal . "\" onload=\"updateVolume('#volume_st1', " . $volume . ")\"><br>";
-														?>
-														<div id="value">&nbsp;</div>
-													</div>
+														echo "<div id=\"volume_st1\" style=\"width: " . $volume . "px;\">&nbsp;</div>";                        			
+														echo "<div id=\"televisao\" width=\"100%\" height=\"100%\">";							
+																echo "Vol: " . $volume . "Canal: " . $canal . " <img src=\"../media/img/" . $canal . ".png\" id=\"channel\" alt=\"" . $canal . "\"><br>
+																	<div id=\"value\">" . $volume . "%</div>"; 
+																	?>
+														</div>
 												</div>
 											</td>
 											<td width="50%" style="background-color: #0055FF;">
 												<div style="position: relative;">
 													<div id="TVbuttons">
-														<div id="offButton" class="loginButtons" 
+														<input type="button" name="off" value="off" id="offButton" class="loginButtons" 
 															onclick="if(isOn('channel')) { 
-																			updateChannel('channel', 0); 
-																			updateVolume('#volume_st1', 0); 
-																	} else {
+																		updateChannel('channel', 0); 
+																		updateVolume('#volume_st1', 0); 
+																		} 
+																	else { 
 																		updateChannel('channel', 1); 
-																		updateVolume('#volume_st1', 25);
-																	}">Off</div>
-														<input type="button" name="mute" value="M" id="muteButton" class="loginButtons" onclick="updateVolume('#volume_st1', 0);"/>
+																		updateVolume('#volume_st1', 10);
+																	}"/>							
+														<input type="button" name="mute" value="M" id="muteButton" class="loginButtons" 
+															onclick="if(isOn('channel')) {
+																		if(isMute('#volume_st1'))
+																			updateVolume('#volume_st1', 10);
+																		else updateVolume('#volume_st1', 0);
+																	}"/>
 														<input type="button" name="one" value="1" id="oneButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 1);"/>
 														<input type="button" name="two" value="2" id="twoButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 2);"/>
 														<input type="button" name="three" value="3" id="threeButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 3);"/> 
