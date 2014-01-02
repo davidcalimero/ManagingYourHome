@@ -18,6 +18,58 @@
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
 
+			#blind_feedback {
+				position: relative; 
+				width: 90%; 
+				max-height: 50%;
+				margin-left: auto; 
+				margin-right: auto;
+			}
+
+			#estore_q1e1 {
+				background-color: #112211;
+				position: absolute;
+				-webkit-transform:rotate(180deg);
+				width: 350px; 
+			}
+
+			#estore {				
+				position: absolute; 
+				z-index: 1; 
+			}
+
+			#estore img {		
+				height: 300px;
+			} 
+
+			#blind_controls {			
+				position: relative;
+			}
+
+			#open {
+				margin-left: 45px; 
+				color: #112211;
+				font-family: Arial;
+				font-size: 16pt;
+				font-weight: bold;
+			}
+
+			#closed {
+
+				margin-left: 40px; 
+				color: #112211;
+				font-family: Arial;
+				font-size: 16pt;
+				font-weight: bold;
+			}
+
+			#slider_geral {
+				position: relative;
+			/*	background-color: #5500FF;*/
+				height: 220px;
+
+			}
+
 			/* Blind Slider */
 			input[type="range"]#blind_slider {
 			    -webkit-appearance: none;
@@ -30,6 +82,8 @@
 			    -ms-transform:rotate(90deg);
 			    transform:rotate(90deg); 
 			    z-index: 0;
+			    margin-top: 100px;
+			    margin-left: -20px; 
 			}
 
 			input[type="range"]#blind_slider::-webkit-slider-thumb {
@@ -40,22 +94,7 @@
 			    height: 50px;
 			}
 
-			/* Estore */
-
-			#estore_q1e1 {
-				background-color: #555555;
-				position: relative;
-				width: 100%;
-			}
-
-			#estore {				
-				position: absolute; 
-				z-index: 1; 
-			}
-
-			#estore img {
-				width: 100%; 
-			} 
+			
 
 		</style>
 		<!-- *************************************************************** -->
@@ -128,10 +167,11 @@
 
 									<table width="100%" height="100%">
 										<tr>
-											<td width="50%">        
-												<div style="position: relative; max-width: 25%">
-													
-													<?php 
+											<td width="10%"></td>
+											<td width="40%">        
+												<div style="position: relative; max-width: 60%; margin-top: -30%;">
+													<div id="blind_feedback">
+														<?php 
 															require 'procedures/connection.php';
 
 															$query = "select v1 from equipamento where eID = 'q1e1';";
@@ -144,20 +184,20 @@
 																echo "<div id=\"estore\" width=\"100%\" height=\"100%\">";
 
 																echo "<img src=\"../media/img/janelaAberta.png\"><br>";
-																echo "<div id=\"value\">" . $valor . "%</div>";
+															//	echo "<div id=\"value\">" . $valor . "%</div>";
 														?>
-														
+														</div>														
 													</div>
 												</div>
 											</td>
 											<td width="50%" style="background-color: #0055FF;">
-												<div style="position: relative;">
+												<div id="blind_controls">
 
 													<?php 
-															echo "<input id=\"blind_slider\" type=\"range\" name=\"blind\" 
-															min=\"0\" max=\"100\" value=\"" . $valor . "\" 
+															echo "<div id=\"open\">Aberto</div><div id=\"slider_geral\"><input id=\"blind_slider\" type=\"range\" name=\"blind\" 
+															min=\"0\" max=\"300\" value=\"" . $valor . "\" 
 															onchange=\"updateBlind('#estore_q1e1', this.value)\"
-															onmouseup=\"updateBlindDB('q1e1')\">";
+															onmouseup=\"updateBlindDB('q1e1')\"></div><div id=\"closed\">Fechado</div>";
 													?>
 														
 												</div> 

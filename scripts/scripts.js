@@ -248,8 +248,8 @@ function updateLightBD(dbID) {
 // ESTORES --------------------------------
 
 function updateBlind(blindcurtain, newheight) {
-	document.getElementById("value").innerHTML = newheight + "%";
-	$(blindcurtain).css('height', newheight);	
+//	document.getElementById("value").innerHTML = newheight + "%";
+	$(blindcurtain).css('height', newheight + "px");	
 }
 
 /* BD */
