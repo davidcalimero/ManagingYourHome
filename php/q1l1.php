@@ -19,6 +19,64 @@
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
 
+			#light_feedback {
+				position: relative; 
+				width: 90%; 
+				max-height: 50%;
+				margin-left: auto; 
+				margin-right: auto;
+			}
+
+			#lampada_q1l1 {	
+				margin-top: auto; 
+				margin-bottom: auto; 
+
+				position: absolute; 
+				z-index: 1; 				
+			}
+
+			#lampada_q1l1 img {
+				width: 100%; 
+				max-height: 50%;
+				vertical-align: text-bottom;
+			}
+
+			#value {
+				color: #112211;
+				font-family: Arial;
+				font-size: 24pt;
+				font-weight: bold;
+			}
+
+			#light_controls {			
+				position: relative;
+			}
+
+			#max {
+				margin-left: 60px; 
+				color: #112211;
+				font-family: Arial;
+				font-size: 16pt;
+				font-weight: bold;
+			}
+
+			#min {
+			/*	position: relative;
+				margin-top: 20%;*/
+				margin-left: 70px; 
+				color: #112211;
+				font-family: Arial;
+				font-size: 16pt;
+				font-weight: bold;
+			}
+
+			#slider_geral {
+				position: relative;
+			/*	background-color: #5500FF;*/
+				height: 220px;
+
+			}
+
 			/* Light Slider */
 			input[type="range"]#light_slider {
 			    -webkit-appearance: none;
@@ -31,6 +89,9 @@
 			    -ms-transform:rotate(-90deg);
 			    transform:rotate(-90deg); 
 			    z-index: 0;
+			   	position: relative;
+			    margin-top: 100px;
+			    margin-left: -20px; 
 			}
 
 			input[type="range"]#light_slider::-webkit-slider-thumb {
@@ -40,16 +101,7 @@
 			    width: 25px;
 			    height: 50px;
 			}
-
-			/* Lampada */
-			#lampada_q1l1 {				
-				position: absolute; 
-				z-index: 1; 
-			}
-
-			#lampada_q1l1 img {
-				width: 100%; 
-			}
+			
 
 		</style>
 		<!-- *************************************************************** -->
@@ -122,35 +174,41 @@
 
 									<table width="100%" height="100%">
 										<tr>
-											<td width="50%">        
-												<div style="position: relative; max-width: 25%">                         			
-													
-													<?php 
-															require 'procedures/connection.php';
-
-															$query = "select v1 from equipamento where eID = 'q1l1';";
-															$result = pg_query($query) or die(pg_last_error());
-															foreach (pg_fetch_assoc($result) as $value)
-																$valor = $value;
-															pg_free_result($result);
-
-															echo "<div id=\"lampada_q1l1\" width=\"100%\" height=\"100%\"
-																		style=\"background-color: rgba(100%, 100%, 0%, ". $valor / 100 . ");\">";
-																echo "<img src=\"../media/img/lampada.png\"><br>";
-																echo "<div id=\"value\">" . $valor . "%</div>";
-														?>
+											<td width="10%"></td>
+											<td width="30%">
+												<div style="position: relative; margin-top: -60%;">        
+													<div id="light_feedback">                         			
 														
+														<?php 
+																require 'procedures/connection.php';
+
+																$query = "select v1 from equipamento where eID = 'q1l1';";
+																$result = pg_query($query) or die(pg_last_error());
+																foreach (pg_fetch_assoc($result) as $value)
+																	$valor = $value;
+																pg_free_result($result);
+
+																echo "<div id=\"lampada_q1l1\" width=\"100%\" height=\"100%\"
+																			style=\"background-color: rgba(100%, 100%, 0%, ". $valor / 100 . ");\">";
+																	echo "<img src=\"../media/img/lampada.png\"></div><br>";
+															
+														?>						
 													</div>
-												</div>
+												</div> 
 											</td>
-											<td width="50%" style="background-color: #0055FF;">
-												<div style="position: relative;">
+											<td width="10%">
+												<?php
+													echo "<div id=\"value\">" . $valor . "%</div>";
+												?>
+											</td>
+											<td width="50%">
+												<div id="light_controls">
 
 													<?php 
-															echo "<input id=\"light_slider\" type=\"range\" name=\"light\" 
+															echo "<div id=\"max\">100%</div><div id=\"slider_geral\"><input id=\"light_slider\" type=\"range\" name=\"light\" 
 															min=\"0\" max=\"100\" value=\"" . $valor . "\" 
 															onchange=\"updateLight('#lampada_q1l1', this.value)\"
-															onmouseup=\"updateLightBD('q1l1')\">";
+															onmouseup=\"updateLightBD('q1l1')\"></div><div id=\"min\">0%</div>";
 													?>
 														
 												</div>
