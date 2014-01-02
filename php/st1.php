@@ -15,9 +15,6 @@
 			function updateVolumeDB(dbID, volumebar) {
 				var currentwidthstr = $(volumebar).css('width').split("px");
 				var currentwidth = parseFloat(currentwidthstr[0]);
-
-			//	var lastValue = document.getElementById("volume_slider").value;
-			//	document.getElementById("error").innerHTML = lastValue; // DEBUG
 				$.post('procedures/modifyV1.php',
 				{
 					eID: dbID,
@@ -25,13 +22,13 @@
 				});
 			}
 
-			function updateChannelDB(dbID, channel) {
-			//	document.getElementById("error").innerHTML = channel; // DEBUG
-			/*	$.post('procedures/modifyV2.php',
+			function updateChannelDB(dbID, tv) {
+				var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
+				$.post('procedures/modifyV2.php',
 				{
 					eID: dbID,
-					v2: channel
-				}); */
+					v2: currentchannel
+				}); 
 			}
 		</script>
 
@@ -266,27 +263,69 @@
 														<input type="button" name="off" value="off" id="offButton" class="loginButtons" 
 															onclick="if(isOn('channel')) { 
 																		updateChannel('channel', 0); 
-																		updateVolume('#volume_st1', 0); 
+																		updateChannelDB('st1', 'channel');
+																		updateVolume('#volume_st1', 0);
+																		updateVolumeDB('st1', '#volume_st1'); 
 																		} 
 																	else { 
 																		updateChannel('channel', 1); 
+																		updateChannelDB('st1', 'channel');
 																		updateVolume('#volume_st1', 10);
+																		updateVolumeDB('st1', '#volume_st1');
 																	}"/>							
 														<input type="button" name="mute" value="M" id="muteButton" class="loginButtons" 
 															onclick="if(isOn('channel')) {
-																		if(isMute('#volume_st1'))
+																		if(isMute('#volume_st1')) {
 																			updateVolume('#volume_st1', 10);
-																		else updateVolume('#volume_st1', 0);
+																			updateVolumeDB('st1', '#volume_st1');
+																		}
+																		else {
+																			updateVolume('#volume_st1', 0);
+																			updateVolumeDB('st1', '#volume_st1');
+																		}
 																	}"/>
-														<input type="button" name="one" value="1" id="oneButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 1);"/>
-														<input type="button" name="two" value="2" id="twoButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 2);"/>
-														<input type="button" name="three" value="3" id="threeButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 3);"/> 
-														<input type="button" name="four" value="4" id="fourButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 4);"/>
-														<input type="button" name="vplus" value="V+" id="vplusButton" class="loginButtons" onclick="if(isOn('channel')) incVolume('#volume_st1');"/>
-														<input type="button" name="vminus" value="V-" id="vminusButton" class="loginButtons" onclick="if(isOn('channel')) decVolume('#volume_st1');"/>
-														<input type="button" name="pplus" value="P+" id="pplusButton" class="loginButtons" onclick="if(isOn('channel')) incChannel('channel');"/>
-														<input type="button" name="pminus" value="P-" id="pminusButton" class="loginButtons" onclick="if(isOn('channel')) decChannel('channel');"/>
 
+														<input type="button" name="one" value="1" id="oneButton" class="loginButtons" 
+																onclick="if(isOn('channel')) {
+																			updateChannel('channel', 1);
+																			updateChannelDB('st1', 'channel');
+																		}"/>
+														<input type="button" name="two" value="2" id="twoButton" class="loginButtons" 
+																onclick="if(isOn('channel')) {
+																			updateChannel('channel', 2);
+																			updateChannelDB('st1', 'channel');
+																		}"/>
+														<input type="button" name="three" value="3" id="threeButton" class="loginButtons" 
+																onclick="if(isOn('channel')) {
+																		updateChannel('channel', 3);
+																		updateChannelDB('st1', 'channel');
+																	}"/> 
+														<input type="button" name="four" value="4" id="fourButton" class="loginButtons" 
+															onclick="if(isOn('channel')) {
+																		updateChannel('channel', 4);
+																		updateChannelDB('st1', 'channel');
+																	}"/>
+
+														<input type="button" name="vplus" value="V+" id="vplusButton" class="loginButtons" 
+															onclick="if(isOn('channel')) {
+																		incVolume('#volume_st1');
+																		updateVolumeDB('st1', '#volume_st1');
+																	} "/>
+														<input type="button" name="vminus" value="V-" id="vminusButton" class="loginButtons" 
+															onclick="if(isOn('channel')) {
+																		decVolume('#volume_st1');
+																		updateVolumeDB('st1', '#volume_st1');
+																	}"/>
+														<input type="button" name="pplus" value="P+" id="pplusButton" class="loginButtons" 
+															onclick="if(isOn('channel')) {
+																		incChannel('channel');
+																		updateChannelDB('st1', 'channel');
+																	}"/>
+														<input type="button" name="pminus" value="P-" id="pminusButton" class="loginButtons" 
+																onclick="if(isOn('channel')) {
+																			decChannel('channel');
+																			updateChannelDB('st1', 'channel');
+																		}"/>
 													</div>	
 													<!--
 													<?php 
