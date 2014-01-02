@@ -36,7 +36,7 @@
 	</head>
 
 
-	<body onbeforeunload="updateVolumeDB('st1')">
+	<body>
 
 		<!-- *************************************************************** -->
 		<script type="text/javascript">
@@ -67,11 +67,22 @@
 			function incVolume(volumebar) {
 				var currentwidthstr = $(volumebar).css('width').split("px");
 				var currentwidth = parseFloat(currentwidthstr[0]);
-				document.getElementById("error").innerHTML = currentwidth;
+				// document.getElementById("error").innerHTML = currentwidth; // DEBUG
 				if(currentwidth < 100) {
-					var newwidth = currentwidth + 1;
-				//	document.getElementById("error").innerHTML = newwidth; // DEBUG
-					$(volumebar).css('width', newwidth + "px");
+					currentwidth++;
+				//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
+					$(volumebar).css('width', currentwidth + "px");
+				}
+			}
+
+			function decVolume(volumebar) {
+				var currentwidthstr = $(volumebar).css('width').split("px");
+				var currentwidth = parseFloat(currentwidthstr[0]);
+				// document.getElementById("error").innerHTML = currentwidth; // DEBUG
+				if(currentwidth > 0) {
+					currentwidth--;
+				//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
+					$(volumebar).css('width', currentwidth + "px");
 				}
 			}
 
@@ -79,6 +90,16 @@
 				var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
 				if (currentchannel < 4) {
 					currentchannel++;
+					document.getElementById(tv).setAttribute("alt", currentchannel);
+					var newsrc = "../media/img/" + currentchannel + ".png";
+					document.getElementById(tv).setAttribute("src", newsrc);
+				}
+			}
+
+			function decChannel(tv) {
+				var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
+				if (currentchannel > 1) {
+					currentchannel--;
 					document.getElementById(tv).setAttribute("alt", currentchannel);
 					var newsrc = "../media/img/" + currentchannel + ".png";
 					document.getElementById(tv).setAttribute("src", newsrc);
@@ -228,22 +249,28 @@
 															onclick="if(isOn('channel')) { 
 																			updateChannel('channel', 0); 
 																			updateVolume('#volume_st1', 0); 
-																	} else updateChannel('channel', 1); ">Off</div>
+																	} else {
+																		updateChannel('channel', 1); 
+																		updateVolume('#volume_st1', 25);
+																	}">Off</div>
 														<input type="button" name="mute" value="M" id="muteButton" class="loginButtons" onclick="updateVolume('#volume_st1', 0);"/>
 														<input type="button" name="one" value="1" id="oneButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 1);"/>
 														<input type="button" name="two" value="2" id="twoButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 2);"/>
 														<input type="button" name="three" value="3" id="threeButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 3);"/> 
 														<input type="button" name="four" value="4" id="fourButton" class="loginButtons" onclick="if(isOn('channel')) updateChannel('channel', 4);"/>
 														<input type="button" name="vplus" value="V+" id="vplusButton" class="loginButtons" onclick="if(isOn('channel')) incVolume('#volume_st1');"/>
+														<input type="button" name="vminus" value="V-" id="vminusButton" class="loginButtons" onclick="if(isOn('channel')) decVolume('#volume_st1');"/>
 														<input type="button" name="pplus" value="P+" id="pplusButton" class="loginButtons" onclick="if(isOn('channel')) incChannel('channel');"/>
+														<input type="button" name="pminus" value="P-" id="pminusButton" class="loginButtons" onclick="if(isOn('channel')) decChannel('channel');"/>
 
 													</div>	
+													<!--
 													<?php 
-															echo "<input id=\"volume_slider\" type=\"range\" name=\"blind\" 
+														/*	echo "<input id=\"volume_slider\" type=\"range\" name=\"blind\" 
 															min=\"0\" max=\"100\" value=\"" . $volume . "\" 
-															onchange=\"updateVolume('#volume_st1', this.value)\">";
+															onchange=\"updateVolume('#volume_st1', this.value)\">"; */
 													?>
-													
+													-->
 												</div> 
 											</td>
 										</tr>
