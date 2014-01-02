@@ -71,6 +71,7 @@
 				if(currentwidth < 100) {
 					currentwidth++;
 				//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
+					document.getElementById("value").innerHTML = currentwidth + "%";
 					$(volumebar).css('width', currentwidth + "px");
 				}
 			}
@@ -82,6 +83,7 @@
 				if(currentwidth > 0) {
 					currentwidth--;
 				//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
+					document.getElementById("value").innerHTML = currentwidth + "%";
 					$(volumebar).css('width', currentwidth + "px");
 				}
 			}
