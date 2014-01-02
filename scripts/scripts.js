@@ -145,6 +145,15 @@ $('#sbarlogo').click(function(){
 
 
 
+// EDITAR DIVISAO --------------------------------
+
+$('.acessibilidade').click(function(){
+	$('#error').text("Erro: Funcionalidade temporariamente indisponivel");
+	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+});
+
+
+
 
 // EDITAR DIVISAO --------------------------------
 

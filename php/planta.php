@@ -109,7 +109,29 @@
 							</table>
 
 							<div class="toggle" id="ajuda">ajuda</div>
-							<div class="toggle" id="definicoes">definicoes</div>
+							<div class="toggle" id="definicoes">
+								<div>definições</div>
+								<table id="login">
+									<tr>
+										<td class="loginLabel">Volume:</td>
+										<td><input  type="range" id="volume_set_slider" min="0" max="100" value="25" class="loginFields"/></td>
+									</tr>
+									<tr>
+										<td class="loginLabel">Idioma:</td>
+										<td><img class="acessibilidade" width="30%" src="../media/img/pt-pt.png"/></td>
+									</tr>
+									<tr>
+										<td class="loginLabel">Modo de acessibilidade:</td>
+										<td class="acessibilidade"><div class="onoffswitch">
+											<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" disabled/>
+											<label class="onoffswitch-label" for="myonoffswitch">
+												<div class="onoffswitch-inner"></div>
+												<div class="onoffswitch-switch"></div>
+											</label>
+										</div></td>
+									</tr>
+								</table>
+							</div>
 						</td>
 					</tr>
 				</table>
