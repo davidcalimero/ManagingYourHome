@@ -157,8 +157,7 @@
 										<tr>
 											<td width="50%">        
 												<div style="position: relative; max-width: 25%">
-													<div id="estore_q1e1">&nbsp;</div>                        			
-													<div id="estore" width="100%" height="100%">
+													
 													<?php 
 															require 'procedures/connection.php';
 
@@ -168,9 +167,13 @@
 																$valor = $value;
 															pg_free_result($result);
 
-															echo "<img src=\"../media/img/janelaAberta.png\" onload=\"updateBlind('#estore_q1e1', " . $valor . ")\"><br>";
+															echo "<div id=\"estore_q1e1\" style=\"height:" . $valor . "px;\">&nbsp;</div>";                        			
+																echo "<div id=\"estore\" width=\"100%\" height=\"100%\">";
+
+																echo "<img src=\"../media/img/janelaAberta.png\"><br>";
+																echo "<div id=\"value\">" . $valor . "</div>";
 														?>
-														<div id="value">&nbsp;</div>
+														
 													</div>
 												</div>
 											</td>
