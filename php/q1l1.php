@@ -151,7 +151,7 @@
 										<tr>
 											<td width="50%">        
 												<div style="position: relative; max-width: 25%">                         			
-													<div id="lampada_q1l1" width="100%" height="100%">
+													
 													<?php 
 															require 'procedures/connection.php';
 
@@ -161,9 +161,12 @@
 																$valor = $value;
 															pg_free_result($result);
 
-															echo "<img src=\"../media/img/lampada.png\" onload=\"updateLight('#lampada_q1l1', " . $valor . ")\"><br>";
+															echo "<div id=\"lampada_q1l1\" width=\"100%\" height=\"100%\"
+																		style=\"background-color: rgba(100%, 100%, 0%, ". $valor / 100 . ");\">";
+																echo "<img src=\"../media/img/lampada.png\"><br>";
+																echo "<div id=\"value\">" . $valor . "</div>";
 														?>
-														<div id="value">&nbsp;</div>
+														
 													</div>
 												</div>
 											</td>
