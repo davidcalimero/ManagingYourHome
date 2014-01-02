@@ -153,11 +153,16 @@ function saveEdit(divisao){
 	var image = $('#imagemDivisao').find('img:first').attr("alt"); 
 	$('#error').val('&nbsp;');
 	if(name.length > 0){
+		var permissoes = [];
+		$("#comPermissao tr").each(function(i, v){
+				permissoes.push($(this).find('td').text());
+		});
 		$.post('procedures/editRoom.php',
 				{
 					name:name,
 					image:image,
-					divisao:divisao
+					divisao:divisao,
+					permissoes:permissoes
 				},
 				function(data){
 					$("#edit").click();
@@ -183,6 +188,14 @@ function cancelEdit(divisao){
 				$('#imagemDivisao').html("<img style=\"height: 30%\" src=\"../media/img/" + data + "\" alt=\"" + data + "\"/>");
 			}
 		);
+	$.post('procedures/roomPermission.php',
+			{
+				divisao:divisao
+			},
+			function(data){
+				$('#permissoesDivisao').html(data);
+			}
+		);
 }
 
 $('#imagemDivisao').click(function(){
@@ -192,6 +205,24 @@ $('#imagemDivisao').click(function(){
 $('.imagemAlt').click(function() {
 	$('#imagemEscolher').fadeOut(fade);
 	$('#imagemDivisao').empty().append($(this).clone());
+ });
+
+$(document).on('click', '.pessoaCom', function() {
+	var clone = $(this).clone();
+	clone.attr('class', 'pessoaSem');
+	clone.insertAfter('#semPermissao tbody>tr:last');
+	$(this).remove();
+ });
+
+$(document).on('click', '.pessoaSem', function() {
+	var clone = $(this).clone();
+	clone.attr('class', 'pessoaCom');
+	clone.insertAfter('#comPermissao tbody>tr:last');
+	$(this).remove();
+ });
+
+$('#cancelSI').click(function() {
+	$('#imagemEscolher').fadeOut(fade);
  });
 
 
