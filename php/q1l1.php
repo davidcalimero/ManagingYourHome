@@ -10,38 +10,11 @@
 		<!-- JQuery -->
 		<script type="text/javascript" src="../scripts/jquery.js"></script>
 
-		<script type="text/javascript">
-			/* Actualiza cor da lampada na BD */
-			function updateLightBD(dbID) {
-				var lastValue = document.getElementById("light_slider").value;
-			//	document.getElementById("error").innerHTML = lastValue; // DEBUG
-				$.post('procedures/modifyV1.php',
-				{
-					eID: dbID,
-					v1: lastValue
-				});
-			}
-		</script>
-
 		<title>Managing Your Home: Candeeiro</title>
 	</head>
 
 
 	<body>
-
-		<!-- *************************************************************** -->
-		<script type="text/javascript">
-		/* MOVER PARA O SCRIPTS */
-
-			/* Actualiza cor da lampada */
-			function updateLight(lightsource, alfavalue) {
-				var newlight = "rgba(100%, 100%, 0%," + alfavalue / 100.0 + ")";
-				document.getElementById("value").innerHTML = alfavalue + "%";
-				$(lightsource).css('background', newlight);	
-			}			
-		</script>
-
-		<!-- *************************************************************** -->
 
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
@@ -164,7 +137,7 @@
 															echo "<div id=\"lampada_q1l1\" width=\"100%\" height=\"100%\"
 																		style=\"background-color: rgba(100%, 100%, 0%, ". $valor / 100 . ");\">";
 																echo "<img src=\"../media/img/lampada.png\"><br>";
-																echo "<div id=\"value\">" . $valor . "</div>";
+																echo "<div id=\"value\">" . $valor . "%</div>";
 														?>
 														
 													</div>

@@ -193,3 +193,144 @@ $('.imagemAlt').click(function() {
 	$('#imagemEscolher').fadeOut(fade);
 	$('#imagemDivisao').empty().append($(this).clone());
  });
+
+
+// LUZES --------------------------------
+
+function updateLight(lightsource, alfavalue) {
+	var newlight = "rgba(100%, 100%, 0%," + alfavalue / 100.0 + ")";
+	document.getElementById("value").innerHTML = alfavalue + "%";
+	$(lightsource).css('background', newlight);	
+}		
+
+/* BD */
+function updateLightBD(dbID) {
+	var lastValue = document.getElementById("light_slider").value;
+//	document.getElementById("error").innerHTML = lastValue; // DEBUG
+	$.post('procedures/modifyV1.php',
+	{
+		eID: dbID,
+		v1: lastValue
+	});
+}
+
+// ESTORES --------------------------------
+
+function updateBlind(blindcurtain, newheight) {
+	document.getElementById("value").innerHTML = newheight + "%";
+	$(blindcurtain).css('height', newheight);	
+}
+
+/* BD */
+function updateBlindDB(dbID) {
+	var lastValue = document.getElementById("blind_slider").value;
+//	document.getElementById("error").innerHTML = lastValue; // DEBUG
+	$.post('procedures/modifyV1.php',
+	{
+		eID: dbID,
+		v1: lastValue
+	});
+}
+
+// TELEVISAO --------------------------------
+
+// Estado
+function isOn(tv) {
+	 if(document.getElementById(tv).getAttribute("alt") == "0") {
+		return false;
+	}
+	else {
+		return true;
+	} 
+}
+
+function isMute(volumebar) {
+	var currentwidthstr = $(volumebar).css('width').split("px");
+	var currentwidth = parseFloat(currentwidthstr[0]);
+	if(currentwidth != 0) {
+		return false;
+	}
+	else {
+		return true;
+	} 
+}
+
+// Volume
+function updateVolume(volumebar, newwidth) {
+//	document.getElementById("error").innerHTML = newwidth; //DEBUG
+	document.getElementById("value").innerHTML = newwidth + "%";
+	$(volumebar).css('width', newwidth + "px");	
+}	
+
+function incVolume(volumebar) {
+	var currentwidthstr = $(volumebar).css('width').split("px");
+	var currentwidth = parseFloat(currentwidthstr[0]);
+	// document.getElementById("error").innerHTML = currentwidth; // DEBUG
+	if(currentwidth < 100) {
+		currentwidth++;
+	//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
+		document.getElementById("value").innerHTML = currentwidth + "%";
+		$(volumebar).css('width', currentwidth + "px");
+	}
+}
+
+function decVolume(volumebar) {
+	var currentwidthstr = $(volumebar).css('width').split("px");
+	var currentwidth = parseFloat(currentwidthstr[0]);
+	// document.getElementById("error").innerHTML = currentwidth; // DEBUG
+	if(currentwidth > 0) {
+		currentwidth--;
+	//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
+		document.getElementById("value").innerHTML = currentwidth + "%";
+		$(volumebar).css('width', currentwidth + "px");
+	}
+}
+
+/* BD */
+function updateVolumeDB(dbID, volumebar) {
+	var currentwidthstr = $(volumebar).css('width').split("px");
+	var currentwidth = parseFloat(currentwidthstr[0]);
+	$.post('procedures/modifyV1.php',
+	{
+		eID: dbID,
+		v1: currentwidth
+	});
+}
+
+// Canal
+function updateChannel(tv, newchannel) {
+	document.getElementById(tv).setAttribute("alt", newchannel);				
+	var newsrc = "../media/img/" + newchannel + ".png";
+	//document.getElementById("error").innerHTML = newsrc; // DEBUG
+	document.getElementById(tv).setAttribute("src", newsrc);
+}
+
+function incChannel(tv) {
+	var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
+	if (currentchannel < 4) {
+		currentchannel++;
+		document.getElementById(tv).setAttribute("alt", currentchannel);
+		var newsrc = "../media/img/" + currentchannel + ".png";
+		document.getElementById(tv).setAttribute("src", newsrc);
+	}
+}
+
+function decChannel(tv) {
+	var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
+	if (currentchannel > 1) {
+		currentchannel--;
+		document.getElementById(tv).setAttribute("alt", currentchannel);
+		var newsrc = "../media/img/" + currentchannel + ".png";
+		document.getElementById(tv).setAttribute("src", newsrc);
+	}
+}
+
+/* BD */
+function updateChannelDB(dbID, tv) {
+	var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
+	$.post('procedures/modifyV2.php',
+	{
+		eID: dbID,
+		v2: currentchannel
+	}); 
+}

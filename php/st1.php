@@ -10,120 +10,11 @@
 		<!-- JQuery -->
 		<script type="text/javascript" src="../scripts/jquery.js"></script>
 
-		<script type="text/javascript">
-			/* Actualiza o volume na BD */
-			function updateVolumeDB(dbID, volumebar) {
-				var currentwidthstr = $(volumebar).css('width').split("px");
-				var currentwidth = parseFloat(currentwidthstr[0]);
-				$.post('procedures/modifyV1.php',
-				{
-					eID: dbID,
-					v1: currentwidth
-				});
-			}
-
-			function updateChannelDB(dbID, tv) {
-				var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
-				$.post('procedures/modifyV2.php',
-				{
-					eID: dbID,
-					v2: currentchannel
-				}); 
-			}
-		</script>
-
 		<title>Managing Your Home: Televisão</title>
 	</head>
 
 
 	<body>
-
-		<!-- *************************************************************** -->
-		<script type="text/javascript">
-		/* MOVER PARA O SCRIPTS */
-
-			function updateChannel(tv, newchannel) {
-				document.getElementById(tv).setAttribute("alt", newchannel);				
-				var newsrc = "../media/img/" + newchannel + ".png";
-				//document.getElementById("error").innerHTML = newsrc; // DEBUG
-				document.getElementById(tv).setAttribute("src", newsrc);
-			}
-
-
-			/* Actualiza volume */
-			function updateVolume(volumebar, newwidth) {
-			//	document.getElementById("error").innerHTML = newwidth; //DEBUG
-				document.getElementById("value").innerHTML = newwidth + "%";
-				$(volumebar).css('width', newwidth + "px");	
-			}			
-
-			function isOn(tv) {
-				 if(document.getElementById(tv).getAttribute("alt") == "0") {
-					return false;
-				}
-				else {
-					return true;
-				} 
-			}
-
-			function isMute(volumebar) {
-				var currentwidthstr = $(volumebar).css('width').split("px");
-				var currentwidth = parseFloat(currentwidthstr[0]);
-				if(currentwidth != 0) {
-					return false;
-				}
-				else {
-					return true;
-				} 
-			}
-
-			function incVolume(volumebar) {
-				var currentwidthstr = $(volumebar).css('width').split("px");
-				var currentwidth = parseFloat(currentwidthstr[0]);
-				// document.getElementById("error").innerHTML = currentwidth; // DEBUG
-				if(currentwidth < 100) {
-					currentwidth++;
-				//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
-					document.getElementById("value").innerHTML = currentwidth + "%";
-					$(volumebar).css('width', currentwidth + "px");
-				}
-			}
-
-			function decVolume(volumebar) {
-				var currentwidthstr = $(volumebar).css('width').split("px");
-				var currentwidth = parseFloat(currentwidthstr[0]);
-				// document.getElementById("error").innerHTML = currentwidth; // DEBUG
-				if(currentwidth > 0) {
-					currentwidth--;
-				//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
-					document.getElementById("value").innerHTML = currentwidth + "%";
-					$(volumebar).css('width', currentwidth + "px");
-				}
-			}
-
-			function incChannel(tv) {
-				var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
-				if (currentchannel < 4) {
-					currentchannel++;
-					document.getElementById(tv).setAttribute("alt", currentchannel);
-					var newsrc = "../media/img/" + currentchannel + ".png";
-					document.getElementById(tv).setAttribute("src", newsrc);
-				}
-			}
-
-			function decChannel(tv) {
-				var currentchannel = parseInt(document.getElementById(tv).getAttribute("alt"));
-				if (currentchannel > 1) {
-					currentchannel--;
-					document.getElementById(tv).setAttribute("alt", currentchannel);
-					var newsrc = "../media/img/" + currentchannel + ".png";
-					document.getElementById(tv).setAttribute("src", newsrc);
-				}
-			}
-
-		</script>
-
-		<!-- *************************************************************** -->
 
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
@@ -251,7 +142,7 @@
 
 														echo "<div id=\"volume_st1\" style=\"width: " . $volume . "px;\">&nbsp;</div>";                        			
 														echo "<div id=\"televisao\" width=\"100%\" height=\"100%\">";							
-																echo "Vol: " . $volume . "Canal: " . $canal . " <img src=\"../media/img/" . $canal . ".png\" id=\"channel\" alt=\"" . $canal . "\"><br>
+																echo "<img src=\"../media/img/" . $canal . ".png\" id=\"channel\" alt=\"" . $canal . "\"><br>
 																	<div id=\"value\">" . $volume . "%</div>"; 
 																	?>
 														</div>

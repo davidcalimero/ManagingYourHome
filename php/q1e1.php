@@ -10,38 +10,11 @@
 		<!-- JQuery -->
 		<script type="text/javascript" src="../scripts/jquery.js"></script>
 
-		<script type="text/javascript">
-			/* Actualiza altura do estore na BD */
-			function updateBlindDB(dbID) {
-				var lastValue = document.getElementById("blind_slider").value;
-			//	document.getElementById("error").innerHTML = lastValue; // DEBUG
-				$.post('procedures/modifyV1.php',
-				{
-					eID: dbID,
-					v1: lastValue
-				});
-			}
-		</script>
-
 		<title>Managing Your Home: Estore 1</title>
 	</head>
 
 
 	<body>
-
-		<!-- *************************************************************** -->
-		<script type="text/javascript">
-		/* MOVER PARA O SCRIPTS */
-
-			/* Actualiza altura do estore */
-			function updateBlind(blindcurtain, newheight) {
-				document.getElementById("value").innerHTML = newheight + "%";
-				$(blindcurtain).css('height', newheight);	
-			}			
-		</script>
-
-		<!-- *************************************************************** -->
-
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
 
@@ -171,7 +144,7 @@
 																echo "<div id=\"estore\" width=\"100%\" height=\"100%\">";
 
 																echo "<img src=\"../media/img/janelaAberta.png\"><br>";
-																echo "<div id=\"value\">" . $valor . "</div>";
+																echo "<div id=\"value\">" . $valor . "%</div>";
 														?>
 														
 													</div>
