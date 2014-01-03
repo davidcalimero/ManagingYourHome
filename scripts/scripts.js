@@ -117,17 +117,24 @@ function verificaPermissao(divisao){
 // SIDEBAR --------------------------------
 
 $('#help').click(function(){
+	$(this).toggleClass("down");
+	$('#edit').removeClass("down");
+	$('#settings').removeClass("down");
 	$('#definicoes').hide();
 	$('#editar').hide();
 	$('#ajuda').fadeToggle(fade);
 });
 
 $('#settings').click(function(){
+	$(this).toggleClass("down");
+	$('#help').removeClass("down");
 	$('#ajuda').hide();
 	$('#definicoes').fadeToggle(fade);
 });
 
 $('#edit').click(function(){
+	$(this).toggleClass("down");
+	$('#help').removeClass("down");
 	$("#cancelAD").click();
 	$('#ajuda').hide();
 	$('#editar').fadeToggle(fade);

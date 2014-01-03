@@ -229,7 +229,7 @@ h1#settingsTitle {
 	border-right: solid 4px #001100;
 }
 
-.sbaritem:active {
+.sbaritem.down, .sbaritem:active {
 	background-color: #223322;
 	border: solid 2px #112211;
 	border-left: solid 4px #112211;
