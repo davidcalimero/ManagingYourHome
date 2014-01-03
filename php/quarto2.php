@@ -99,7 +99,7 @@
 										</div>
 									</div>
 								</td></tr>
-								<tr id="rodape"><td style="background-color: #AACC00;">
+								<tr id="rodape"><td>
 									<div id="error">&nbsp;</div>
 								</td></tr>			
 

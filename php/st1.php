@@ -338,7 +338,7 @@
 									</table>
 
 								</td></tr>
-								<tr id="rodape"><td style="background-color: #AACC00;">
+								<tr id="rodape"><td>
 									<div id="error">&nbsp;</div>
 								</td></tr>			
 
@@ -378,18 +378,6 @@
 										</td></tr>
 									</table>
 								</form>
-								<div id="imagemEscolher">
-									<div>Escolher Imagem:</div>
-									<div id="imagens">
-										<img class="imagemAlt" alt="cama1.png" src="../media/img/cama1.png"/>
-										<img class="imagemAlt" alt="cama2.png" src="../media/img/cama2.png"/>
-										<img class="imagemAlt" alt="cama3.png" src="../media/img/cama3.png"/>
-										<img class="imagemAlt" alt="sofa.png" src="../media/img/sofa.png"/>
-										<img class="imagemAlt" alt="talheres.png" src="../media/img/talheres.png"/>
-										<img class="imagemAlt" alt="wc.png" src="../media/img/wc.png"/>
-									</div>
-									<input type="reset" name="cancelar" value="Cancelar" id="cancelSI" class="loginButtons"/>
-								</div>
 							</div>
 							<!-- __________________________________ -->
 						</td>
