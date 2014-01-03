@@ -90,6 +90,7 @@
                                             <div id="q1e5">q1e5</div>        
                                         </div>
                                     </div>
+                                    <img style="margin-top: 1%; margin-left: 12%; width: 5%; position: absolute;  z-index: 1000;" src="../media/img/360icon.png"/>
 									<div class="hcentered">	
 										<div id="submain"> 
 										 	<div id="planta">
