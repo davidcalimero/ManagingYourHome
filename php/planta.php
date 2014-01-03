@@ -108,10 +108,10 @@
 
 							</table>
 
-							<div class="toggle" id="ajuda">ajuda</div>
+							<div class="toggle" id="ajuda"><h1 class="settingsTitle">Ajuda</h1></div>
 							<div class="toggle" id="definicoes">
-								<div>definições</div>
-								<table id="login">
+								<h1 class="settingsTitle">Definições</h1>
+								<table class="settingsTable">
 									<tr>
 										<td class="loginLabel">Volume:</td>
 										<td><input  type="range" id="volume_set_slider" min="0" max="100" value="25" class="loginFields"/></td>

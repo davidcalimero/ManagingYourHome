@@ -105,13 +105,13 @@
 
 							</table>
 
-							<div class="toggle" id="ajuda">ajuda</div>
+							<div class="toggle" id="ajuda"><h1 class="settingsTitle">Ajuda</h1></div>
 
 							<!-- editar____________________________ -->
 							<div class="toggle" id="editar">
-								<div>editar</div>
+								<div><h1 class="settingsTitle">Editar</h1></div>
 								<form name="changeForm">
-									<table border="1" width="100%">
+									<table class="settingsTable" border="0" width="100%">
 										<tr>
 											<td class="loginLabel">Nome da divisão:</td>
 											<td>

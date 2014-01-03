@@ -58,7 +58,7 @@ tr#cabecalho {
 
 #cabecalho td {
 	vertical-align: bottom; 
-	background-color: #AA0033;
+	/* background-color: #AA0033; */
 }
 
 tr#corpo {
@@ -68,7 +68,7 @@ tr#corpo {
 #corpo td {
 	padding-top: 1%;
 	padding-bottom: 1%;
-	background-color: #AA5500;
+/*	background-color: #AA5500; */
 }
 
 tr#rodape {
@@ -81,7 +81,7 @@ tr#rodape {
 }
 
 #error {
- 	opacity: 100;
+ 	opacity: 0;
  	position: relative;
  	background-color: #FFEEEE;
  	width: 100%;
@@ -171,10 +171,25 @@ input:active#createAccount {
 
  /* **************************** DEFINICOES ********************************* */
 
-h1#settingsTitle {
+h1.settingsTitle {
+	padding-bottom: 2%;
+	text-align: center;
 	color: #112211;
-	font-family: Arial;
+	font-family: Arial;	
+	font-size: 24pt;
+	font-weight: bold;
 
+}
+
+table.settingsTable {
+	font-family: Arial;
+	font-size: 40px;
+}
+
+.settingsTable td {
+	width: 50%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 }
 
 
@@ -241,10 +256,12 @@ h1#settingsTitle {
 	position: absolute; 
 	z-index: 100;
 	left: 155px;
-	bottom: 15%;
+	bottom: 11%;
  	width: 80%;
- 	height: 80%;	
- 	background-color: #FFFFCC;
+ 	height: 87%;	
+ 	background-color: #FFFFBB;
+ 	border: solid 2px #112211;
+ 
 }
 
 
@@ -657,11 +674,50 @@ td#divisionTitle {
 	background-color: #FFCCCC;
 }
 
+#imagemDivisao {
+	/*background-color: #FFFF00; */
+	padding-bottom: 1%;
+	width: 20%;
+	max-height: 20%;
+}
+
 #imagens{
 	width: 100%;
 	height: 60%;
 	overflow-y: scroll;
 	overflow-x: hidden;
+}
+
+table.permissoes {
+	overflow: scroll;
+	display: inline;
+	font-family: Arial;
+	font-size: 14pt;
+}
+
+.permissoes th {
+	background-color: #112211;
+	color: #E2F3C1;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	border: solid 2px #112211;
+}
+
+.permissoes td {
+	background-color: #94C600;
+	color: #E2F3C1;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	border: solid 2px #94C600;
+}
+
+
+table#avisoPermissoes {
+	display: inline;
+	font-family: Arial;
+	font-weight: bold;
+	text-align: center;
+	font-size: 14pt;
 }
 
 

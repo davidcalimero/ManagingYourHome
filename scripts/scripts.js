@@ -202,7 +202,7 @@ function cancelEdit(divisao){
 				divisao:divisao
 			},
 			function(data){
-				$('#imagemDivisao').html("<img style=\"height: 30%\" src=\"../media/img/" + data + "\" alt=\"" + data + "\"/>");
+				$('#imagemDivisao').html("<img style=\"width: 100%\" src=\"../media/img/" + data + "\" alt=\"" + data + "\"/>");
 			}
 		);
 	$.post('procedures/roomPermission.php',
