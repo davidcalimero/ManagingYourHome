@@ -142,7 +142,7 @@
 									</table>
 								</form>
 								<div id="imagemEscolher">
-									div><h1 class="settingsTitle">Escolher Imagem:</div>
+									<div><h1 class="settingsTitle">Escolher Imagem:</div>
 									<div id="imagens">
 										<img class="imagemAlt" alt="cama1.png" src="../media/img/cama1.png"/>
 										<img class="imagemAlt" alt="cama2.png" src="../media/img/cama2.png"/>
