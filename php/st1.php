@@ -58,43 +58,107 @@
 				z-index: 1;
 				height: 30px;				
 			}
-/*
-			#value {
-				color: #94c600;
-				font-family: Arial;
-				font-size: 16pt;
-				font-weight: bold;
-				-webkit-text-stroke-width: 1px;
-				-webkit-text-stroke-color: #112211;
-			}
-*/
-			#tv_controls {			
+
+			#comando {
+				margin-left: 10%;
+			}		
+			
+			#comando img {
+				width: 50%;
+				max-width: 100%;
 				position: relative;
 			}
-
-			/* Volume Slider */
-			/*
-			input[type="range"]#volume_slider {
-			    -webkit-appearance: none;
-			    background-color: #112211;
-			    width: 200px;
-			    height: 20px;			    
-			    z-index: 0;
-			}
-
-			input[type="range"]#volume_slider::-webkit-slider-thumb {
-			    -webkit-appearance: none;			    
-			    background-color: #94c600;
-			    opacity: 1.0;
-			    width: 25px;
-			    height: 50px;
-			}
-			*/			
-			
 
 			#TVButtons {
 				margin-bottom: 5%;
 			}
+
+			.TVbutton {
+				color: #FFFFFF;
+				position: absolute;
+				z-index: 1;
+			}
+
+			#offButton {
+			/*	background-color: #110066; */
+				margin-top: 3%;
+				margin-left: 15%;
+				width: 7%;
+				height: 17%;
+			}
+
+			#muteButton {
+				/*background-color: #220066; */
+				margin-top: 8%;
+				margin-left: 44%;
+				width: 6%;
+				height: 7%;
+			}
+
+			#oneButton {
+				/*background-color: #330066; */
+				margin-top: 16%;
+				margin-left: 15%;
+				width: 8%;
+				height: 12%;
+			}
+
+			#twoButton {
+				/*background-color: #440066;*/
+				margin-top: 16%;
+				margin-left: 24%;
+				width: 8%;
+				height: 12%;
+			}
+
+			#threeButton {
+				/*background-color: #550066;*/
+				margin-top: 16%;
+				margin-left: 33%;
+				width: 8%;
+				height: 12%;
+			}
+
+			#fourButton {
+				/*background-color: #660066;*/
+				margin-top: 25%;
+				margin-left: 15%;
+				width: 8%;
+				height: 12%;
+			}
+
+			#vplusButton {
+				/*background-color: #770066;*/
+				margin-top: 17%;
+				margin-left: 44%;
+				width: 7%;
+				height: 10%;
+			}
+
+			#vminusButton {
+				/*background-color: #880066;*/
+				margin-top: 25%;
+				margin-left: 44%;
+				width: 7%;
+				height: 10%;
+			}
+
+			#pplusButton {
+				/*background-color: #990066;*/
+				margin-top: 35%;
+				margin-left: 44%;
+				width: 7%;
+				height: 10%;
+			}
+
+			#pminusButton {
+				/*background-color: #AA0066;*/
+				margin-top: 43%;
+				margin-left: 44%;
+				width: 7%;
+				height: 10%;
+			}
+
 
 		</style>
 		<!-- *************************************************************** -->
@@ -208,71 +272,66 @@
 												</div>
 											</td>
 											<td width="50%" style="background-color: #0055FF;">
-												<div style="position: relative;">
+												<div style="position: relative;">													
 													<div id="TVbuttons">
-														<input type="button" name="off" value="off" id="offButton" class="loginButtons" 
-															onclick="turnOff('#volume_st1', 'channel', 'st1')"/>							
-														<input type="button" name="mute" value="M" id="muteButton" class="loginButtons" 
-															onclick="if(isOn('channel')) {
-																		if(isMute('#volume_st1')) {
-																			updateVolume('#volume_st1', 50);
-																			updateVolumeDB('st1', '#volume_st1');
-																		}
-																		else {
-																			updateVolume('#volume_st1', 0);
-																			updateVolumeDB('st1', '#volume_st1');
-																		}
-																	}"/>
+														<div id="offButton" class="TVbutton" onclick="turnOff('#volume_st1', 'channel', 'st1')">&nbsp;</div>
 
-														<input type="button" name="one" value="1" id="oneButton" class="loginButtons" 
-																onclick="if(isOn('channel')) {
-																			updateChannel('channel', 1);
-																			updateChannelDB('st1', 'channel');
-																		}"/>
-														<input type="button" name="two" value="2" id="twoButton" class="loginButtons" 
-																onclick="if(isOn('channel')) {
-																			updateChannel('channel', 2);
-																			updateChannelDB('st1', 'channel');
-																		}"/>
-														<input type="button" name="three" value="3" id="threeButton" class="loginButtons" 
-																onclick="if(isOn('channel')) {
-																		updateChannel('channel', 3);
-																		updateChannelDB('st1', 'channel');
-																	}"/> 
-														<input type="button" name="four" value="4" id="fourButton" class="loginButtons" 
-															onclick="if(isOn('channel')) {
-																		updateChannel('channel', 4);
-																		updateChannelDB('st1', 'channel');
-																	}"/>
+														<div id="muteButton" class="TVbutton" 
+																	onclick="if(isOn('channel')) {
+																				if(isMute('#volume_st1')) {
+																					updateVolume('#volume_st1', 50);
+																					updateVolumeDB('st1', '#volume_st1');
+																				}
+																				else {
+																					updateVolume('#volume_st1', 0);
+																					updateVolumeDB('st1', '#volume_st1');
+																				}
+																			}">&nbsp;</div>
 
-														<input type="button" name="vplus" value="V+" id="vplusButton" class="loginButtons" 
-															onclick="if(isOn('channel')) {
-																		incVolume('#volume_st1');
-																		updateVolumeDB('st1', '#volume_st1');
-																	} "/>
-														<input type="button" name="vminus" value="V-" id="vminusButton" class="loginButtons" 
-															onclick="if(isOn('channel')) {
-																		decVolume('#volume_st1');
-																		updateVolumeDB('st1', '#volume_st1');
-																	}"/>
-														<input type="button" name="pplus" value="P+" id="pplusButton" class="loginButtons" 
-															onclick="if(isOn('channel')) {
-																		incChannel('channel');
-																		updateChannelDB('st1', 'channel');
-																	}"/>
-														<input type="button" name="pminus" value="P-" id="pminusButton" class="loginButtons" 
-																onclick="if(isOn('channel')) {
-																			decChannel('channel');
-																			updateChannelDB('st1', 'channel');
-																		}"/>
-													</div>	
-													<!--
-													<?php 
-														/*	echo "<input id=\"volume_slider\" type=\"range\" name=\"blind\" 
-															min=\"0\" max=\"200\" value=\"" . $volume . "\" 
-															onchange=\"updateVolume('#volume_st1', this.value)\">"; */
-													?>
-													-->
+														<div id="oneButton" class="TVbutton" 
+																					onclick="if(isOn('channel')) {
+																						updateChannel('channel', 1);
+																						updateChannelDB('st1', 'channel');
+																					}">&nbsp;</div>
+														<div id="twoButton" class="TVbutton" 
+																					onclick="if(isOn('channel')) {
+																							updateChannel('channel', 2);
+																							updateChannelDB('st1', 'channel');
+																						}">&nbsp;</div>
+														<div id="threeButton" class="TVbutton" 
+																					onclick="if(isOn('channel')) {
+																							updateChannel('channel', 3);
+																							updateChannelDB('st1', 'channel');
+																						}">&nbsp;</div> 
+														<div id="fourButton" class="TVbutton" 
+																				onclick="if(isOn('channel')) {
+																							updateChannel('channel', 4);
+																							updateChannelDB('st1', 'channel');
+																						}">&nbsp;</div>
+
+														<div id="vplusButton" class="TVbutton" 
+																				onclick="if(isOn('channel')) {
+																							incVolume('#volume_st1');
+																							updateVolumeDB('st1', '#volume_st1');
+																						} ">&nbsp;</div>
+														<div id="vminusButton" class="TVbutton" 
+																				 onclick="if(isOn('channel')) {
+																							decVolume('#volume_st1');
+																							updateVolumeDB('st1', '#volume_st1');
+																						}">&nbsp;</div>
+														<div id="pplusButton" class="TVbutton" 
+																				onclick="if(isOn('channel')) {
+																							incChannel('channel');
+																							updateChannelDB('st1', 'channel');
+																						}">&nbsp;</div>
+														<div id="pminusButton" class="TVbutton" 
+																			onclick="if(isOn('channel')) {
+																							decChannel('channel');
+																							updateChannelDB('st1', 'channel');
+																						}">&nbsp;</div>
+													</div>
+													<div id="comando"><img src="../media/img/remote.png"></div>	
+													
 												</div> 
 											</td>
 										</tr>
