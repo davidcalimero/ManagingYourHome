@@ -19,7 +19,61 @@
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
 
+			#tv_feedback {
+				position: relative; 
+				width: 90%; 
+				max-height: 60%;
+				margin-left: auto; 
+				margin-right: auto;
+			}
+
+			#televisao {				
+				position: absolute; 				 
+			}
+
+			#televisao img {
+				width: 100%; 
+			} 
+
+
+			#volume_st1 {
+				background-color: #94c600;
+				height: 30px;				
+			}
+
+			#volume_st1border {
+				margin-top: 45%;
+				margin-left: 10%;
+				position: absolute;
+				z-index: 1;
+				width: 200px;
+				height: 30px;
+				border: solid 2px #112211;
+			}
+
+			#mutepic {
+				margin-top: 45%;
+				margin-left: 10%;
+				position: absolute;
+				z-index: 1;
+				height: 30px;				
+			}
+/*
+			#value {
+				color: #94c600;
+				font-family: Arial;
+				font-size: 16pt;
+				font-weight: bold;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: #112211;
+			}
+*/
+			#tv_controls {			
+				position: relative;
+			}
+
 			/* Volume Slider */
+			/*
 			input[type="range"]#volume_slider {
 			    -webkit-appearance: none;
 			    background-color: #112211;
@@ -35,22 +89,8 @@
 			    width: 25px;
 			    height: 50px;
 			}
-
-			/* Volume */
-			#volume_st1 {
-				background-color: #94c600;
-				position: relative;
-				height: 20px;
-			}
-
-			#televisao {				
-				position: absolute; 
-				z-index: 1; 
-			}
-
-			#televisao img {
-				width: 100%; 
-			} 
+			*/			
+			
 
 			#TVButtons {
 				margin-bottom: 5%;
@@ -69,18 +109,18 @@
 							</div>
 
 							<div class="sbaritem" id="logout">
-									<?php 
-										require 'procedures/connection.php';
-										$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
-										$result = pg_query($query) or die(pg_last_error());
-										foreach (pg_fetch_assoc($result) as $value)
-											$nome = $value;
-										$token = explode(' ',trim($nome));
-										echo $token[0];
-										pg_free_result($result);
-										pg_close();
-									?><br>
-									<img src="../media/img/logout.png"/>
+								<?php 
+									require 'procedures/connection.php';
+									$query = "SELECT uNome FROM utilizador NATURAL JOIN login;";
+									$result = pg_query($query) or die(pg_last_error());
+									foreach (pg_fetch_assoc($result) as $value)
+										$nome = $value;
+									$token = explode(' ',trim($nome));
+									echo $token[0];
+									pg_free_result($result);
+									pg_close();
+								?><br>
+								<img src="../media/img/logout.png"/>
 							</div>
 						
 							<div class="sbaritem" id="edit">
@@ -127,9 +167,11 @@
 
 									<table width="100%" height="100%">
 										<tr>
-											<td width="50%">        
-												<div style="position: relative; max-width: 50%">
-													<?php 
+											<td width="10%"></td>
+											<td width="40%">        
+												<div style="position: relative; margin-top: -30%;">
+													<div id="tv_feedback">
+														<?php 
 															require 'procedures/connection.php';
 
 															$query = "select v1, v2 from equipamento where eID = 'st1';";
@@ -140,34 +182,40 @@
 															}
 															pg_free_result($result);
 
-														echo "<div id=\"volume_st1\" style=\"width: " . $volume . "px;\">&nbsp;</div>";                        			
-														echo "<div id=\"televisao\" width=\"100%\" height=\"100%\">";							
-																echo "<img src=\"../media/img/" . $canal . ".png\" id=\"channel\" alt=\"" . $canal . "\"><br>
-																	<div id=\"value\">" . $volume . "%</div>"; 
-																	?>
-														</div>
+															if($canal == 0) {
+																$opacitymute = 0;
+																$opacityvol = 0;
+															}
+															else if($volume == 0) {
+																$opacitymute = 1;
+																$opacityvol = 0;
+															} 
+															else {
+																$opacitymute = 0;
+																$opacityvol = 1;
+															}
+
+															echo "<img id=\"mutepic\" src=\"../media/img/v0.png\" style=\"opacity: " . $opacitymute . "\">";
+															echo "<div id=\"volume_st1border\" style=\"opacity: " . $opacityvol . "\">
+																		<div id=\"volume_st1\" style=\"width: " . $volume . "px;\">&nbsp;
+																		</div>
+																	</div>";   
+															echo "<div id=\"televisao\" width=\"100%\" height=\"100%\">
+																		<img src=\"../media/img/" . $canal . ".png\" id=\"channel\" alt=\"" . $canal . "\">
+																	</div>"; 
+														?>																
+													</div>
 												</div>
 											</td>
 											<td width="50%" style="background-color: #0055FF;">
 												<div style="position: relative;">
 													<div id="TVbuttons">
 														<input type="button" name="off" value="off" id="offButton" class="loginButtons" 
-															onclick="if(isOn('channel')) { 
-																		updateChannel('channel', 0); 
-																		updateChannelDB('st1', 'channel');
-																		updateVolume('#volume_st1', 0);
-																		updateVolumeDB('st1', '#volume_st1'); 
-																		} 
-																	else { 
-																		updateChannel('channel', 1); 
-																		updateChannelDB('st1', 'channel');
-																		updateVolume('#volume_st1', 10);
-																		updateVolumeDB('st1', '#volume_st1');
-																	}"/>							
+															onclick="turnOff('#volume_st1', 'channel', 'st1')"/>							
 														<input type="button" name="mute" value="M" id="muteButton" class="loginButtons" 
 															onclick="if(isOn('channel')) {
 																		if(isMute('#volume_st1')) {
-																			updateVolume('#volume_st1', 10);
+																			updateVolume('#volume_st1', 50);
 																			updateVolumeDB('st1', '#volume_st1');
 																		}
 																		else {
@@ -221,7 +269,7 @@
 													<!--
 													<?php 
 														/*	echo "<input id=\"volume_slider\" type=\"range\" name=\"blind\" 
-															min=\"0\" max=\"100\" value=\"" . $volume . "\" 
+															min=\"0\" max=\"200\" value=\"" . $volume . "\" 
 															onchange=\"updateVolume('#volume_st1', this.value)\">"; */
 													?>
 													-->

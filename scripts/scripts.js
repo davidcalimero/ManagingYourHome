@@ -296,22 +296,45 @@ function isMute(volumebar) {
 	} 
 }
 
+function turnOff(volumebar, tv, dbID) {
+	if(isOn(tv)) { 
+		updateChannel(tv, 0); 
+		updateChannelDB(dbID, tv);
+		updateVolume(volumebar, 0);
+		$('#mutepic').css('opacity', 0);
+		updateVolumeDB(dbID, volumebar); 
+		} 
+	else { 
+		updateChannel(tv, 1); 
+		updateChannelDB(dbID, tv);
+		updateVolume(volumebar, 50);
+		updateVolumeDB(dbID, volumebar);
+	}
+}
+
 // Volume
 function updateVolume(volumebar, newwidth) {
 //	document.getElementById("error").innerHTML = newwidth; //DEBUG
-	document.getElementById("value").innerHTML = newwidth + "%";
-	$(volumebar).css('width', newwidth + "px");	
+	if(newwidth > 0) {
+		$('#mutepic').css('opacity', 0);
+		$('#volume_st1border').css('opacity', 1);	
+	}
+	else {
+		$('#volume_st1border').css('opacity', 0);	
+		$('#mutepic').css('opacity', 1);		
+	}
+	$(volumebar).css('width', newwidth + "px");
 }	
 
 function incVolume(volumebar) {
 	var currentwidthstr = $(volumebar).css('width').split("px");
 	var currentwidth = parseFloat(currentwidthstr[0]);
 	// document.getElementById("error").innerHTML = currentwidth; // DEBUG
-	if(currentwidth < 100) {
-		currentwidth+=5;
-	//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
-		document.getElementById("value").innerHTML = currentwidth + "%";
-		$(volumebar).css('width', currentwidth + "px");
+	if(currentwidth < 200) {
+		currentwidth+=10;		
+		$('#mutepic').css('opacity', 0);
+		$('#volume_st1border').css('opacity', 1);	
+		$(volumebar).css('width', currentwidth + "px");				
 	}
 }
 
@@ -320,9 +343,11 @@ function decVolume(volumebar) {
 	var currentwidth = parseFloat(currentwidthstr[0]);
 	// document.getElementById("error").innerHTML = currentwidth; // DEBUG
 	if(currentwidth > 0) {
-		currentwidth-=5;
-	//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
-		document.getElementById("value").innerHTML = currentwidth + "%";
+		currentwidth-=10;
+		if(currentwidth == 0) {
+			$('#volume_st1border').css('opacity', 0);	
+			$('#mutepic').css('opacity', 1);
+		}
 		$(volumebar).css('width', currentwidth + "px");
 	}
 }
