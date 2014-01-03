@@ -308,7 +308,7 @@ function incVolume(volumebar) {
 	var currentwidth = parseFloat(currentwidthstr[0]);
 	// document.getElementById("error").innerHTML = currentwidth; // DEBUG
 	if(currentwidth < 100) {
-		currentwidth++;
+		currentwidth+=5;
 	//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
 		document.getElementById("value").innerHTML = currentwidth + "%";
 		$(volumebar).css('width', currentwidth + "px");
@@ -320,7 +320,7 @@ function decVolume(volumebar) {
 	var currentwidth = parseFloat(currentwidthstr[0]);
 	// document.getElementById("error").innerHTML = currentwidth; // DEBUG
 	if(currentwidth > 0) {
-		currentwidth--;
+		currentwidth-=5;
 	//	document.getElementById("error").innerHTML = currentwidth; // DEBUG
 		document.getElementById("value").innerHTML = currentwidth + "%";
 		$(volumebar).css('width', currentwidth + "px");
