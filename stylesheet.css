@@ -456,7 +456,6 @@ td#divisionTitle {
 	z-index: 1; 
 	left: 70%;
 	top: 0%;
-	background-color: #0000CF;
 }
 
 #sc1{
@@ -464,29 +463,26 @@ td#divisionTitle {
 	height: 50%;
 	position: absolute; 
 	z-index: 1; 
-	left: 90%;
+	left: 90.2%;
 	top: 40%;
-	background-color: #0000CF;
 }
 
 #sc2{
-	width: 6%;
+	width: 7%;
 	height: 20%;
 	position: absolute; 
 	z-index: 1; 
-	left: 47%;
+	left: 46.5%;
 	top: 20%;
-	background-color: #0000CF;
 }
 
 #st1{
-	width: 10%;
-	height: 21%;
+	width: 11%;
+	height: 23%;
 	position: absolute; 
 	z-index: 1; 
-	left: 75%;
-	top: 43%;
-	background-color: #0000CF;
+	left: 74.5%;
+	top: 42%;
 }
 
 #cf1{
@@ -496,7 +492,6 @@ td#divisionTitle {
 	z-index: 1; 
 	left: 17%;
 	top: 6%;
-	background-color: #0000CF;
 }
 
 #cl1{
@@ -505,8 +500,7 @@ td#divisionTitle {
 	position: absolute; 
 	z-index: 1; 
 	left: 9.2%;
-	top: 6%;
-	background-color: #0000CF;
+	top: 7%;
 }
 
 #cl2{
@@ -516,7 +510,6 @@ td#divisionTitle {
 	z-index: 1; 
 	left: 78%;
 	top: 30%;
-	background-color: #0000CF;
 }
 
 #cl3{
@@ -524,30 +517,27 @@ td#divisionTitle {
 	height: 10%;
 	position: absolute; 
 	z-index: 1; 
-	left: 86%;
+	left: 86.2%;
 	top: 0%;
-	background-color: #0000CF;
 }
 
 #q1l1{
-	width: 3.5%;
-	height: 38%;
+	width: 4.5%;
+	height: 36%;
 	position: absolute; 
 	z-index: 1; 
-	left: 85%;
-	top: 44%;
-	background-color: #0000CF;
+	left: 84.5%;
+	top: 46%;
 	z-index: 5;
 }
 
 #q1e1{
-	width: 5%;
+	width: 4%;
 	height: 50%;
 	position: absolute; 
 	z-index: 1; 
 	left: 50%;
 	top: 18%;
-	background-color: #0000CF;
 }
 
 #q1e2{
@@ -557,7 +547,6 @@ td#divisionTitle {
 	z-index: 1; 
 	left: 58.3%;
 	top: 18%;
-	background-color: #0000CF;
 }
 
 #q1e3{
@@ -566,49 +555,44 @@ td#divisionTitle {
 	position: absolute; 
 	z-index: 1; 
 	left: 66%;
-	top: 19%;
-	background-color: #0000CF;
+	top: 21%;
 }
 
 #q1e4{
 	width: 9%;
-	height: 47%;
+	height: 48%;
 	position: absolute; 
 	z-index: 1; 
 	left: 71%;
-	top: 20%;
-	background-color: #0000CF;
+	top: 21%;
 }
 
 #q1e5{
-	width: 6%;
-	height: 48%;
+	width: 7%;
+	height: 51%;
 	position: absolute; 
 	z-index: 1; 
 	left: 80.5%;
 	top: 20%;
-	background-color: #0000CF;
 }
 
 
 #q2l1{
 	width: 5%;
-	height: 11%;
+	height: 12%;
 	position: absolute; 
 	z-index: 1; 
-	left: 37%;
-	top: 18%;
-	background-color: #0000CF;
+	left: 37.5%;
+	top: 19%;
 }
 
 #q2l2{
 	width: 5%;
-	height: 11%;
+	height: 14%;
 	position: absolute; 
 	z-index: 1; 
 	left: 57%;
-	top: 18%;
-	background-color: #0000CF;
+	top: 17%;
 }
 
 #q2e1{
@@ -618,27 +602,24 @@ td#divisionTitle {
 	z-index: 1; 
 	left: 16%;
 	top: 0%;
-	background-color: #0000CF;
 }
 
 #q2e2{
 	width: 14%;
-	height: 47%;
+	height: 52%;
 	position: absolute; 
 	z-index: 1; 
 	left: 22%;
-	top: 2%;
-	background-color: #0000CF;
+	top: 1%;
 }
 
 #q2e3{
-	width: 13%;
-	height: 47%;
+	width: 14%;
+	height: 50%;
 	position: absolute; 
 	z-index: 1; 
 	left: 63%;
-	top: 2%;
-	background-color: #0000CF;
+	top: 0.5%;
 }
 
 #q2e4{
@@ -648,7 +629,6 @@ td#divisionTitle {
 	z-index: 1; 
 	left: 77%;
 	top: 0%;
-	background-color: #0000CF;
 } 
 
 

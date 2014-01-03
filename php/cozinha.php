@@ -82,12 +82,13 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/cozinha.png"/>
-                                            <div id="cf1">cf1</div>   
-                                            <div id="cl1">cl1</div>  
-                                            <div id="cl2">cl2</div>  
-                                            <div id="cl3">cl3</div>  
+                                            <div id="cf1"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div>   
+                                            <div id="cl1"><img style="width: 100%; height: 13.5%" src="../media/img/square.png"/></div>  
+                                            <div id="cl2"><img style="width: 100%; height: 15%" src="../media/img/square.png"/></div>  
+                                            <div id="cl3"><img style="width: 100%; height: 15%" src="../media/img/square.png"/></div>  
                                         </div>
                                     </div>
+                                    <img style="margin-top: 1%; margin-left: 12%; width: 5%; position: absolute;  z-index: 1000;" src="../media/img/360icon.png"/>
 									<div class="hcentered">	
 										<div id="submain"> 
 										 	<div id="planta">

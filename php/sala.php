@@ -82,11 +82,12 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/sala.png"/>
-                                            <div id="sc1">sc1</div>   
-                                            <div id="sc2">sc2</div> 
-                                            <div id="st1">st1</div>       
+                                            <div id="sc1"><img style="width: 100%; height: 74.5%" src="../media/img/square.png"/></div>   
+                                            <div id="sc2"><img style="width: 100%; height: 29.5%" src="../media/img/square.png"/></div> 
+                                            <div id="st1"><img style="width: 100%; height: 33.5%" src="../media/img/square.png"/></div>       
                                         </div>
                                     </div>
+                                    <img style="margin-top: 1%; margin-left: 12%; width: 5%; position: absolute; z-index: 1000;" src="../media/img/360icon.png"/>
 									<div class="hcentered">	
 										<div id="submain"> 
 										 	<div id="planta">

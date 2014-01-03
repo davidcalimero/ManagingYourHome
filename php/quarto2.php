@@ -82,14 +82,15 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/quarto2.jpg"/>
-                                            <div id="q2l1">q2l1</div>   
-                                            <div id="q2l2">q2l2</div>   
-                                            <div id="q2e1">q2e1</div>   
-                                            <div id="q2e2">q2e2</div>   
-                                            <div id="q2e3">q2e3</div>   
-                                            <div id="q2e4">q2e4</div>          
+                                            <div id="q2l1"><img style="width: 100%; height: 18%" src="../media/img/square.png"/></div>   
+                                            <div id="q2l2"><img style="width: 100%; height: 21%" src="../media/img/square.png"/></div>   
+                                            <div id="q2e1"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div>   
+                                            <div id="q2e2"><img style="width: 100%; height: 77%" src="../media/img/square.png"/></div>   
+                                            <div id="q2e3"><img style="width: 100%; height: 74%" src="../media/img/square.png"/></div>   
+                                            <div id="q2e4"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div>          
                                         </div>
                                     </div>
+                                    <img style="margin-top: 1%; margin-left: 12%; width: 5%; position: absolute;  z-index: 1000;" src="../media/img/360icon.png"/>
 									<div class="hcentered">	
 										<div id="submain"> 
 										 	<div id="planta">

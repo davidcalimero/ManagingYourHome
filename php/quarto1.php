@@ -82,12 +82,12 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/quarto1.jpg"/>
-                                            <div id="q1l1">q1l1</div>   
-                                            <div id="q1e1">q1e1</div>   
-                                            <div id="q1e2">q1e2</div>   
-                                            <div id="q1e3">q1e3</div>   
-                                            <div id="q1e4">q1e4</div>   
-                                            <div id="q1e5">q1e5</div>        
+                                            <div id="q1l1"><img style="width: 100%; height: 53%" src="../media/img/square.png"/></div>   
+                                            <div id="q1e1"><img style="width: 100%; height: 74%" src="../media/img/square.png"/></div>   
+                                            <div id="q1e2"><img style="width: 100%; height: 75%" src="../media/img/square.png"/></div>   
+                                            <div id="q1e3"><img style="width: 100%; height: 65%" src="../media/img/square.png"/></div>   
+                                            <div id="q1e4"><img style="width: 100%; height: 71%" src="../media/img/square.png"/></div>   
+                                            <div id="q1e5"><img style="width: 100%; height: 75%" src="../media/img/square1.png"/></div>        
                                         </div>
                                     </div>
                                     <img style="margin-top: 1%; margin-left: 12%; width: 5%; position: absolute;  z-index: 1000;" src="../media/img/360icon.png"/>
