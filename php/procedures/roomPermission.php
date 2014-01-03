@@ -10,21 +10,21 @@
 	else {
 		$query = "SELECT uID FROM utilizador EXCEPT (SELECT uID FROM acede WHERE dID = '$divisao') ORDER BY uID;";
 		$result = pg_query($query) or die(pg_last_error());
-		echo "<table id=\"semPermissao\" class=\"permissoes\" border=\"0\" ><tr><th>Sem Permissões</th></tr>";
+		echo "<table width=\"90%\"><tr><td width=\"15%\" valign=\"top\" align=\"center\"><table id=\"semPermissao\" class=\"permissoes\" border=\"0\" ><tr><th>Sem Permissões</th></tr>";
 		while($value = pg_fetch_array($result))
 			echo "<tr class=\"pessoaSem\"><td>" . $value[0] . "</td></tr>";
-		echo "</table>";
+		echo "</table></td>";
 		pg_free_result($result);
 
-		echo "<table width=\"40%\" id=\"avisoPermissoes\"><tr><td>Toque num nome para alterar as respectivas permissões</td></tr></table>";
+		echo "<td width=\"25%\" align=\"center\"><table id=\"avisoPermissoes\"><tr><td>Toque num nome para alterar as respectivas permissões</td></tr></table></td>";
 
 		$query = "SELECT uID FROM acede WHERE dID = '$divisao' ORDER BY uID;";
 		$result = pg_query($query) or die(pg_last_error());
-		echo "<table id=\"comPermissao\" class=\"permissoes\" border=\"0\"><tr><th>Com Permissões</th></tr>";
+		echo "<td width=\"15%\" valign=\"top\" align=\"center\"><table id=\"comPermissao\" class=\"permissoes\" border=\"0\"><tr><th>Com Permissões</th></tr>";
 		while($value = pg_fetch_array($result))
 			if($value[0] != 'admin')
 				echo "<tr class=\"pessoaCom\"><td>" . $value[0] . "</td></tr>";
-		echo "</table>";
+		echo "</table></td></tr></table>";
 		pg_free_result($result);
 	}
 

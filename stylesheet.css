@@ -192,6 +192,15 @@ table.settingsTable {
 	padding-bottom: 2%;
 }
 
+table.editTable {
+	font-family: Arial;
+	font-size: 40px;
+}
+
+.editTable td {
+	padding: 0.5%;
+}
+
 
 /* ******************************** SIDEBAR ********************************* */
 
@@ -677,8 +686,8 @@ td#divisionTitle {
 #imagemDivisao {
 	/*background-color: #FFFF00; */
 	padding-bottom: 1%;
-	width: 20%;
-	max-height: 20%;
+	width: 15%;
+	max-height: 15%;
 }
 
 #imagens{

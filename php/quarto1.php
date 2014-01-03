@@ -111,9 +111,9 @@
 							<div class="toggle" id="editar">
 								<div><h1 class="settingsTitle">Editar</h1></div>
 								<form name="changeForm">
-									<table class="settingsTable" border="0" width="100%">
+									<table class="editTable" border="0" width="100%">
 										<tr>
-											<td class="loginLabel">Nome da divisão:</td>
+											<td width="35%" class="loginLabel">Nome da divisão:</td>
 											<td>
 												<?php 
 													echo "<input type=\"text\" name=\"nameDivision\" value=";
@@ -130,11 +130,11 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="loginLabel">Imagem:</td>
+											<td width="35%" class="loginLabel">Imagem:</td>
 											<td><div id="imagemDivisao"></div></td>
 										</tr>
 										<tr>
-											<td class="loginLabel">Permissões:</td>
+											<td width="35%" class="loginLabel">Permissões:</td>
 											<td><div id="permissoesDivisao"></div></td>
 										</tr>
 										<tr><td colspan="2" class="loginButtons">
