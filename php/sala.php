@@ -87,7 +87,7 @@
                                             <div id="st1"><img style="width: 100%; height: 33.5%" src="../media/img/square.png"/></div>       
                                         </div>
                                     </div>
-                                    <img style="margin-top: 1%; margin-left: 12%; width: 5%; position: absolute; z-index: 1000;" src="../media/img/360icon.png"/>
+                                    <img id="iconRot" src="../media/img/360icon.png"/>
 									<div class="hcentered">	
 										<div id="submain"> 
 										 	<div id="planta">

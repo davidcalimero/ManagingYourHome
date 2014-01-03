@@ -449,6 +449,14 @@ td#divisionTitle {
     max-height: 87%;
 }
 
+#iconRot {
+	margin-top: 1%;
+	margin-left: 12%;
+	width: 5%;
+	position: absolute;
+	z-index: 99;
+}
+
 #wl1{
 	width: 5%;
 	height: 55%;
