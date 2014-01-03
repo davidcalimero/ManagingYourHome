@@ -672,6 +672,10 @@ td#divisionTitle {
 	height: 30%;
 }
 
+#permissoesDivisao {
+	font-size: 23px;
+}
+
 #imagemEscolher{
 	display: none;
 	position: absolute; 
@@ -687,7 +691,6 @@ td#divisionTitle {
 	/*background-color: #FFFF00; */
 	padding-bottom: 1%;
 	width: 15%;
-	max-height: 15%;
 }
 
 #imagens{

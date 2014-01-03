@@ -138,8 +138,8 @@
 											<td><div id="permissoesDivisao"></div></td>
 										</tr>
 										<tr><td colspan="2" class="loginButtons">
-											<input type="button" name="alterarDivisao" value="Guardar" id="saveAD" class="loginButtons" onclick="saveEdit('quarto1');"/> 
-											<input type="reset" name="cancelar" value="Cancelar" id="cancelAD" class="loginButtons" onclick="cancelEdit('quarto1');"/>
+											<input type="button" name="alterarDivisao" value="Guardar" id="saveAD" class="loginButtons" onclick="saveEdit('quarto1','acede','dID');"/> 
+											<input type="reset" name="cancelar" value="Repor" id="cancelAD" class="loginButtons" onclick="cancelEdit('quarto1','acede','dID');"/>
 										</td></tr>
 									</table>
 								</form>

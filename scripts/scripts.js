@@ -160,11 +160,7 @@ $('.acessibilidade').click(function(){
 });
 
 
-
-
-// EDITAR DIVISAO --------------------------------
-
-function saveEdit(divisao){
+function saveEdit(elemento, tabela, id){
 	var name = $('#nomeDivisao').val();
 	var image = $('#imagemDivisao').find('img:first').attr("alt"); 
 	$('#error').val('&nbsp;');
@@ -177,8 +173,10 @@ function saveEdit(divisao){
 				{
 					name:name,
 					image:image,
-					divisao:divisao,
-					permissoes:permissoes
+					elemento:elemento,
+					permissoes:permissoes,
+					tabela:tabela,
+					id:id
 				},
 				function(data){
 					$("#edit").click();
@@ -186,7 +184,10 @@ function saveEdit(divisao){
 					$('#location').text(name);
 					$('#error').css('color', '#119911');
 					$('#error').css('background-color', '#EEFFEE');
-					$('#error').text("As alterações feitas à divisão foram guardadas com sucesso!");
+					if(id == 'dID')
+						$('#error').text("As alterações feitas à divisão foram guardadas com sucesso!");
+					else 
+						$('#error').text("As alterações feitas ao equipamento foram guardadas com sucesso!");
 					setTimeout(function(){$('#error').css('color', '#991111'); $('#error').css('background-color', '#FFEEEE');}, 3500);
 				}
 			);
@@ -195,19 +196,21 @@ function saveEdit(divisao){
 	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
 }
 
-function cancelEdit(divisao){
+function cancelEdit(elemento, tabela, id){
 	$('#imagemEscolher').fadeOut(fade);
 	$.post('procedures/roomImage.php',
 			{
-				divisao:divisao
+				divisao:elemento
 			},
 			function(data){
-				$('#imagemDivisao').html("<img style=\"width: 100%\" src=\"../media/img/" + data + "\" alt=\"" + data + "\"/>");
+				$('#imagemDivisao').html("<img class=\"imagemAlt\" src=\"../media/img/" + data + "\" alt=\"" + data + "\"/>");
 			}
 		);
 	$.post('procedures/roomPermission.php',
 			{
-				divisao:divisao
+				elemento:elemento,
+				tabela:tabela,
+				id:id
 			},
 			function(data){
 				$('#permissoesDivisao').html(data);

@@ -1,15 +1,20 @@
 <?php
 	$name=$_POST['name'];
 	$image=$_POST['image'];
-	$divisao=$_POST['divisao'];
+	$elemento=$_POST['elemento'];
 	$permissoes=$_POST['permissoes'];
+	$tabela=$_POST['tabela'];
+	$id=$_POST['id'];
 
 
 	require 'connection.php';
-	pg_query("DELETE FROM acede WHERE dID = '$divisao';");
+	if($id == 'dID') 
+		pg_query("UPDATE divisao SET dNome='$name', dIcon='$image' WHERE dID = '$elemento';");
+	else 
+		pg_query("UPDATE equipamento SET eNome='$name' WHERE eID = '$elemento';");
+	pg_query("DELETE FROM $tabela WHERE $id = '$elemento';");
 	foreach($permissoes as $item)
-    	pg_query("INSERT INTO acede VALUES ('$item', '$divisao');");
-    pg_query("INSERT INTO acede VALUES ('admin', '$divisao');");
-	pg_free_result($user);
+    	pg_query("INSERT INTO $tabela VALUES ('$item', '$elemento');");
+    pg_query("INSERT INTO $tabela VALUES ('admin', '$elemento');");
 	pg_close();
 ?>
