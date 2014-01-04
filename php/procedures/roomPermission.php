@@ -8,7 +8,7 @@
 	$query = "SELECT uID FROM login WHERE uID = 'admin';";
 	$result = pg_query($query) or die(pg_last_error());
 	if(pg_num_rows($result) == 0)
-		echo "Inicie sessão como administrador para editar esta secção";
+		echo "Inicie sessão como administrador para poder alterar as permissões";
 	else {
 		$query = "SELECT uID FROM utilizador EXCEPT (SELECT uID FROM $tabela WHERE $id = '$elemento') ORDER BY uID;";
 		$result = pg_query($query) or die(pg_last_error());
