@@ -16,12 +16,55 @@
 
 	<body>
 
+		<script type="text/javascript">
+
+		function incTemp(temp) {
+			var currenttempstr = document.getElementById(temp).innerHTML.split("ºC");
+			var currenttemp = parseFloat(currenttempstr[0]);
+			if(currenttemp < 100) {
+				currenttemp+=1;		
+				document.getElementById(temp).innerHTML = currenttemp + "ºC";				
+			}
+		}
+
+		function decTemp(temp) {
+			var currenttempstr = document.getElementById(temp).innerHTML.split("ºC");
+			var currenttemp = parseFloat(currenttempstr[0]);
+			if(currenttemp > -100) {
+				currenttemp-=1;		
+				document.getElementById(temp).innerHTML = currenttemp + "ºC";				
+			}
+		}
+
+		/* BD */
+		function updateCTempDB(dbID, ctemp) {
+			var newctempstr = document.getElementById(ctemp).innerHTML.split("ºC");
+			var newctemp = parseFloat(newctempstr[0]);
+			$.post('procedures/modifyV1.php',
+			{
+				eID: dbID,
+				v1: newctemp
+			});
+		}
+
+		function updateFTempDB(dbID, ftemp) {
+			var newftempstr = document.getElementById(ftemp).innerHTML.split("ºC");
+			var newftemp = parseFloat(newftempstr[0]);
+			$.post('procedures/modifyV2.php',
+			{
+				eID: dbID,
+				v2: newftemp
+			});
+		}
+
+		</script>
+
 		<style type="text/css">
 		/* MOVER PARA O STYLESHEET! */
 
 			#fridge_feedback {
 				position: relative; 
-				width: 42%; 
+				width: 41%; 
 				max-height: 50%;
 				margin-left: auto; 
 				margin-right: auto;
@@ -34,6 +77,29 @@
 			#frigorifico img {
 				width: 100%; 
 			} 
+
+			.temperatura {
+				position: absolute;
+				z-index: 1;
+				background-color: #112211;
+				color: #94c600;
+				font-family: "Lucida Console", Monaco, monospace;
+				font-size: 20pt;
+				font-weight: bold;
+				left: 35%;
+				padding: 5px;
+				border: solid 2px #001100;				
+			}
+
+			#tcongelador {
+				top: 5%;
+
+				
+			}
+
+			#tfrigorifico {
+				top: 40%;
+			}
 
 			
 
@@ -80,7 +146,7 @@
 									<div class="hcentered">	
 										<table id="currentLocation">
 											<tr>
-												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
+												<td id="back" style="opacity: 100"><a href="cozinha.php"><img src="../media/img/seta.png"></a></td>
 												<td id="divisionTitle"><span id="path">Planta ► <?php 
 														require 'procedures/connection.php';
 														$query = "select dNome from divisao NATURAL JOIN equipada where eID = 'cf1';";
@@ -111,7 +177,7 @@
 										<tr>
 											<td width="10%"></td>
 											<td width="40%">        
-												<div style="position: relative;">
+												<div style="position: relative; ">
 													<div id="fridge_feedback">
 														<?php 
 															require 'procedures/connection.php';
@@ -124,27 +190,48 @@
 															}
 															pg_free_result($result);
 
-
+															echo "<div id=\"tcongelador\" class=\"temperatura\">" . $tempcongelador . "ºC</div>";
+															echo "<div id=\"tfrigorifico\" class=\"temperatura\">" . $tempfrigorifico . "ºC</div>";
 															
 														?>	
 														<div id="frigorifico"><img src="../media/img/fridge.png"></div>															
 													</div>
 												</div>
 											</td>
-											<td width="50%" style="background-color: #0055FF;">
-												<div style="position: relative;">													
-													<div id="TVbuttons">
-														
-													</div>
-													
-													
-												</div> 
+											<td width="50%">
+												<!-- <div style="position: relative;">													
+													<div id="TVbuttons"> -->
+														<table height="100%">
+															<tr height="30%">
+																<td>
+																	<input type="button" name="cplus" value="+" id="cplusButton" class="loginButtons" 
+																		onclick="incTemp('tcongelador'); updateCTempDB('cf1', 'tcongelador');"/>
+																	<input type="button" name="cminus" value="-" id="cminusButton" class="loginButtons" 
+																		onclick="decTemp('tcongelador'); updateCTempDB('cf1', 'tcongelador');"/>
+																</td>
+															</tr>
+															<tr height="30%">
+																<td>
+																	<input type="button" name="fplus" value="+" id="fplusButton" class="loginButtons" 
+																		onclick="incTemp('tfrigorifico'); updateFTempDB('cf1', 'tfrigorifico');"/>
+																	<input type="button" name="fminus" value="-" id="fminusButton" class="loginButtons" 
+																			onclick="decTemp('tfrigorifico'); updateFTempDB('cf1', 'tfrigorifico');"/>
+																</td>
+															</tr>
+															<tr height="40%">
+																<td>
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													<!--</div>	
+												</div> -->
 											</td>
 										</tr>
 									</table>
 
 								</td></tr>
-								<tr id="rodape"><td style="background-color: #AACC00;">
+								<tr id="rodape"><td>
 									<div id="error">&nbsp;</div>
 								</td></tr>			
 
