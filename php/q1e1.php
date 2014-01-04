@@ -212,8 +212,42 @@
 
 							</table>
 
-							<div class="toggle" id="ajuda">ajuda</div>
-							<div class="toggle" id="editar">editar</div>
+							<div class="toggle" id="ajuda"><h1 class="settingsTitle">Ajuda</h1></div>
+
+							<!-- editar____________________________ -->
+							<div class="toggle" id="editar">
+								<div><h1 class="settingsTitle">Editar</h1></div>
+								<form name="changeForm">
+									<table class="editTable" border="0" width="100%">
+										<tr>
+											<td width="35%" class="loginLabel">Nome da divisão:</td>
+											<td>
+												<?php 
+													echo "<input type=\"text\" name=\"nameDivision\" value=";
+													require 'procedures/connection.php';
+													$query = "SELECT eNome FROM equipamento WHERE eID = 'q1e1';";
+													$result = pg_query($query) or die(pg_last_error());
+													foreach (pg_fetch_assoc($result) as $value)
+														$nome = $value;
+													echo "\"" . $value . "\"" ;
+													pg_free_result($result);
+													pg_close();
+													echo "id=\"nomeDivisao\" class=\"loginFields\"/>";
+												?>
+											</td>
+										</tr>
+										<tr>
+											<td width="35%" class="loginLabel">Permissões:</td>
+											<td><div id="permissoesDivisao"></div></td>
+										</tr>
+										<tr><td colspan="2" class="loginButtons">
+											<input type="button" name="alterarDivisao" value="Guardar" id="saveAD" class="loginButtons" onclick="saveEdit('q1e1','utiliza','eID');"/> 
+											<input type="reset" name="cancelar" value="Repor" id="cancelAD" class="loginButtons" onclick="cancelEdit('q1e1','utiliza','eID');"/>
+										</td></tr>
+									</table>
+								</form>
+							</div>
+							<!-- __________________________________ -->
 						</td>
 					</tr>
 				</table>
