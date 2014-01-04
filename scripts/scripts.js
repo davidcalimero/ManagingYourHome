@@ -93,10 +93,11 @@ $('#cancelButtonCC').click(function(){
 
 // PLANTA --------------------------------
 
-function verificaPermissao(divisao){
+function verificaPermissao(elemento, id){
 	$.post('procedures/permissionDivision.php',
 			{
-				divisao:divisao,
+				elemento:elemento,
+				id:id
 			},
 			function(data){
 				if(data){
@@ -105,7 +106,7 @@ function verificaPermissao(divisao){
 				}
 				else{
 					var substr = window.location.pathname.split('/');
-					window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2]  + "/" + substr[3] + "/" + divisao + ".php";
+					window.location = "http://web.ist.utl.pt/" + substr[1] + "/" + substr[2]  + "/" + substr[3] + "/" + elemento + ".php";
 				}
 			}					
 		);	

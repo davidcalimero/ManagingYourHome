@@ -82,7 +82,7 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/wcfundo.png"/>
-                                            <a href="wl1.php"><div id="wl1"><img style="width: 100%; height: 81%" src="../media/img/square.png"/></div></a>        
+                                            <div onClick="verificaPermissao('wl1','eID');" id="wl1"><img style="width: 100%; height: 81%" src="../media/img/square.png"/></div>        
                                         </div>
                                     </div>
                                     <img id="iconRot" src="../media/img/360icon.png"/>

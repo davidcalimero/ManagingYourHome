@@ -82,10 +82,10 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/cozinha.png"/>
-                                            <a href="cf1.php"><div id="cf1"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div></a> 
-                                            <a href="cl1.php"><div id="cl1"><img style="width: 100%; height: 13.5%" src="../media/img/square.png"/></div></a>  
-                                            <a href="cl2.php"><div id="cl2"><img style="width: 100%; height: 15%" src="../media/img/square.png"/></div></a>  
-                                            <a href="cl3.php"><div id="cl3"><img style="width: 100%; height: 15%" src="../media/img/square.png"/></div></a>  
+                                            <div onClick="verificaPermissao('cf1','eID');" id="cf1"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div> 
+                                            <div onClick="verificaPermissao('cl1','eID');" id="cl1"><img style="width: 100%; height: 13.5%" src="../media/img/square.png"/></div> 
+                                            <div onClick="verificaPermissao('cl2','eID');" id="cl2"><img style="width: 100%; height: 15%" src="../media/img/square.png"/></div>
+                                            <div onClick="verificaPermissao('cl3','eID');" id="cl3"><img style="width: 100%; height: 15%" src="../media/img/square.png"/></div>
                                         </div>
                                     </div>
                                     <img id="iconRot" src="../media/img/360icon.png"/>

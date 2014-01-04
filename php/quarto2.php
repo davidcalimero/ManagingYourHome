@@ -82,12 +82,12 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/quarto2.jpg"/>
-                                            <a href="q2l1.php"><div id="q2l1"><img style="width: 100%; height: 18%" src="../media/img/square.png"/></div></a>   
-                                            <a href="q2l2.php"><div id="q2l2"><img style="width: 100%; height: 21%" src="../media/img/square.png"/></div></a>   
-                                            <a href="q2e1.php"><div id="q2e1"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div></a>   
-                                            <a href="q2e2.php"><div id="q2e2"><img style="width: 100%; height: 77%" src="../media/img/square.png"/></div></a>   
-                                            <a href="q2e3.php"><div id="q2e3"><img style="width: 100%; height: 74%" src="../media/img/square.png"/></div></a>   
-                                            <a href="q2e4.php"><div id="q2e4"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div></a>          
+                                            <div onClick="verificaPermissao('q2l1','eID');" id="q2l1"><img style="width: 100%; height: 18%" src="../media/img/square.png"/></div>   
+                                            <div onClick="verificaPermissao('q2l2','eID');" id="q2l2"><img style="width: 100%; height: 21%" src="../media/img/square.png"/></div>   
+                                            <div onClick="verificaPermissao('q2e1','eID');" id="q2e1"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div>   
+                                            <div onClick="verificaPermissao('q2e2','eID');" id="q2e2"><img style="width: 100%; height: 77%" src="../media/img/square.png"/></div>   
+                                            <div onClick="verificaPermissao('q2e3','eID');" id="q2e3"><img style="width: 100%; height: 74%" src="../media/img/square.png"/></div>   
+                                            <div onClick="verificaPermissao('q2e4','eID');" id="q2e4"><img style="width: 100%; height: 100%" src="../media/img/square.png"/></div>      
                                         </div>
                                     </div>
                                     <img id="iconRot" src="../media/img/360icon.png"/>

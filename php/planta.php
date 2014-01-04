@@ -60,7 +60,7 @@
 									<div class="hcentered">	
 										<table id="currentLocation">
 											<tr>
-												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>	
+												<td id="back" style="opacity: 0"><a href="planta.php"><img src="../media/img/seta.png"></a></td>	
 												<td id="divisionTitle"><span id="location">Planta</span></td>
 											</tr>
 										</table>
@@ -73,7 +73,7 @@
 												function divisao($string) { 
 													require 'procedures/connection.php';
 
-													echo "<div class=\"item\" id=\"" . $string . "\" onClick=\"verificaPermissao('" . $string . "');\"><img src=\"../media/img/";
+													echo "<div class=\"item\" id=\"" . $string . "\" onClick=\"verificaPermissao('" . $string . "','dID');\"><img src=\"../media/img/";
 													$query = "SELECT dIcon FROM divisao WHERE dID = '$string';";
 													$result = pg_query($query) or die(pg_last_error());
 													foreach (pg_fetch_assoc($result) as $value)
