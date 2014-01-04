@@ -18,7 +18,7 @@ $('#loginButton').click(function(){
 				function(data){
 					if(data){
 						$('#error').text("Erro: " + data);
-						$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+						$('#error').fadeTo(fade, 1).delay(fade*10).fadeTo(fade, 0);
 					}
 					else{
 						var substr = window.location.pathname.split('/');
@@ -28,7 +28,7 @@ $('#loginButton').click(function(){
 			);
 	else {
 		$('#error').text("Erro: Preencha ambos os campos para poder iniciar sessão");
-		$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+		$('#error').fadeTo(fade, 1).delay(fade*10).fadeTo(fade, 0);
 	} 
 	$('#passwordInput').val('');
 });
@@ -79,7 +79,7 @@ $('#createButtonCC').click(function(){
 	else $('#error').text("Erro: Preencha todos os campos para poder criar uma conta");
 	$('#passwordInputCC').val('');
 	$('#passwordVerificationInputCC').val('');
-	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+	$('#error').fadeTo(fade, 1).delay(fade*10).fadeTo(fade, 0);
 });
 
 
@@ -102,7 +102,7 @@ function verificaPermissao(elemento, id){
 			function(data){
 				if(data){
 					$('#error').text("Erro: " + data);
-					$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+					$('#error').fadeTo(fade, 1).delay(fade*10).fadeTo(fade, 0);
 				}
 				else{
 					var substr = window.location.pathname.split('/');
@@ -153,11 +153,32 @@ $('#sbarlogo').click(function(){
 
 
 
+// AJUDA --------------------------------
+
+$('#label1').click(function(){
+	$('#ajuda1').delay(fade+5).fadeIn(fade);
+	$('#ajuda2').fadeOut(fade);
+	$('#video2').get(0).pause();
+	$('#video1').get(0).currentTime = 0;
+	$('#label2').fadeTo(fade, 0.5);
+	$('#label1').fadeTo(fade, 1);
+});
+
+$('#label2').click(function(){
+	$('#ajuda1').fadeOut(fade);
+	$('#ajuda2').delay(fade+5).fadeIn(fade);
+	$('#video1').get(0).pause();
+	$('#video2').get(0).currentTime = 0;
+	$('#label1').fadeTo(fade, 0.5);
+	$('#label2').fadeTo(fade, 1);
+});
+
+
 // EDITAR DIVISAO --------------------------------
 
 $('.acessibilidade').click(function(){
 	$('#error').text("Erro: Funcionalidade temporariamente indisponível");
-	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+	$('#error').fadeTo(fade, 1).delay(fade*10).fadeTo(fade, 0);
 });
 
 
@@ -165,6 +186,8 @@ function saveEdit(elemento, tabela, id){
 	var name = $('#nomeDivisao').val();
 	var image = $('#imagemDivisao').find('img:first').attr("alt"); 
 	$('#error').val('&nbsp;');
+	$('#error').css('color', '#991111');
+	$('#error').css('background-color', '#FFEEEE');
 	if(name.length > 0){
 		var permissoes = [];
 		$("#comPermissao tr").each(function(i, v){
@@ -189,12 +212,11 @@ function saveEdit(elemento, tabela, id){
 						$('#error').text("As alterações feitas à divisão foram guardadas com sucesso!");
 					else 
 						$('#error').text("As alterações feitas ao equipamento foram guardadas com sucesso!");
-					setTimeout(function(){$('#error').css('color', '#991111'); $('#error').css('background-color', '#FFEEEE');}, 3500);
 				}
 			);
 	}
 	else $('#error').text("Erro: O nome de uma divisão deve ter entre 1 e 20 caracteres");
-	$('#error').fadeTo(fade, 100).delay(fade*10).fadeTo(fade, 0);
+	$('#error').fadeTo(fade, 1).delay(fade*10).fadeTo(fade, 0);
 }
 
 function cancelEdit(elemento, tabela, id){

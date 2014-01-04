@@ -105,7 +105,37 @@
 
 							</table>
 
-							<div class="toggle" id="ajuda"><h1 class="settingsTitle">Ajuda</h1></div>
+							<div class="toggle" id="ajuda">
+								<h1 class="settingsTitle">Ajuda</h1>
+								<table width="100%" height="70%" style="text-align: center;">
+									<tr>
+										<td width="25%" height="50%">
+											<div id="label1">
+												<div class="videolabels">Editar Propriedades</div>
+												<img border="2" width="80%" src="../media/img/ajuda1.png"/>
+											</div>
+											<div id="label2">
+												<div class="videolabels">Editar Permissões</div>
+												<img border="2" width="80%" src="../media/img/ajuda2.png"/>
+											</div>
+										</td>
+										<td width="75%" height="50%">
+											<div id="ajuda1">
+												<div class="videoTitulo">Editar as propriedades de uma divisão ou equipamento</div>
+												<video id="video1" width="90%" controls="controls">
+										  			<source src="../media/video/ajuda1.mp4" type="video/mp4">
+												</video>
+											</div>
+											<div id="ajuda2">
+												<div class="videoTitulo">Editar as permissões de uma divisão ou equipamento</div>
+												<video id="video2" width="90%" controls="controls">
+										  			<source src="../media/video/ajuda2.mp4" type="video/mp4">
+												</video>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
 
 							<!-- editar____________________________ -->
 							<div class="toggle" id="editar">

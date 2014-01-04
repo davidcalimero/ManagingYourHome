@@ -734,6 +734,41 @@ table#avisoPermissoes {
 }
 
 
+/* ******************************** EDITAR ********************************** */
+
+#label1{
+	opacity: 1;
+}
+
+#label2{
+	margin-top: 15%;
+	opacity: 0.5;
+}
+
+#ajuda2{
+	display: none;
+}
+
+.videolabels {
+text-align: center;
+color: #112211;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16pt;
+font-weight: bold;
+padding-bottom: 3%;
+}
+
+.videoTitulo {
+text-align: center;
+color: #112211;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 20pt;
+font-weight: bold;
+padding-bottom: 1%;
+}
+
+
+
 /* ******************************** SWITCH ********************************** */
 
 .onoffswitch {
