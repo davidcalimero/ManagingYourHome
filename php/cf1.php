@@ -21,7 +21,7 @@
 		function incTemp(temp) {
 			var currenttempstr = document.getElementById(temp).innerHTML.split("ºC");
 			var currenttemp = parseFloat(currenttempstr[0]);
-			if(currenttemp < 100) {
+			if((temp == "tcongelador" && currenttemp < -16) || (temp == "tfrigorifico" && currenttemp < 6)) {
 				currenttemp+=1;		
 				document.getElementById(temp).innerHTML = currenttemp + "ºC";				
 			}
@@ -30,7 +30,7 @@
 		function decTemp(temp) {
 			var currenttempstr = document.getElementById(temp).innerHTML.split("ºC");
 			var currenttemp = parseFloat(currenttempstr[0]);
-			if(currenttemp > -100) {
+			if((temp == "tcongelador" && currenttemp > -22) || (temp == "tfrigorifico" && currenttemp > 2)) {
 				currenttemp-=1;		
 				document.getElementById(temp).innerHTML = currenttemp + "ºC";				
 			}
@@ -80,25 +80,36 @@
 
 			.temperatura {
 				position: absolute;
+				width: 50%;
 				z-index: 1;
 				background-color: #112211;
 				color: #94c600;
 				font-family: "Lucida Console", Monaco, monospace;
 				font-size: 20pt;
 				font-weight: bold;
-				left: 35%;
+				left: 25%;
 				padding: 5px;
-				border: solid 2px #001100;				
+				border: solid 3px #001100;
+				text-align: right;
 			}
 
 			#tcongelador {
-				top: 5%;
+				top: 7%;
 
 				
 			}
 
 			#tfrigorifico {
 				top: 40%;
+			}
+
+			.fridgelabels {
+				text-align: center;
+				color: #112211;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16pt;
+				font-weight: bold;
+				padding-bottom: 2%;
 			}
 
 			
@@ -172,7 +183,7 @@
 									</div>
 								</td></tr>
 								<tr id="corpo"><td>	
-
+								
 									<table width="100%" height="100%">
 										<tr>
 											<td width="10%"></td>
@@ -199,11 +210,9 @@
 												</div>
 											</td>
 											<td width="50%">
-												<!-- <div style="position: relative;">													
-													<div id="TVbuttons"> -->
-														<table height="100%">
+													<table height="100%">
 															<tr height="30%">
-																<td>
+																<td><div class="fridgelabels">Congelador</div>
 																	<input type="button" name="cplus" value="+" id="cplusButton" class="loginButtons" 
 																		onclick="incTemp('tcongelador'); updateCTempDB('cf1', 'tcongelador');"/>
 																	<input type="button" name="cminus" value="-" id="cminusButton" class="loginButtons" 
@@ -211,7 +220,7 @@
 																</td>
 															</tr>
 															<tr height="30%">
-																<td>
+																<td><div class="fridgelabels">Frigorífico</div>
 																	<input type="button" name="fplus" value="+" id="fplusButton" class="loginButtons" 
 																		onclick="incTemp('tfrigorifico'); updateFTempDB('cf1', 'tfrigorifico');"/>
 																	<input type="button" name="fminus" value="-" id="fminusButton" class="loginButtons" 
@@ -223,13 +232,11 @@
 																	&nbsp;
 																</td>
 															</tr>
-														</table>
-													<!--</div>	
-												</div> -->
+													</table>
 											</td>
 										</tr>
 									</table>
-
+								
 								</td></tr>
 								<tr id="rodape"><td>
 									<div id="error">&nbsp;</div>
@@ -237,8 +244,42 @@
 
 							</table>
 
-							<div class="toggle" id="ajuda">ajuda</div>
-							<div class="toggle" id="editar">editar</div>
+							<div class="toggle" id="ajuda"><h1 class="settingsTitle">Ajuda</h1></div>
+
+							<!-- editar____________________________ -->
+							<div class="toggle" id="editar">
+								<div><h1 class="settingsTitle">Editar</h1></div>
+								<form name="changeForm">
+									<table class="editTable" border="0" width="100%">
+										<tr>
+											<td width="35%" class="loginLabel">Nome da divisão:</td>
+											<td>
+												<?php 
+													echo "<input type=\"text\" name=\"nameDivision\" value=";
+													require 'procedures/connection.php';
+													$query = "SELECT eNome FROM equipamento WHERE eID = 'cf1';";
+													$result = pg_query($query) or die(pg_last_error());
+													foreach (pg_fetch_assoc($result) as $value)
+														$nome = $value;
+													echo "\"" . $value . "\"" ;
+													pg_free_result($result);
+													pg_close();
+													echo "id=\"nomeDivisao\" class=\"loginFields\"/>";
+												?>
+											</td>
+										</tr>
+										<tr>
+											<td width="35%" class="loginLabel">Permissões:</td>
+											<td><div id="permissoesDivisao"></div></td>
+										</tr>
+										<tr><td colspan="2" class="loginButtons">
+											<input type="button" name="alterarDivisao" value="Guardar" id="saveAD" class="loginButtons" onclick="saveEdit('cf1','utiliza','eID');"/> 
+											<input type="reset" name="cancelar" value="Repor" id="cancelAD" class="loginButtons" onclick="cancelEdit('cf1','utiliza','eID');"/>
+										</td></tr>
+									</table>
+								</form>
+							</div>
+							<!-- __________________________________ -->
 						</td>
 					</tr>
 				</table>
