@@ -82,12 +82,12 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/quarto1.jpg"/>
-                                            <div id="q1l1"><img style="width: 100%; height: 53%" src="../media/img/square.png"/></div>   
-                                            <div id="q1e1"><img style="width: 100%; height: 74%" src="../media/img/square.png"/></div>   
-                                            <div id="q1e2"><img style="width: 100%; height: 75%" src="../media/img/square.png"/></div>   
-                                            <div id="q1e3"><img style="width: 100%; height: 65%" src="../media/img/square.png"/></div>   
-                                            <div id="q1e4"><img style="width: 100%; height: 71%" src="../media/img/square.png"/></div>   
-                                            <div id="q1e5"><img style="width: 100%; height: 75%" src="../media/img/square1.png"/></div>        
+                                            <a href="q1l1.php"><div id="q1l1"><img style="width: 100%; height: 53%" src="../media/img/square.png"/></div></a>
+                                            <a href="q1e1.php"><div id="q1e1"><img style="width: 100%; height: 74%" src="../media/img/square.png"/></div></a>  
+                                            <a href="q1e2.php"><div id="q1e2"><img style="width: 100%; height: 75%" src="../media/img/square.png"/></div></a>  
+                                            <a href="q1e3.php"><div id="q1e3"><img style="width: 100%; height: 65%" src="../media/img/square.png"/></div></a>
+                                            <a href="q1e4.php"><div id="q1e4"><img style="width: 100%; height: 71%" src="../media/img/square.png"/></div></a>
+                                            <a href="q1e5.php"><div id="q1e5"><img style="width: 100%; height: 75%" src="../media/img/square1.png"/></div></a>     
                                         </div>
                                     </div>
                                    	<img id="iconRot" src="../media/img/360icon.png"/>

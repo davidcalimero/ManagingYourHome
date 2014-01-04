@@ -202,7 +202,7 @@
 									<div class="hcentered">	
 										<table id="currentLocation">
 											<tr>
-												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
+												<td id="back" style="opacity: 100"><a href="sala.php"><img src="../media/img/seta.png"></a></td>
 												<td id="divisionTitle"><span id="path">Planta ► <?php 
 														require 'procedures/connection.php';
 														$query = "select dNome from divisao NATURAL JOIN equipada where eID = 'st1';";
@@ -271,7 +271,7 @@
 													</div>
 												</div>
 											</td>
-											<td width="50%" style="background-color: #0055FF;">
+											<td width="50%">
 												<div style="position: relative;">													
 													<div id="TVbuttons">
 														<div id="offButton" class="TVbutton" onclick="turnOff('#volume_st1', 'channel', 'st1')">&nbsp;</div>

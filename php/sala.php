@@ -82,9 +82,9 @@
                                     <div id="submainDivision"> 
                                         <div class="itemContainer">
                                             <img src="../media/img/sala.png"/>
-                                            <div id="sc1"><img style="width: 100%; height: 74.5%" src="../media/img/square.png"/></div>   
-                                            <div id="sc2"><img style="width: 100%; height: 29.5%" src="../media/img/square.png"/></div> 
-                                            <div id="st1"><img style="width: 100%; height: 33.5%" src="../media/img/square.png"/></div>       
+                                            <a href="sc1.php"><div id="sc1"><img style="width: 100%; height: 74.5%" src="../media/img/square.png"/></div></a>   
+                                            <a href="sc2.php"><div id="sc2"><img style="width: 100%; height: 29.5%" src="../media/img/square.png"/></div></a> 
+                                            <a href="st1.php"><div id="st1"><img style="width: 100%; height: 33.5%" src="../media/img/square.png"/></div></a>  
                                         </div>
                                     </div>
                                     <img id="iconRot" src="../media/img/360icon.png"/>
