@@ -138,7 +138,7 @@
 									<div class="hcentered">	
 										<table id="currentLocation">
 											<tr>
-												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
+												<td id="back" style="opacity: 100"><a href="quarto1.php"><img src="../media/img/seta.png"></a></td>
 												<td id="divisionTitle"><span id="path">Planta ► <?php 
 														require 'procedures/connection.php';
 														$query = "select dNome from divisao NATURAL JOIN equipada where eID = 'q1e1';";
@@ -190,7 +190,7 @@
 													</div>
 												</div>
 											</td>
-											<td width="50%" style="background-color: #0055FF;">
+											<td width="50%">
 												<div id="blind_controls">
 
 													<?php 
@@ -206,7 +206,7 @@
 									</table>
 
 								</td></tr>
-								<tr id="rodape"><td style="background-color: #AACC00;">
+								<tr id="rodape"><td>
 									<div id="error">&nbsp;</div>
 								</td></tr>			
 
