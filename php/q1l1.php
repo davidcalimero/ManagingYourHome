@@ -21,7 +21,7 @@
 
 			#light_feedback {
 				position: relative; 
-				width: 90%; 
+				width: 65%; 
 				max-height: 50%;
 				margin-left: auto; 
 				margin-right: auto;
@@ -30,9 +30,7 @@
 			#lampada_q1l1 {	
 				margin-top: auto; 
 				margin-bottom: auto; 
-
-				position: absolute; 
-				z-index: 1; 				
+				position: relative;			
 			}
 
 			#lampada_q1l1 img {
@@ -42,10 +40,16 @@
 			}
 
 			#value {
+				position: absolute;
+				top: 15%;
+				left: 37%;
+				width: 30%;
+				z-index: 1;
 				color: #112211;
 				font-family: Arial;
 				font-size: 24pt;
 				font-weight: bold;
+				text-align: center;
 			}
 
 			#light_controls {			
@@ -61,8 +65,6 @@
 			}
 
 			#min {
-			/*	position: relative;
-				margin-top: 20%;*/
 				margin-left: 70px; 
 				color: #112211;
 				font-family: Arial;
@@ -145,7 +147,7 @@
 									<div class="hcentered">	
 										<table id="currentLocation">
 											<tr>
-												<td id="back" style="opacity: 100"><a href="planta.php"><img src="../media/img/seta.png"></a></td>
+												<td id="back" style="opacity: 100"><a href="quarto1.php"><img src="../media/img/seta.png"></a></td>
 												<td id="divisionTitle"><span id="path">Planta ► <?php 
 														require 'procedures/connection.php';
 														$query = "select dNome from divisao NATURAL JOIN equipada where eID = 'q1l1';";
@@ -175,8 +177,8 @@
 									<table width="100%" height="100%">
 										<tr>
 											<td width="10%"></td>
-											<td width="30%">
-												<div style="position: relative; margin-top: -60%;">        
+											<td width="40%">
+												<div style="position: relative;">        
 													<div id="light_feedback">                         			
 														
 														<?php 
@@ -188,6 +190,7 @@
 																	$valor = $value;
 																pg_free_result($result);
 
+																echo "<div id=\"value\">" . $valor . "%</div>";
 																echo "<div id=\"lampada_q1l1\" width=\"100%\" height=\"100%\"
 																			style=\"background-color: rgba(100%, 100%, 0%, ". $valor / 100 . ");\">";
 																	echo "<img src=\"../media/img/lampada.png\"></div><br>";
@@ -195,11 +198,6 @@
 														?>						
 													</div>
 												</div> 
-											</td>
-											<td width="10%">
-												<?php
-													echo "<div id=\"value\">" . $valor . "%</div>";
-												?>
 											</td>
 											<td width="50%">
 												<div id="light_controls">
@@ -217,14 +215,48 @@
 									</table>
 
 								</td></tr>
-								<tr id="rodape"><td style="background-color: #AACC00;">
+								<tr id="rodape"><td>
 									<div id="error">&nbsp;</div>
 								</td></tr>			
 
 							</table>
 
-							<div class="toggle" id="ajuda">ajuda</div>
-							<div class="toggle" id="editar">editar</div>
+							<div class="toggle" id="ajuda"><h1 class="settingsTitle">Ajuda</h1></div>
+
+							<!-- editar____________________________ -->
+							<div class="toggle" id="editar">
+								<div><h1 class="settingsTitle">Editar</h1></div>
+								<form name="changeForm">
+									<table class="editTable" border="0" width="100%">
+										<tr>
+											<td width="35%" class="loginLabel">Nome da divisão:</td>
+											<td>
+												<?php 
+													echo "<input type=\"text\" name=\"nameDivision\" value=";
+													require 'procedures/connection.php';
+													$query = "SELECT eNome FROM equipamento WHERE eID = 'q1l1';";
+													$result = pg_query($query) or die(pg_last_error());
+													foreach (pg_fetch_assoc($result) as $value)
+														$nome = $value;
+													echo "\"" . $value . "\"" ;
+													pg_free_result($result);
+													pg_close();
+													echo "id=\"nomeDivisao\" class=\"loginFields\"/>";
+												?>
+											</td>
+										</tr>
+										<tr>
+											<td width="35%" class="loginLabel">Permissões:</td>
+											<td><div id="permissoesDivisao"></div></td>
+										</tr>
+										<tr><td colspan="2" class="loginButtons">
+											<input type="button" name="alterarDivisao" value="Guardar" id="saveAD" class="loginButtons" onclick="saveEdit('q1l1','utiliza','eID');"/> 
+											<input type="reset" name="cancelar" value="Repor" id="cancelAD" class="loginButtons" onclick="cancelEdit('q1l1','utiliza','eID');"/>
+										</td></tr>
+									</table>
+								</form>
+							</div>
+							<!-- __________________________________ -->
 						</td>
 					</tr>
 				</table>
